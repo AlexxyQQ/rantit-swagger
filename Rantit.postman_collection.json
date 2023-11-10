@@ -1,0 +1,1760 @@
+{
+	"info": {
+		"_postman_id": "dbf915a0-c722-4573-a83b-fcdb939b0e3f",
+		"name": "Rantit",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22914361"
+	},
+	"item": [
+		{
+			"name": "Public",
+			"item": [
+				{
+					"name": "Auth",
+					"item": [
+						{
+							"name": "Login",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Response status code is 400\", function () {",
+											"    pm.expect(pm.response.code).to.equal(400);",
+											"});",
+											"",
+											"",
+											"pm.test(\"Response has the required fields - success and message\", function () {",
+											"    const responseData = pm.response.json();",
+											"    ",
+											"    pm.expect(responseData).to.be.an('object');",
+											"    pm.expect(responseData.success).to.exist.and.to.be.a('boolean');",
+											"    pm.expect(responseData.message).to.exist.and.to.be.a('string');",
+											"});",
+											"",
+											"",
+											"pm.test(\"Success field is a boolean value\", function () {",
+											"    const responseData = pm.response.json();",
+											"    ",
+											"    pm.expect(responseData.success).to.be.a('boolean');",
+											"});",
+											"",
+											"",
+											"pm.test(\"Message field is a non-empty string\", function () {",
+											"  const responseData = pm.response.json();",
+											"",
+											"  pm.expect(responseData.message).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Value should not be empty\");",
+											"});",
+											"",
+											"",
+											"pm.test(\"Response time is less than 200ms\", function () {",
+											"  pm.expect(pm.response.responseTime).to.be.below(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "apisecret",
+										"value": "Apple"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"email\": \"aayushpandey616@gmail.com\",\n  \"password\": \"VerySecretPassword@123\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/api/users/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"api",
+										"users",
+										"login"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Login",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "apisecret",
+												"value": "Apple"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"email\": \"aayushpandey616@gmail.com\",\n  \"password\": \"VerySecretPassword@123\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:3001/api/users/login",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3001",
+											"path": [
+												"api",
+												"users",
+												"login"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "669"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"29d-aHf4RSk+gEagCylnPRif6xzBJMA\""
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 30 Sep 2023 08:44:51 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"success\": true,\n    \"data\": {\n        \"user\": {\n            \"_id\": \"6517dfbe345ee8f0da29a9b1\",\n            \"username\": \"alexxy\",\n            \"email\": \"aayushpandey616@gmail.com\",\n            \"password\": \"$2a$12$12l127hOC/4ZuPaO6fWBU.H6ZHiSNSkgUe1o4r.oyER4JpudpswZu\",\n            \"profilePic\": \"https://i.imgur.com/Eyzrkg3.jpeg\",\n            \"verified\": false,\n            \"type\": \"manual\",\n            \"__v\": 0\n        },\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1MTdkZmJlMzQ1ZWU4ZjBkYTI5YTliMSIsInVzZXJuYW1lIjoiYWxleHh5IiwidHlwZSI6Im1hbnVhbCIsInByb2ZpbGVQaWMiOiJodHRwczovL2kuaW1ndXIuY29tL0V5enJrZzMuanBlZyIsImVtYWlsIjoiYWF5dXNocGFuZGV5NjE2QGdtYWlsLmNvbSIsImlhdCI6MTY5NjA2MzQ5MSwiZXhwIjoxNjk2NjY4MjkxfQ.9pBxnNrHjxx1uEOhizfABkjnvJFZQryU_3wSrMzCxQQ\"\n    },\n    \"message\": \"User logged in successfully!\"\n}"
+								}
+							]
+						},
+						{
+							"name": "OTP Validator",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "apisecret",
+										"value": "Apple"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"email\": \"aayushpandey616@gmail.com\",\n  \"otp\": \"8J8JYJ\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/api/users/otpValidator",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"api",
+										"users",
+										"otpValidator"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OTP Validator",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "apisecret",
+												"value": "Apple"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"email\": \"aayushpandey616@gmail.com\",\n  \"otp\": \"8J8JYJ\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:3001/api/users/otpValidator",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3001",
+											"path": [
+												"api",
+												"users",
+												"otpValidator"
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": "{\r\n    \"success\": true,\r\n    \"message\": \"OTP verified successfully!\"\r\n}"
+								}
+							]
+						},
+						{
+							"name": "Register",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Response status code is 200\", function () {",
+											"  pm.response.to.have.status(200);",
+											"});",
+											"",
+											"",
+											"pm.test(\"Verify that the 'success' field is true\", function () {",
+											"    const responseData = pm.response.json();",
+											"",
+											"    pm.expect(responseData).to.be.an('object');",
+											"    pm.expect(responseData.success).to.be.true;",
+											"});",
+											"",
+											"",
+											"pm.test(\"Verify that the 'message' field is empty\", function () {",
+											"    const responseData = pm.response.json();",
+											"    ",
+											"    pm.expect(responseData.message).to.be.empty;",
+											"});",
+											"",
+											"",
+											"pm.test(\"Validate that all fields are present in the 'data' object\", function () {",
+											"    const responseData = pm.response.json();",
+											"    ",
+											"    pm.expect(responseData.data).to.exist;",
+											"    pm.expect(responseData.data).to.be.an('object');",
+											"    ",
+											"    const expectedFields = [\"username\", \"email\", \"password\", \"profilePic\", \"verified\", \"type\", \"_id\", \"__v\"];",
+											"    ",
+											"    expectedFields.forEach(function(field) {",
+											"        pm.expect(responseData.data).to.have.property(field);",
+											"    });",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "apisecret",
+										"value": "Apple"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"email\": \"aayushpandey616@gmail.com\",\n  \"password\": \"VerySecretPassword@123\",\n  \"confirmPassword\":\"VerySecretPassword@123\",\n  \"username\":\"alexxy\",\n  \"type\":\"manual\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/api/users/signup",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"api",
+										"users",
+										"signup"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Register",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "apisecret",
+												"value": "Apple"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"email\": \"aayushpandey616@gmail.com\",\n  \"password\": \"VerySecretPassword@123\",\n  \"confirmPassword\":\"VerySecretPassword@123\",\n  \"username\":\"alexxy\",\n  \"type\":\"manual\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:3001/api/users/signup",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3001",
+											"path": [
+												"api",
+												"users",
+												"signup"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "316"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"13c-PouUk+Nw70O48/wDgiytirCl+bQ\""
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 30 Sep 2023 08:43:42 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"success\": true,\n    \"data\": {\n        \"username\": \"alexxy\",\n        \"email\": \"aayushpandey616@gmail.com\",\n        \"password\": \"$2a$12$12l127hOC/4ZuPaO6fWBU.H6ZHiSNSkgUe1o4r.oyER4JpudpswZu\",\n        \"profilePic\": \"https://i.imgur.com/Eyzrkg3.jpeg\",\n        \"verified\": false,\n        \"type\": \"manual\",\n        \"_id\": \"6517dfbe345ee8f0da29a9b1\",\n        \"__v\": 0\n    },\n    \"message\": \"User created successfully!\"\n}"
+								}
+							]
+						},
+						{
+							"name": "LoginWithToken",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Response status code is 401\", function () {",
+											"    pm.expect(pm.response.code).to.equal(401);",
+											"});",
+											"",
+											"",
+											"pm.test(\"Verify that the 'success' field is true\", function () {",
+											"    const responseData = pm.response.json();",
+											"    ",
+											"    pm.expect(responseData.success).to.be.true;",
+											"});",
+											"",
+											"",
+											"pm.test(\"Verify that the 'message' field is empty\", function () {",
+											"    const responseData = pm.response.json();",
+											"    ",
+											"    pm.expect(responseData).to.be.an('object');",
+											"    pm.expect(responseData.message).to.be.empty;",
+											"});",
+											"",
+											"",
+											"pm.test(\"Response time is less than 500ms\", function () {",
+											"  pm.expect(pm.response.responseTime).to.be.below(500);",
+											"});",
+											"",
+											"",
+											"pm.test(\"Response body is not empty\", function () {",
+											"  pm.expect(pm.response.text()).to.not.be.empty;",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YTAyMWJiZmZhYjYxMTNkODVjZjBlYiIsInVzZXJuYW1lIjoiYWxleHh5IiwidHlwZSI6Im1hbnVhbCIsInByb2ZpbGVQaWMiOiJodHRwczovL2kuaW1ndXIuY29tL0V5enJrZzMuanBlZyIsImVtYWlsIjoiYWF5dXNocGFuZGV5NjE2QGdtYWlsLmNvbSIsImlhdCI6MTY5MDk2MDk4MywiZXhwIjoxNjkxNTY1NzgzfQ.i8zQoLN_eJVBT17uL7JAl-yLL-pl2q2IeqDmkwbu7Fs",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "apisecret",
+										"value": "Apple"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3001/api/users/loginWithToken",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"api",
+										"users",
+										"loginWithToken"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "LoginWithToken",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "apisecret",
+												"value": "Apple"
+											}
+										],
+										"url": {
+											"raw": "http://localhost:3001/api/users/loginWithToken",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3001",
+											"path": [
+												"api",
+												"users",
+												"loginWithToken"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "669"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"29d-aHf4RSk+gEagCylnPRif6xzBJMA\""
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 30 Sep 2023 08:45:12 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"success\": true,\n    \"data\": {\n        \"user\": {\n            \"_id\": \"6517dfbe345ee8f0da29a9b1\",\n            \"username\": \"alexxy\",\n            \"email\": \"aayushpandey616@gmail.com\",\n            \"password\": \"$2a$12$12l127hOC/4ZuPaO6fWBU.H6ZHiSNSkgUe1o4r.oyER4JpudpswZu\",\n            \"profilePic\": \"https://i.imgur.com/Eyzrkg3.jpeg\",\n            \"verified\": false,\n            \"type\": \"manual\",\n            \"__v\": 0\n        },\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1MTdkZmJlMzQ1ZWU4ZjBkYTI5YTliMSIsInVzZXJuYW1lIjoiYWxleHh5IiwidHlwZSI6Im1hbnVhbCIsInByb2ZpbGVQaWMiOiJodHRwczovL2kuaW1ndXIuY29tL0V5enJrZzMuanBlZyIsImVtYWlsIjoiYWF5dXNocGFuZGV5NjE2QGdtYWlsLmNvbSIsImlhdCI6MTY5NjA2MzQ5MSwiZXhwIjoxNjk2NjY4MjkxfQ.9pBxnNrHjxx1uEOhizfABkjnvJFZQryU_3wSrMzCxQQ\"\n    },\n    \"message\": \"User logged in successfully!\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Upload Profile Pic",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Response status code is 401\", function () {",
+											"  pm.expect(pm.response.code).to.equal(401);",
+											"});",
+											"",
+											"",
+											"pm.test(\"Response has the required fields - success and message\", function () {",
+											"    const responseData = pm.response.json();",
+											"    ",
+											"    pm.expect(responseData).to.be.an('object');",
+											"    pm.expect(responseData.success).to.exist;",
+											"    pm.expect(responseData.message).to.exist;",
+											"});",
+											"",
+											"",
+											"pm.test(\"The success field is a boolean value\", function () {",
+											"  const responseData = pm.response.json();",
+											"    ",
+											"  pm.expect(responseData.success).to.be.a('boolean');",
+											"});",
+											"",
+											"",
+											"pm.test(\"The 'message' field is a non-empty string\", function () {",
+											"  const responseData = pm.response.json();",
+											"  ",
+											"  pm.expect(responseData.message).to.be.a('string');",
+											"  pm.expect(responseData.message).to.not.be.empty;",
+											"});",
+											"",
+											"",
+											"pm.test(\"Validate that the response body is not empty\", function () {",
+											"    pm.expect(pm.response.text()).to.not.be.empty;",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0Y2YxMjE0YzE2MmE3ZTRhN2YwOGIzOSIsInVzZXJuYW1lIjoiYWxleHh5IiwidHlwZSI6Im1hbnVhbCIsInByb2ZpbGVQaWMiOiJwdWJsaWNcXHVwbG9hZHNcXGFsZXh4eVxccHJvZmlsZVBpY1xcYzc4ODc2YzhjMTlhODZmN2U2NzZhODI3MzMyYzY0YWUucG5nIiwiZW1haWwiOiJhYXl1c2hwYW5kZXk2MTZAZ21haWwuY29tIiwiaWF0IjoxNjkxNTgzNzYyLCJleHAiOjE2OTIxODg1NjJ9.EbJc6dp1PxGaEkWSmlbi1WIqx7LdwQZmDWRNUk7I-zI",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "apisecret",
+										"value": "Apple"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "profilePic",
+											"value": "",
+											"type": "default",
+											"disabled": true
+										},
+										{
+											"key": "profilePic",
+											"type": "file",
+											"src": "c:\\Users\\aayus\\OneDrive\\Projects\\Pictures\\Wallpapers\\One-Punch Man.png"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:3001/api/users/uploadProfilePic",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"api",
+										"users",
+										"uploadProfilePic"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Upload Profile Pic",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "apisecret",
+												"value": "Apple"
+											}
+										],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "profilePic",
+													"value": "",
+													"type": "default",
+													"disabled": true
+												},
+												{
+													"key": "profilePic",
+													"type": "file",
+													"src": "/C:/Users/aayus/OneDrive/Projects/Pictures/1302283.png"
+												}
+											]
+										},
+										"url": {
+											"raw": "http://localhost:3001/api/users/uploadProfilePic",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3001",
+											"path": [
+												"api",
+												"users",
+												"uploadProfilePic"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "357"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"165-o8aPx8H17vfZnolCndKisWM24nY\""
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 30 Sep 2023 08:45:35 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"success\": true,\n    \"data\": {\n        \"_id\": \"6517dfbe345ee8f0da29a9b1\",\n        \"username\": \"alexxy\",\n        \"email\": \"aayushpandey616@gmail.com\",\n        \"password\": \"$2a$12$12l127hOC/4ZuPaO6fWBU.H6ZHiSNSkgUe1o4r.oyER4JpudpswZu\",\n        \"profilePic\": \"public\\\\uploads\\\\alexxy\\\\profilePic\\\\256108fbfc46b9a5941bd5cd317ef8cb.png\",\n        \"verified\": false,\n        \"type\": \"manual\",\n        \"__v\": 0\n    },\n    \"message\": \"File uploaded successfully\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Delete User",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Response status code is 401\", function () {",
+											"  pm.expect(pm.response.code).to.equal(401);",
+											"});",
+											"",
+											"",
+											"pm.test(\"Response has the 'success' field\", function () {",
+											"    const responseData = pm.response.json();",
+											"    ",
+											"    pm.expect(responseData).to.have.property(\"success\");",
+											"});",
+											"",
+											"",
+											"pm.test(\"The success field is a boolean value\", function () {",
+											"    const responseData = pm.response.json();",
+											"    ",
+											"    pm.expect(responseData.success).to.be.a('boolean');",
+											"});",
+											"",
+											"",
+											"pm.test(\"Response has the 'message' field\", function () {",
+											"    const responseData = pm.response.json();",
+											"    ",
+											"    pm.expect(responseData.message).to.exist;",
+											"});",
+											"",
+											"",
+											"pm.test(\"The message field is a non-empty string\", function () {",
+											"  const responseData = pm.response.json();",
+											"",
+											"  pm.expect(responseData.message).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Value should not be empty\");",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1MTdkZmJlMzQ1ZWU4ZjBkYTI5YTliMSIsInVzZXJuYW1lIjoiYWxleHh5IiwidHlwZSI6Im1hbnVhbCIsInByb2ZpbGVQaWMiOiJodHRwczovL2kuaW1ndXIuY29tL0V5enJrZzMuanBlZyIsImVtYWlsIjoiYWF5dXNocGFuZGV5NjE2QGdtYWlsLmNvbSIsImlhdCI6MTY5NjA2MzQ5MSwiZXhwIjoxNjk2NjY4MjkxfQ.9pBxnNrHjxx1uEOhizfABkjnvJFZQryU_3wSrMzCxQQ",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "apisecret",
+										"value": "Apple"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3001/api/users/deleteUser",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"api",
+										"users",
+										"deleteUser"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Delete User",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "apisecret",
+												"value": "Apple"
+											}
+										],
+										"url": {
+											"raw": "http://localhost:3001/api/users/deleteUser",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3001",
+											"path": [
+												"api",
+												"users",
+												"deleteUser"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "42"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"2a-TkGcC/0+lkh26Mo7bHbw30135PA\""
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 30 Sep 2023 08:46:03 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"Profile deleted successfully\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Admin",
+					"item": [
+						{
+							"name": "List of Users",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Response status code is 401\", function () {",
+											"    pm.expect(pm.response.code).to.equal(401);",
+											"});",
+											"",
+											"",
+											"pm.test(\"Response has required fields\", function () {",
+											"  const responseData = pm.response.json();",
+											"  ",
+											"  pm.expect(responseData).to.be.an('object');",
+											"  pm.expect(responseData.success).to.exist;",
+											"  pm.expect(responseData.message).to.exist;",
+											"});",
+											"",
+											"",
+											"pm.test(\"Success field is a boolean\", function () {",
+											"  const responseData = pm.response.json();",
+											"  ",
+											"  pm.expect(responseData.success).to.be.a('boolean');",
+											"});",
+											"",
+											"",
+											"pm.test(\"Message field is a non-empty string\", function () {",
+											"  const responseData = pm.response.json();",
+											"  ",
+											"  pm.expect(responseData).to.be.an('object');",
+											"  pm.expect(responseData.message).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Value should not be empty\");",
+											"});",
+											"",
+											"",
+											"pm.test(\"Response time is less than 500ms\", function () {",
+											"  pm.expect(pm.response.responseTime).to.be.below(500);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0ZDQ1NTY4NGE4OThlNzRiY2M0ZjljZSIsInVzZXJuYW1lIjoiYWRtaW4iLCJ0eXBlIjoibWFudWFsIiwicHJvZmlsZVBpYyI6Imh0dHBzOi8vaS5pbWd1ci5jb20vRXl6cmtnMy5qcGVnIiwiZW1haWwiOiJhZG1pbkBtdXN5bmMuY29tIiwiaWF0IjoxNjkxNjM4ODM1LCJleHAiOjE2OTIyNDM2MzV9.GAdrMfrnR09YOqRas-EgX4WwXWGpDl-C8p1vvR8h1RM",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "apisecret",
+										"value": "Apple"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3001/api/users/getListofUsers",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"api",
+										"users",
+										"getListofUsers"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get User Data",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0ZDQ1NTY4NGE4OThlNzRiY2M0ZjljZSIsInVzZXJuYW1lIjoiYWRtaW4iLCJ0eXBlIjoibWFudWFsIiwicHJvZmlsZVBpYyI6Imh0dHBzOi8vaS5pbWd1ci5jb20vRXl6cmtnMy5qcGVnIiwiZW1haWwiOiJhZG1pbkBtdXN5bmMuY29tIiwiaWF0IjoxNjkxNjM4ODM1LCJleHAiOjE2OTIyNDM2MzV9.GAdrMfrnR09YOqRas-EgX4WwXWGpDl-C8p1vvR8h1RM",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "apisecret",
+										"value": "Apple"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3001/api/users/getUserData",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"api",
+										"users",
+										"getUserData"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Posts",
+					"item": [
+						{
+							"name": "Create Post",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NGM5YTIwYjU2MTc5MWZlNTc5YjRiMiIsInVzZXJuYW1lIjoiYWxleHh5IiwidHlwZSI6Im1hbnVhbCIsInByb2ZpbGVQaWMiOiJodHRwczovL2kuaW1ndXIuY29tL0V5enJrZzMuanBlZyIsImVtYWlsIjoiYWF5dXNocGFuZGV5NjE2QGdtYWlsLmNvbSIsImlhdCI6MTY5OTU5MzMzNywiZXhwIjoxNzAwMTk4MTM3fQ.cXx7l4P67JV_Cb9gpdPH33K8SWo1NX2a7k1wv8Lzjk0",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "apisecret",
+										"value": "Apple",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"content\" : \"How was your day?\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/api/posts/createPost",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"api",
+										"posts",
+										"createPost"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Create Post",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"content\" : \"How was your day?\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:3001/api/posts/createPost",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3001",
+											"path": [
+												"api",
+												"posts",
+												"createPost"
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": "{\r\n    \"success\": true,\r\n    \"message\": \"Post created successfully\",\r\n    \"data\": {\r\n        \"content\": \"How was your day?\",\r\n        \"user\": \"654c9a20b561791fe579b4b2\",\r\n        \"comment\": [],\r\n        \"likes\": [],\r\n        \"_id\": \"654dbc83c33b57c8af4efafb\",\r\n        \"createdAt\": \"2023-11-10T05:15:47.295Z\",\r\n        \"__v\": 0\r\n    }\r\n}"
+								}
+							]
+						},
+						{
+							"name": "Get One Post",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NGM5YTIwYjU2MTc5MWZlNTc5YjRiMiIsInVzZXJuYW1lIjoiYWxleHh5IiwidHlwZSI6Im1hbnVhbCIsInByb2ZpbGVQaWMiOiJodHRwczovL2kuaW1ndXIuY29tL0V5enJrZzMuanBlZyIsImVtYWlsIjoiYWF5dXNocGFuZGV5NjE2QGdtYWlsLmNvbSIsImlhdCI6MTY5OTU5MzMzNywiZXhwIjoxNzAwMTk4MTM3fQ.cXx7l4P67JV_Cb9gpdPH33K8SWo1NX2a7k1wv8Lzjk0",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "apisecret",
+										"value": "Apple",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"contentID\" : \"654dbc83c33b57c8af4efafb\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/api/posts/getOnePost",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"api",
+										"posts",
+										"getOnePost"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Get One Post",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "apisecret",
+												"value": "Apple",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"contentID\" : \"654db6debadd5e805f8a24bd\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:3001/api/posts/getOnePost",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3001",
+											"path": [
+												"api",
+												"posts",
+												"getOnePost"
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": "{\r\n    \"success\": true,\r\n    \"message\": \"Post found successfully\",\r\n    \"data\": {\r\n        \"_id\": \"654dbc83c33b57c8af4efafb\",\r\n        \"content\": \"How was your day?\",\r\n        \"user\": \"654c9a20b561791fe579b4b2\",\r\n        \"comment\": [],\r\n        \"likes\": [\r\n            {\r\n                \"_id\": \"654c9a20b561791fe579b4b2\",\r\n                \"username\": \"alexxy\",\r\n                \"email\": \"aayushpandey616@gmail.com\",\r\n                \"password\": \"$2a$12$PTwunsMxnlHrYgt38mUeP.ia7sGoSqtkmicXzOju/EIjGc/cisxqa\",\r\n                \"profilePic\": \"https://i.imgur.com/Eyzrkg3.jpeg\",\r\n                \"verified\": true,\r\n                \"type\": \"manual\",\r\n                \"otp\": null,\r\n                \"createdAt\": \"2023-11-09T08:36:48.176Z\",\r\n                \"__v\": 0\r\n            }\r\n        ],\r\n        \"createdAt\": \"2023-11-10T05:15:47.295Z\",\r\n        \"__v\": 0\r\n    }\r\n}"
+								}
+							]
+						},
+						{
+							"name": "Get All Posts",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NGM5YTIwYjU2MTc5MWZlNTc5YjRiMiIsInVzZXJuYW1lIjoiYWxleHh5IiwidHlwZSI6Im1hbnVhbCIsInByb2ZpbGVQaWMiOiJodHRwczovL2kuaW1ndXIuY29tL0V5enJrZzMuanBlZyIsImVtYWlsIjoiYWF5dXNocGFuZGV5NjE2QGdtYWlsLmNvbSIsImlhdCI6MTY5OTU5MzMzNywiZXhwIjoxNzAwMTk4MTM3fQ.cXx7l4P67JV_Cb9gpdPH33K8SWo1NX2a7k1wv8Lzjk0",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "apisecret",
+										"value": "Apple",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/api/posts/getAllPosts",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"api",
+										"posts",
+										"getAllPosts"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Get All Posts",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "apisecret",
+												"value": "Apple",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:3001/api/posts/getAllPosts",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3001",
+											"path": [
+												"api",
+												"posts",
+												"getAllPosts"
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": "{\r\n    \"success\": true,\r\n    \"message\": \"All posts retrieved successfully\",\r\n    \"data\": [\r\n        {\r\n            \"_id\": \"654dbc83c33b57c8af4efafb\",\r\n            \"content\": \"How was your day?\",\r\n            \"likes\": [\r\n                {\r\n                    \"_id\": \"654c9a20b561791fe579b4b2\",\r\n                    \"username\": \"alexxy\",\r\n                    \"email\": \"aayushpandey616@gmail.com\",\r\n                    \"profilePic\": \"https://i.imgur.com/Eyzrkg3.jpeg\",\r\n                    \"verified\": true,\r\n                    \"type\": \"manual\",\r\n                    \"createdAt\": \"2023-11-09T08:36:48.176Z\",\r\n                    \"__v\": 0\r\n                }\r\n            ],\r\n            \"comments\": []\r\n        }\r\n    ]\r\n}"
+								}
+							]
+						},
+						{
+							"name": "Get Liked Posts",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NGM5YTIwYjU2MTc5MWZlNTc5YjRiMiIsInVzZXJuYW1lIjoiYWxleHh5IiwidHlwZSI6Im1hbnVhbCIsInByb2ZpbGVQaWMiOiJodHRwczovL2kuaW1ndXIuY29tL0V5enJrZzMuanBlZyIsImVtYWlsIjoiYWF5dXNocGFuZGV5NjE2QGdtYWlsLmNvbSIsImlhdCI6MTY5OTU5MzMzNywiZXhwIjoxNzAwMTk4MTM3fQ.cXx7l4P67JV_Cb9gpdPH33K8SWo1NX2a7k1wv8Lzjk0",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "apisecret",
+										"value": "Apple",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/api/posts/getLikedPosts",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"api",
+										"posts",
+										"getLikedPosts"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Get Liked Posts",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "apisecret",
+												"value": "Apple",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:3001/api/posts/getAllPosts",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3001",
+											"path": [
+												"api",
+												"posts",
+												"getAllPosts"
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": "{\r\n    \"success\": true,\r\n    \"message\": \"All posts retrieved successfully\",\r\n    \"data\": [\r\n        {\r\n            \"_id\": \"654dbc83c33b57c8af4efafb\",\r\n            \"content\": \"How was your day?\",\r\n            \"likes\": [\r\n                {\r\n                    \"_id\": \"654c9a20b561791fe579b4b2\",\r\n                    \"username\": \"alexxy\",\r\n                    \"email\": \"aayushpandey616@gmail.com\",\r\n                    \"profilePic\": \"https://i.imgur.com/Eyzrkg3.jpeg\",\r\n                    \"verified\": true,\r\n                    \"type\": \"manual\",\r\n                    \"createdAt\": \"2023-11-09T08:36:48.176Z\",\r\n                    \"__v\": 0\r\n                }\r\n            ],\r\n            \"comments\": []\r\n        }\r\n    ]\r\n}"
+								}
+							]
+						},
+						{
+							"name": "Comment On Post",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NGM5YTIwYjU2MTc5MWZlNTc5YjRiMiIsInVzZXJuYW1lIjoiYWxleHh5IiwidHlwZSI6Im1hbnVhbCIsInByb2ZpbGVQaWMiOiJodHRwczovL2kuaW1ndXIuY29tL0V5enJrZzMuanBlZyIsImVtYWlsIjoiYWF5dXNocGFuZGV5NjE2QGdtYWlsLmNvbSIsImlhdCI6MTY5OTU5MzMzNywiZXhwIjoxNzAwMTk4MTM3fQ.cXx7l4P67JV_Cb9gpdPH33K8SWo1NX2a7k1wv8Lzjk0",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "apisecret",
+										"value": "Apple",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"contentID\" : \"654dbc83c33b57c8af4efafb\",\r\n    \"comment\": \"It Was good.\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/api/posts/createComment",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"api",
+										"posts",
+										"createComment"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Comment On Post",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "apisecret",
+												"value": "Apple",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"contentID\" : \"654db53ed83835851d9badcc\",\r\n    \"comment\": \"It Was good.\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:3001/api/posts/createComment",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3001",
+											"path": [
+												"api",
+												"posts",
+												"createComment"
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": "{\r\n    \"success\": true,\r\n    \"message\": \"Comment created successfully\",\r\n    \"data\": {\r\n        \"comment\": \"It Was good.\",\r\n        \"user\": \"654c9a20b561791fe579b4b2\",\r\n        \"post\": \"654dbc83c33b57c8af4efafb\",\r\n        \"_id\": \"654dbf4fb80d1abbd5a7de9b\",\r\n        \"createdAt\": \"2023-11-10T05:27:43.566Z\",\r\n        \"__v\": 0\r\n    }\r\n}"
+								}
+							]
+						},
+						{
+							"name": "Delete Comment",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NGM5YTIwYjU2MTc5MWZlNTc5YjRiMiIsInVzZXJuYW1lIjoiYWxleHh5IiwidHlwZSI6Im1hbnVhbCIsInByb2ZpbGVQaWMiOiJodHRwczovL2kuaW1ndXIuY29tL0V5enJrZzMuanBlZyIsImVtYWlsIjoiYWF5dXNocGFuZGV5NjE2QGdtYWlsLmNvbSIsImlhdCI6MTY5OTU5MzMzNywiZXhwIjoxNzAwMTk4MTM3fQ.cXx7l4P67JV_Cb9gpdPH33K8SWo1NX2a7k1wv8Lzjk0",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "apisecret",
+										"value": "Apple",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"commentID\" : \"654dbf4fb80d1abbd5a7de9b\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/api/posts/deleteComment",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"api",
+										"posts",
+										"deleteComment"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Delete Comment",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "apisecret",
+												"value": "Apple",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"contentID\" : \"654db53ed83835851d9badcc\",\r\n    \"comment\": \"It Was good.\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:3001/api/posts/createComment",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3001",
+											"path": [
+												"api",
+												"posts",
+												"createComment"
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": "{\r\n    \"success\": true,\r\n    \"message\": \"Comment deleted successfully\"\r\n}"
+								}
+							]
+						},
+						{
+							"name": "Update Post",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NGM5YTIwYjU2MTc5MWZlNTc5YjRiMiIsInVzZXJuYW1lIjoiYWxleHh5IiwidHlwZSI6Im1hbnVhbCIsInByb2ZpbGVQaWMiOiJodHRwczovL2kuaW1ndXIuY29tL0V5enJrZzMuanBlZyIsImVtYWlsIjoiYWF5dXNocGFuZGV5NjE2QGdtYWlsLmNvbSIsImlhdCI6MTY5OTU5MzMzNywiZXhwIjoxNzAwMTk4MTM3fQ.cXx7l4P67JV_Cb9gpdPH33K8SWo1NX2a7k1wv8Lzjk0",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "apisecret",
+										"value": "Apple",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"content\" : \"How was your day 2 ?\",\r\n    \"postID\" : \"654dbc83c33b57c8af4efafb\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/api/posts/updatePost",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"api",
+										"posts",
+										"updatePost"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Update Post",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "apisecret",
+												"value": "Apple",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"content\" : \"How was your day 2 ?\",\r\n    \"postID\" : \"654c9c44145985b1cd78d27f\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:3001/api/posts/createPost",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3001",
+											"path": [
+												"api",
+												"posts",
+												"createPost"
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": "{\r\n    \"success\": true,\r\n    \"message\": \"Post updated successfully\",\r\n    \"data\": {\r\n        \"_id\": \"654dbc83c33b57c8af4efafb\",\r\n        \"content\": \"How was your day 2 ?\",\r\n        \"user\": \"654c9a20b561791fe579b4b2\",\r\n        \"comment\": [],\r\n        \"likes\": [\r\n            \"654c9a20b561791fe579b4b2\"\r\n        ],\r\n        \"createdAt\": \"2023-11-10T05:15:47.295Z\",\r\n        \"__v\": 0\r\n    }\r\n}"
+								}
+							]
+						},
+						{
+							"name": "Like Post",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NGM5YTIwYjU2MTc5MWZlNTc5YjRiMiIsInVzZXJuYW1lIjoiYWxleHh5IiwidHlwZSI6Im1hbnVhbCIsInByb2ZpbGVQaWMiOiJodHRwczovL2kuaW1ndXIuY29tL0V5enJrZzMuanBlZyIsImVtYWlsIjoiYWF5dXNocGFuZGV5NjE2QGdtYWlsLmNvbSIsImlhdCI6MTY5OTU5MzMzNywiZXhwIjoxNzAwMTk4MTM3fQ.cXx7l4P67JV_Cb9gpdPH33K8SWo1NX2a7k1wv8Lzjk0",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "apisecret",
+										"value": "Apple",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"postID\" : \"654dbc83c33b57c8af4efafb\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/api/posts/likePost",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"api",
+										"posts",
+										"likePost"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Like Post",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "apisecret",
+												"value": "Apple",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"postID\" : \"654c9c44145985b1cd78d27f\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:3001/api/posts/likePost",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3001",
+											"path": [
+												"api",
+												"posts",
+												"likePost"
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": "{\r\n    \"success\": true,\r\n    \"message\": \"Post liked successfully\"\r\n}"
+								}
+							]
+						},
+						{
+							"name": "Unlike Post",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NGM5YTIwYjU2MTc5MWZlNTc5YjRiMiIsInVzZXJuYW1lIjoiYWxleHh5IiwidHlwZSI6Im1hbnVhbCIsInByb2ZpbGVQaWMiOiJodHRwczovL2kuaW1ndXIuY29tL0V5enJrZzMuanBlZyIsImVtYWlsIjoiYWF5dXNocGFuZGV5NjE2QGdtYWlsLmNvbSIsImlhdCI6MTY5OTU5MzMzNywiZXhwIjoxNzAwMTk4MTM3fQ.cXx7l4P67JV_Cb9gpdPH33K8SWo1NX2a7k1wv8Lzjk0",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "apisecret",
+										"value": "Apple",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"postID\" : \"654dbc83c33b57c8af4efafb\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/api/posts/unlikePost",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"api",
+										"posts",
+										"unlikePost"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Unlike Post",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "apisecret",
+												"value": "Apple",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"postID\" : \"654c9c44145985b1cd78d27f\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:3001/api/posts/unlikePost",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3001",
+											"path": [
+												"api",
+												"posts",
+												"unlikePost"
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": "{\r\n    \"success\": true,\r\n    \"message\": \"Post was not liked\"\r\n}"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}

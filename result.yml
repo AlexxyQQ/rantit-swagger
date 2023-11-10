@@ -1,0 +1,660 @@
+openapi: 3.0.0
+info:
+  title: Rantit
+  version: 1.0.0
+servers:
+  - url: http://localhost:3001
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+tags:
+  - name: Public
+  - name: Public > Auth
+  - name: Public > Admin
+  - name: Public > Posts
+paths:
+  /api/users/login:
+    post:
+      tags:
+        - Public > Auth
+      summary: Login
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                email: aayushpandey616@gmail.com
+                password: VerySecretPassword@123
+      parameters:
+        - name: apisecret
+          in: header
+          schema:
+            type: string
+          example: Apple
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Powered-By:
+              schema:
+                type: string
+                example: Express
+            Vary:
+              schema:
+                type: string
+                example: Origin
+            Content-Type:
+              schema:
+                type: string
+                example: application/json; charset=utf-8
+            Content-Length:
+              schema:
+                type: integer
+                example: '669'
+            ETag:
+              schema:
+                type: string
+                example: W/"29d-aHf4RSk+gEagCylnPRif6xzBJMA"
+            Date:
+              schema:
+                type: string
+                example: Sat, 30 Sep 2023 08:44:51 GMT
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=5
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                success: true
+                data:
+                  user:
+                    _id: 6517dfbe345ee8f0da29a9b1
+                    username: alexxy
+                    email: aayushpandey616@gmail.com
+                    password: >-
+                      $2a$12$12l127hOC/4ZuPaO6fWBU.H6ZHiSNSkgUe1o4r.oyER4JpudpswZu
+                    profilePic: https://i.imgur.com/Eyzrkg3.jpeg
+                    verified: false
+                    type: manual
+                    __v: 0
+                  token: >-
+                    eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1MTdkZmJlMzQ1ZWU4ZjBkYTI5YTliMSIsInVzZXJuYW1lIjoiYWxleHh5IiwidHlwZSI6Im1hbnVhbCIsInByb2ZpbGVQaWMiOiJodHRwczovL2kuaW1ndXIuY29tL0V5enJrZzMuanBlZyIsImVtYWlsIjoiYWF5dXNocGFuZGV5NjE2QGdtYWlsLmNvbSIsImlhdCI6MTY5NjA2MzQ5MSwiZXhwIjoxNjk2NjY4MjkxfQ.9pBxnNrHjxx1uEOhizfABkjnvJFZQryU_3wSrMzCxQQ
+                message: User logged in successfully!
+  /api/users/otpValidator:
+    post:
+      tags:
+        - Public > Auth
+      summary: OTP Validator
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                email: aayushpandey616@gmail.com
+                otp: 8J8JYJ
+      parameters:
+        - name: apisecret
+          in: header
+          schema:
+            type: string
+          example: Apple
+      responses:
+        undefined:
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: "{\r\n    \"success\": true,\r\n    \"message\": \"OTP verified successfully!\"\r\n}"
+  /api/users/signup:
+    post:
+      tags:
+        - Public > Auth
+      summary: Register
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                email: aayushpandey616@gmail.com
+                password: VerySecretPassword@123
+                confirmPassword: VerySecretPassword@123
+                username: alexxy
+                type: manual
+      parameters:
+        - name: apisecret
+          in: header
+          schema:
+            type: string
+          example: Apple
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Powered-By:
+              schema:
+                type: string
+                example: Express
+            Vary:
+              schema:
+                type: string
+                example: Origin
+            Content-Type:
+              schema:
+                type: string
+                example: application/json; charset=utf-8
+            Content-Length:
+              schema:
+                type: integer
+                example: '316'
+            ETag:
+              schema:
+                type: string
+                example: W/"13c-PouUk+Nw70O48/wDgiytirCl+bQ"
+            Date:
+              schema:
+                type: string
+                example: Sat, 30 Sep 2023 08:43:42 GMT
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=5
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                success: true
+                data:
+                  username: alexxy
+                  email: aayushpandey616@gmail.com
+                  password: $2a$12$12l127hOC/4ZuPaO6fWBU.H6ZHiSNSkgUe1o4r.oyER4JpudpswZu
+                  profilePic: https://i.imgur.com/Eyzrkg3.jpeg
+                  verified: false
+                  type: manual
+                  _id: 6517dfbe345ee8f0da29a9b1
+                  __v: 0
+                message: User created successfully!
+  /api/users/loginWithToken:
+    get:
+      tags:
+        - Public > Auth
+      summary: LoginWithToken
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: apisecret
+          in: header
+          schema:
+            type: string
+          example: Apple
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Powered-By:
+              schema:
+                type: string
+                example: Express
+            Vary:
+              schema:
+                type: string
+                example: Origin
+            Content-Type:
+              schema:
+                type: string
+                example: application/json; charset=utf-8
+            Content-Length:
+              schema:
+                type: integer
+                example: '669'
+            ETag:
+              schema:
+                type: string
+                example: W/"29d-aHf4RSk+gEagCylnPRif6xzBJMA"
+            Date:
+              schema:
+                type: string
+                example: Sat, 30 Sep 2023 08:45:12 GMT
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=5
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                success: true
+                data:
+                  user:
+                    _id: 6517dfbe345ee8f0da29a9b1
+                    username: alexxy
+                    email: aayushpandey616@gmail.com
+                    password: >-
+                      $2a$12$12l127hOC/4ZuPaO6fWBU.H6ZHiSNSkgUe1o4r.oyER4JpudpswZu
+                    profilePic: https://i.imgur.com/Eyzrkg3.jpeg
+                    verified: false
+                    type: manual
+                    __v: 0
+                  token: >-
+                    eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1MTdkZmJlMzQ1ZWU4ZjBkYTI5YTliMSIsInVzZXJuYW1lIjoiYWxleHh5IiwidHlwZSI6Im1hbnVhbCIsInByb2ZpbGVQaWMiOiJodHRwczovL2kuaW1ndXIuY29tL0V5enJrZzMuanBlZyIsImVtYWlsIjoiYWF5dXNocGFuZGV5NjE2QGdtYWlsLmNvbSIsImlhdCI6MTY5NjA2MzQ5MSwiZXhwIjoxNjk2NjY4MjkxfQ.9pBxnNrHjxx1uEOhizfABkjnvJFZQryU_3wSrMzCxQQ
+                message: User logged in successfully!
+  /api/users/uploadProfilePic:
+    post:
+      tags:
+        - Public > Auth
+      summary: Upload Profile Pic
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                profilePic:
+                  type: string
+                  format: binary
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: apisecret
+          in: header
+          schema:
+            type: string
+          example: Apple
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Powered-By:
+              schema:
+                type: string
+                example: Express
+            Vary:
+              schema:
+                type: string
+                example: Origin
+            Content-Type:
+              schema:
+                type: string
+                example: application/json; charset=utf-8
+            Content-Length:
+              schema:
+                type: integer
+                example: '357'
+            ETag:
+              schema:
+                type: string
+                example: W/"165-o8aPx8H17vfZnolCndKisWM24nY"
+            Date:
+              schema:
+                type: string
+                example: Sat, 30 Sep 2023 08:45:35 GMT
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=5
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                success: true
+                data:
+                  _id: 6517dfbe345ee8f0da29a9b1
+                  username: alexxy
+                  email: aayushpandey616@gmail.com
+                  password: $2a$12$12l127hOC/4ZuPaO6fWBU.H6ZHiSNSkgUe1o4r.oyER4JpudpswZu
+                  profilePic: >-
+                    public\uploads\alexxy\profilePic\256108fbfc46b9a5941bd5cd317ef8cb.png
+                  verified: false
+                  type: manual
+                  __v: 0
+                message: File uploaded successfully
+  /api/users/deleteUser:
+    post:
+      tags:
+        - Public > Auth
+      summary: Delete User
+      requestBody:
+        content: {}
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: apisecret
+          in: header
+          schema:
+            type: string
+          example: Apple
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Powered-By:
+              schema:
+                type: string
+                example: Express
+            Vary:
+              schema:
+                type: string
+                example: Origin
+            Content-Type:
+              schema:
+                type: string
+                example: application/json; charset=utf-8
+            Content-Length:
+              schema:
+                type: integer
+                example: '42'
+            ETag:
+              schema:
+                type: string
+                example: W/"2a-TkGcC/0+lkh26Mo7bHbw30135PA"
+            Date:
+              schema:
+                type: string
+                example: Sat, 30 Sep 2023 08:46:03 GMT
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=5
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                message: Profile deleted successfully
+  /api/users/getListofUsers:
+    get:
+      tags:
+        - Public > Admin
+      summary: List of Users
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: apisecret
+          in: header
+          schema:
+            type: string
+          example: Apple
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/users/getUserData:
+    get:
+      tags:
+        - Public > Admin
+      summary: Get User Data
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: apisecret
+          in: header
+          schema:
+            type: string
+          example: Apple
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/posts/createPost:
+    post:
+      tags:
+        - Public > Posts
+      summary: Create Post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                content: How was your day?
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: apisecret
+          in: header
+          schema:
+            type: string
+          example: Apple
+      responses:
+        undefined:
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: "{\r\n    \"success\": true,\r\n    \"message\": \"Post created successfully\",\r\n    \"data\": {\r\n        \"content\": \"How was your day?\",\r\n        \"user\": \"654c9a20b561791fe579b4b2\",\r\n        \"comment\": [],\r\n        \"likes\": [],\r\n        \"_id\": \"654dbc83c33b57c8af4efafb\",\r\n        \"createdAt\": \"2023-11-10T05:15:47.295Z\",\r\n        \"__v\": 0\r\n    }\r\n}"
+  /api/posts/getOnePost:
+    post:
+      tags:
+        - Public > Posts
+      summary: Get One Post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                contentID: 654dbc83c33b57c8af4efafb
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: apisecret
+          in: header
+          schema:
+            type: string
+          example: Apple
+      responses:
+        undefined:
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: "{\r\n    \"success\": true,\r\n    \"message\": \"Post found successfully\",\r\n    \"data\": {\r\n        \"_id\": \"654dbc83c33b57c8af4efafb\",\r\n        \"content\": \"How was your day?\",\r\n        \"user\": \"654c9a20b561791fe579b4b2\",\r\n        \"comment\": [],\r\n        \"likes\": [\r\n            {\r\n                \"_id\": \"654c9a20b561791fe579b4b2\",\r\n                \"username\": \"alexxy\",\r\n                \"email\": \"aayushpandey616@gmail.com\",\r\n                \"password\": \"$2a$12$PTwunsMxnlHrYgt38mUeP.ia7sGoSqtkmicXzOju/EIjGc/cisxqa\",\r\n                \"profilePic\": \"https://i.imgur.com/Eyzrkg3.jpeg\",\r\n                \"verified\": true,\r\n                \"type\": \"manual\",\r\n                \"otp\": null,\r\n                \"createdAt\": \"2023-11-09T08:36:48.176Z\",\r\n                \"__v\": 0\r\n            }\r\n        ],\r\n        \"createdAt\": \"2023-11-10T05:15:47.295Z\",\r\n        \"__v\": 0\r\n    }\r\n}"
+  /api/posts/getAllPosts:
+    get:
+      tags:
+        - Public > Posts
+      summary: Get All Posts
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: apisecret
+          in: header
+          schema:
+            type: string
+          example: Apple
+      responses:
+        undefined:
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: "{\r\n    \"success\": true,\r\n    \"message\": \"All posts retrieved successfully\",\r\n    \"data\": [\r\n        {\r\n            \"_id\": \"654dbc83c33b57c8af4efafb\",\r\n            \"content\": \"How was your day?\",\r\n            \"likes\": [\r\n                {\r\n                    \"_id\": \"654c9a20b561791fe579b4b2\",\r\n                    \"username\": \"alexxy\",\r\n                    \"email\": \"aayushpandey616@gmail.com\",\r\n                    \"profilePic\": \"https://i.imgur.com/Eyzrkg3.jpeg\",\r\n                    \"verified\": true,\r\n                    \"type\": \"manual\",\r\n                    \"createdAt\": \"2023-11-09T08:36:48.176Z\",\r\n                    \"__v\": 0\r\n                }\r\n            ],\r\n            \"comments\": []\r\n        }\r\n    ]\r\n}"
+  /api/posts/getLikedPosts:
+    get:
+      tags:
+        - Public > Posts
+      summary: Get Liked Posts
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: apisecret
+          in: header
+          schema:
+            type: string
+          example: Apple
+      responses:
+        undefined:
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: "{\r\n    \"success\": true,\r\n    \"message\": \"All posts retrieved successfully\",\r\n    \"data\": [\r\n        {\r\n            \"_id\": \"654dbc83c33b57c8af4efafb\",\r\n            \"content\": \"How was your day?\",\r\n            \"likes\": [\r\n                {\r\n                    \"_id\": \"654c9a20b561791fe579b4b2\",\r\n                    \"username\": \"alexxy\",\r\n                    \"email\": \"aayushpandey616@gmail.com\",\r\n                    \"profilePic\": \"https://i.imgur.com/Eyzrkg3.jpeg\",\r\n                    \"verified\": true,\r\n                    \"type\": \"manual\",\r\n                    \"createdAt\": \"2023-11-09T08:36:48.176Z\",\r\n                    \"__v\": 0\r\n                }\r\n            ],\r\n            \"comments\": []\r\n        }\r\n    ]\r\n}"
+  /api/posts/createComment:
+    post:
+      tags:
+        - Public > Posts
+      summary: Comment On Post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                contentID: 654dbc83c33b57c8af4efafb
+                comment: It Was good.
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: apisecret
+          in: header
+          schema:
+            type: string
+          example: Apple
+      responses:
+        undefined:
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: "{\r\n    \"success\": true,\r\n    \"message\": \"Comment created successfully\",\r\n    \"data\": {\r\n        \"comment\": \"It Was good.\",\r\n        \"user\": \"654c9a20b561791fe579b4b2\",\r\n        \"post\": \"654dbc83c33b57c8af4efafb\",\r\n        \"_id\": \"654dbf4fb80d1abbd5a7de9b\",\r\n        \"createdAt\": \"2023-11-10T05:27:43.566Z\",\r\n        \"__v\": 0\r\n    }\r\n}"
+  /api/posts/deleteComment:
+    post:
+      tags:
+        - Public > Posts
+      summary: Delete Comment
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                commentID: 654dbf4fb80d1abbd5a7de9b
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: apisecret
+          in: header
+          schema:
+            type: string
+          example: Apple
+      responses:
+        undefined:
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: "{\r\n    \"success\": true,\r\n    \"message\": \"Comment deleted successfully\"\r\n}"
+  /api/posts/updatePost:
+    post:
+      tags:
+        - Public > Posts
+      summary: Update Post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                content: How was your day 2 ?
+                postID: 654dbc83c33b57c8af4efafb
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: apisecret
+          in: header
+          schema:
+            type: string
+          example: Apple
+      responses:
+        undefined:
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: "{\r\n    \"success\": true,\r\n    \"message\": \"Post updated successfully\",\r\n    \"data\": {\r\n        \"_id\": \"654dbc83c33b57c8af4efafb\",\r\n        \"content\": \"How was your day 2 ?\",\r\n        \"user\": \"654c9a20b561791fe579b4b2\",\r\n        \"comment\": [],\r\n        \"likes\": [\r\n            \"654c9a20b561791fe579b4b2\"\r\n        ],\r\n        \"createdAt\": \"2023-11-10T05:15:47.295Z\",\r\n        \"__v\": 0\r\n    }\r\n}"
+  /api/posts/likePost:
+    post:
+      tags:
+        - Public > Posts
+      summary: Like Post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                postID: 654dbc83c33b57c8af4efafb
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: apisecret
+          in: header
+          schema:
+            type: string
+          example: Apple
+      responses:
+        undefined:
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: "{\r\n    \"success\": true,\r\n    \"message\": \"Post liked successfully\"\r\n}"
+  /api/posts/unlikePost:
+    post:
+      tags:
+        - Public > Posts
+      summary: Unlike Post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                postID: 654dbc83c33b57c8af4efafb
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: apisecret
+          in: header
+          schema:
+            type: string
+          example: Apple
+      responses:
+        undefined:
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: "{\r\n    \"success\": true,\r\n    \"message\": \"Post was not liked\"\r\n}"
