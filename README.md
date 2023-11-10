@@ -18,7 +18,7 @@ To update the Swagger documentation, follow the steps below:
 1. Clone the project repository:
 
    ```bash
-   git clone https://github.com/your-username/your-project.git
+   git clone https://github.com/AlexxyQQ/rantit-swagger.git
    ```
 
 2. Navigate to the project directory:
