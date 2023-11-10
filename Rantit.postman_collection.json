@@ -980,6 +980,52 @@
 					"item": [
 						{
 							"name": "Create Post",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Response status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"",
+											"pm.test(\"Response has the required fields\", function () {",
+											"  const responseData = pm.response.json();",
+											"  ",
+											"  pm.expect(responseData).to.be.an('object');",
+											"  pm.expect(responseData.success).to.exist;",
+											"  pm.expect(responseData.message).to.exist;",
+											"  pm.expect(responseData.data).to.exist;",
+											"});",
+											"",
+											"",
+											"pm.test(\"Content is a non-empty string\", function () {",
+											"    const responseData = pm.response.json();",
+											"",
+											"    pm.expect(responseData).to.be.an('object');",
+											"    pm.expect(responseData.data.content).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Content should not be empty\");",
+											"});",
+											"",
+											"",
+											"pm.test(\"User is a non-empty string\", function () {",
+											"  const responseData = pm.response.json();",
+											"  ",
+											"  pm.expect(responseData).to.be.an('object');",
+											"  pm.expect(responseData.data.user).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Value should not be empty\");",
+											"});",
+											"",
+											"",
+											"pm.test(\"Comment is an array\", function () {",
+											"  const responseData = pm.response.json();",
+											"  ",
+											"  pm.expect(responseData.comment).to.be.an('array');",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
 							"request": {
 								"auth": {
 									"type": "bearer",
@@ -1060,6 +1106,48 @@
 						},
 						{
 							"name": "Get One Post",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Response status code is 200\", function () {",
+											"  pm.expect(pm.response.code).to.equal(200);",
+											"});",
+											"",
+											"",
+											"pm.test(\"Validate the success field is true\", function () {",
+											"  const responseData = pm.response.json();",
+											"  ",
+											"  pm.expect(responseData).to.be.an('object');",
+											"  pm.expect(responseData.success).to.be.true;",
+											"});",
+											"",
+											"",
+											"pm.test(\"The message field should be empty\", function () {",
+											"    const responseData = pm.response.json();",
+											"    ",
+											"    pm.expect(responseData).to.be.an('object');",
+											"    pm.expect(responseData.message).to.exist.and.to.be.empty;",
+											"});",
+											"",
+											"",
+											"pm.test(\"Validate _id field is a non-empty string\", function () {",
+											"    const responseData = pm.response.json();",
+											"",
+											"    pm.expect(responseData._id).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Value should not be empty\");",
+											"});",
+											"",
+											"pm.test(\"Validate content field is a non-empty string\", function () {",
+											"    const responseData = pm.response.json();",
+											"",
+											"    pm.expect(responseData.content).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Value should not be empty\");",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
 							"request": {
 								"auth": {
 									"type": "bearer",
@@ -1146,9 +1234,54 @@
 						},
 						{
 							"name": "Get All Posts",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Response status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"",
+											"pm.test(\"Validate the success field is true\", function () {",
+											"    const responseData = pm.response.json();",
+											"    ",
+											"    pm.expect(responseData.success).to.be.true;",
+											"});",
+											"",
+											"",
+											"pm.test(\"Validate the 'message' field is empty\", function () {",
+											"  const responseData = pm.response.json();",
+											"",
+											"  pm.expect(responseData.message).to.be.empty;",
+											"});",
+											"",
+											"",
+											"pm.test(\"Verify that the 'data' field is an array and contains at least one element\", function () {",
+											"    const responseData = pm.response.json();",
+											"    ",
+											"    pm.expect(responseData.data).to.be.an('array').and.to.have.lengthOf.at.least(1);",
+											"});",
+											"",
+											"",
+											"pm.test(\"Validate that each element in the 'data' array has the required fields\", function () {",
+											"    const responseData = pm.response.json();",
+											"",
+											"    pm.expect(responseData.data).to.be.an('array');",
+											"",
+											"    responseData.data.forEach(function (post) {",
+											"        pm.expect(post._id).to.exist.and.to.be.a('string');",
+											"        pm.expect(post.content).to.exist.and.to.be.a('string');",
+											"        pm.expect(post.likes).to.exist.and.to.be.an('array');",
+											"        pm.expect(post.comments).to.exist.and.to.be.an('array');",
+											"    });",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
 							"request": {
 								"auth": {
 									"type": "bearer",
@@ -1160,7 +1293,7 @@
 										}
 									]
 								},
-								"method": "GET",
+								"method": "POST",
 								"header": [
 									{
 										"key": "apisecret",
@@ -1170,7 +1303,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "",
+									"raw": "{\r\n    \"page\": 1\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1195,7 +1328,7 @@
 								{
 									"name": "Get All Posts",
 									"originalRequest": {
-										"method": "GET",
+										"method": "POST",
 										"header": [
 											{
 												"key": "apisecret",
@@ -1205,7 +1338,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "",
+											"raw": "{\r\n    \"page\": 1\r\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -1229,15 +1362,60 @@
 									"_postman_previewlanguage": null,
 									"header": null,
 									"cookie": [],
-									"body": "{\r\n    \"success\": true,\r\n    \"message\": \"All posts retrieved successfully\",\r\n    \"data\": [\r\n        {\r\n            \"_id\": \"654dbc83c33b57c8af4efafb\",\r\n            \"content\": \"How was your day?\",\r\n            \"likes\": [\r\n                {\r\n                    \"_id\": \"654c9a20b561791fe579b4b2\",\r\n                    \"username\": \"alexxy\",\r\n                    \"email\": \"aayushpandey616@gmail.com\",\r\n                    \"profilePic\": \"https://i.imgur.com/Eyzrkg3.jpeg\",\r\n                    \"verified\": true,\r\n                    \"type\": \"manual\",\r\n                    \"createdAt\": \"2023-11-09T08:36:48.176Z\",\r\n                    \"__v\": 0\r\n                }\r\n            ],\r\n            \"comments\": []\r\n        }\r\n    ]\r\n}"
+									"body": "{\r\n    \"success\": true,\r\n    \"message\": \"All posts retrieved successfully\",\r\n    \"current_page\": 1,\r\n    \"data\": [\r\n        {\r\n            \"_id\": \"654dbc83c33b57c8af4efafb\",\r\n            \"content\": \"How was your day 2 ?\",\r\n            \"likes\": [\r\n                {\r\n                    \"_id\": \"654c9a20b561791fe579b4b2\",\r\n                    \"username\": \"alexxy\",\r\n                    \"email\": \"aayushpandey616@gmail.com\",\r\n                    \"profilePic\": \"https://i.imgur.com/Eyzrkg3.jpeg\",\r\n                    \"verified\": true,\r\n                    \"type\": \"manual\",\r\n                    \"createdAt\": \"2023-11-09T08:36:48.176Z\",\r\n                    \"__v\": 0\r\n                }\r\n            ],\r\n            \"comments\": [\r\n                {\r\n                    \"_id\": \"654dc2bab80d1abbd5a7deb7\",\r\n                    \"comment\": \"It Was good.\",\r\n                    \"user\": \"654c9a20b561791fe579b4b2\",\r\n                    \"post\": \"654dbc83c33b57c8af4efafb\",\r\n                    \"createdAt\": \"2023-11-10T05:42:18.547Z\",\r\n                    \"__v\": 0\r\n                },\r\n                {\r\n                    \"_id\": \"654e662460cd4837be241160\",\r\n                    \"comment\": \"It Was good.\",\r\n                    \"user\": \"654c9a20b561791fe579b4b2\",\r\n                    \"post\": \"654dbc83c33b57c8af4efafb\",\r\n                    \"createdAt\": \"2023-11-10T17:19:32.439Z\",\r\n                    \"__v\": 0\r\n                },\r\n                {\r\n                    \"_id\": \"654e662560cd4837be241164\",\r\n                    \"comment\": \"It Was good.\",\r\n                    \"user\": \"654c9a20b561791fe579b4b2\",\r\n                    \"post\": \"654dbc83c33b57c8af4efafb\",\r\n                    \"createdAt\": \"2023-11-10T17:19:33.883Z\",\r\n                    \"__v\": 0\r\n                },\r\n                {\r\n                    \"_id\": \"654e662760cd4837be241168\",\r\n                    \"comment\": \"It Was good.\",\r\n                    \"user\": \"654c9a20b561791fe579b4b2\",\r\n                    \"post\": \"654dbc83c33b57c8af4efafb\",\r\n                    \"createdAt\": \"2023-11-10T17:19:35.141Z\",\r\n                    \"__v\": 0\r\n                },\r\n                {\r\n                    \"_id\": \"654e662860cd4837be24116c\",\r\n                    \"comment\": \"It Was good.\",\r\n                    \"user\": \"654c9a20b561791fe579b4b2\",\r\n                    \"post\": \"654dbc83c33b57c8af4efafb\",\r\n                    \"createdAt\": \"2023-11-10T17:19:36.295Z\",\r\n                    \"__v\": 0\r\n                },\r\n                {\r\n                    \"_id\": \"654e662960cd4837be241170\",\r\n                    \"comment\": \"It Was good.\",\r\n                    \"user\": \"654c9a20b561791fe579b4b2\",\r\n                    \"post\": \"654dbc83c33b57c8af4efafb\",\r\n                    \"createdAt\": \"2023-11-10T17:19:37.445Z\",\r\n                    \"__v\": 0\r\n                },\r\n                {\r\n                    \"_id\": \"654e662a60cd4837be241174\",\r\n                    \"comment\": \"It Was good.\",\r\n                    \"user\": \"654c9a20b561791fe579b4b2\",\r\n                    \"post\": \"654dbc83c33b57c8af4efafb\",\r\n                    \"createdAt\": \"2023-11-10T17:19:38.494Z\",\r\n                    \"__v\": 0\r\n                },\r\n                {\r\n                    \"_id\": \"654e662b60cd4837be241178\",\r\n                    \"comment\": \"It Was good.\",\r\n                    \"user\": \"654c9a20b561791fe579b4b2\",\r\n                    \"post\": \"654dbc83c33b57c8af4efafb\",\r\n                    \"createdAt\": \"2023-11-10T17:19:39.652Z\",\r\n                    \"__v\": 0\r\n                },\r\n                {\r\n                    \"_id\": \"654e662f60cd4837be24117c\",\r\n                    \"comment\": \"It Was good.\",\r\n                    \"user\": \"654c9a20b561791fe579b4b2\",\r\n                    \"post\": \"654dbc83c33b57c8af4efafb\",\r\n                    \"createdAt\": \"2023-11-10T17:19:43.142Z\",\r\n                    \"__v\": 0\r\n                },\r\n                {\r\n                    \"_id\": \"654e663060cd4837be241180\",\r\n                    \"comment\": \"It Was good.\",\r\n                    \"user\": \"654c9a20b561791fe579b4b2\",\r\n                    \"post\": \"654dbc83c33b57c8af4efafb\",\r\n                    \"createdAt\": \"2023-11-10T17:19:44.622Z\",\r\n                    \"__v\": 0\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"_id\": \"654dc2b9b80d1abbd5a7deab\",\r\n            \"content\": \"How was your day?\",\r\n            \"likes\": [],\r\n            \"comments\": []\r\n        }\r\n    ]\r\n}"
 								}
 							]
 						},
 						{
-							"name": "Get Liked Posts",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
+							"name": "Get Post Comments",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Response status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"",
+											"pm.test(\"Validate the success field is true\", function () {",
+											"    const responseData = pm.response.json();",
+											"    ",
+											"    pm.expect(responseData.success).to.be.true;",
+											"});",
+											"",
+											"",
+											"pm.test(\"Validate the 'message' field is empty\", function () {",
+											"  const responseData = pm.response.json();",
+											"",
+											"  pm.expect(responseData.message).to.be.empty;",
+											"});",
+											"",
+											"",
+											"pm.test(\"Verify that the 'data' field is an array and contains at least one element\", function () {",
+											"    const responseData = pm.response.json();",
+											"    ",
+											"    pm.expect(responseData.data).to.be.an('array').and.to.have.lengthOf.at.least(1);",
+											"});",
+											"",
+											"",
+											"pm.test(\"Validate that each element in the 'data' array has the required fields\", function () {",
+											"    const responseData = pm.response.json();",
+											"",
+											"    pm.expect(responseData.data).to.be.an('array');",
+											"",
+											"    responseData.data.forEach(function (post) {",
+											"        pm.expect(post._id).to.exist.and.to.be.a('string');",
+											"        pm.expect(post.content).to.exist.and.to.be.a('string');",
+											"        pm.expect(post.likes).to.exist.and.to.be.an('array');",
+											"        pm.expect(post.comments).to.exist.and.to.be.an('array');",
+											"    });",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
 							"request": {
 								"auth": {
 									"type": "bearer",
@@ -1249,7 +1427,7 @@
 										}
 									]
 								},
-								"method": "GET",
+								"method": "POST",
 								"header": [
 									{
 										"key": "apisecret",
@@ -1259,7 +1437,262 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "",
+									"raw": "{\r\n    \"postID\": \"654dbc83c33b57c8af4efafb\",\r\n    \"page\": 2\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/api/posts/getPostsComments",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"api",
+										"posts",
+										"getPostsComments"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Get Post Comments",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "apisecret",
+												"value": "Apple",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"postID\": \"654dbc83c33b57c8af4efafb\",\r\n    \"page\": 2\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:3001/api/posts/getPostsComments",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3001",
+											"path": [
+												"api",
+												"posts",
+												"getPostsComments"
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": "{\r\n    \"success\": true,\r\n    \"current_page\": 1,\r\n    \"message\": \"Comments retrieved successfully\",\r\n    \"data\": [\r\n        {\r\n            \"_id\": \"654dc2bab80d1abbd5a7deb7\",\r\n            \"comment\": \"It Was good.\",\r\n            \"user\": {\r\n                \"_id\": \"654c9a20b561791fe579b4b2\",\r\n                \"username\": \"alexxy\",\r\n                \"email\": \"aayushpandey616@gmail.com\",\r\n                \"profilePic\": \"https://i.imgur.com/Eyzrkg3.jpeg\",\r\n                \"verified\": true,\r\n                \"type\": \"manual\",\r\n                \"createdAt\": \"2023-11-09T08:36:48.176Z\",\r\n                \"__v\": 0\r\n            },\r\n            \"post\": \"654dbc83c33b57c8af4efafb\",\r\n            \"createdAt\": \"2023-11-10T05:42:18.547Z\",\r\n            \"__v\": 0\r\n        },\r\n        {\r\n            \"_id\": \"654e662460cd4837be241160\",\r\n            \"comment\": \"It Was good.\",\r\n            \"user\": {\r\n                \"_id\": \"654c9a20b561791fe579b4b2\",\r\n                \"username\": \"alexxy\",\r\n                \"email\": \"aayushpandey616@gmail.com\",\r\n                \"profilePic\": \"https://i.imgur.com/Eyzrkg3.jpeg\",\r\n                \"verified\": true,\r\n                \"type\": \"manual\",\r\n                \"createdAt\": \"2023-11-09T08:36:48.176Z\",\r\n                \"__v\": 0\r\n            },\r\n            \"post\": \"654dbc83c33b57c8af4efafb\",\r\n            \"createdAt\": \"2023-11-10T17:19:32.439Z\",\r\n            \"__v\": 0\r\n        },\r\n        {\r\n            \"_id\": \"654e662560cd4837be241164\",\r\n            \"comment\": \"It Was good.\",\r\n            \"user\": {\r\n                \"_id\": \"654c9a20b561791fe579b4b2\",\r\n                \"username\": \"alexxy\",\r\n                \"email\": \"aayushpandey616@gmail.com\",\r\n                \"profilePic\": \"https://i.imgur.com/Eyzrkg3.jpeg\",\r\n                \"verified\": true,\r\n                \"type\": \"manual\",\r\n                \"createdAt\": \"2023-11-09T08:36:48.176Z\",\r\n                \"__v\": 0\r\n            },\r\n            \"post\": \"654dbc83c33b57c8af4efafb\",\r\n            \"createdAt\": \"2023-11-10T17:19:33.883Z\",\r\n            \"__v\": 0\r\n        },\r\n        {\r\n            \"_id\": \"654e662760cd4837be241168\",\r\n            \"comment\": \"It Was good.\",\r\n            \"user\": {\r\n                \"_id\": \"654c9a20b561791fe579b4b2\",\r\n                \"username\": \"alexxy\",\r\n                \"email\": \"aayushpandey616@gmail.com\",\r\n                \"profilePic\": \"https://i.imgur.com/Eyzrkg3.jpeg\",\r\n                \"verified\": true,\r\n                \"type\": \"manual\",\r\n                \"createdAt\": \"2023-11-09T08:36:48.176Z\",\r\n                \"__v\": 0\r\n            },\r\n            \"post\": \"654dbc83c33b57c8af4efafb\",\r\n            \"createdAt\": \"2023-11-10T17:19:35.141Z\",\r\n            \"__v\": 0\r\n        },\r\n        {\r\n            \"_id\": \"654e662860cd4837be24116c\",\r\n            \"comment\": \"It Was good.\",\r\n            \"user\": {\r\n                \"_id\": \"654c9a20b561791fe579b4b2\",\r\n                \"username\": \"alexxy\",\r\n                \"email\": \"aayushpandey616@gmail.com\",\r\n                \"profilePic\": \"https://i.imgur.com/Eyzrkg3.jpeg\",\r\n                \"verified\": true,\r\n                \"type\": \"manual\",\r\n                \"createdAt\": \"2023-11-09T08:36:48.176Z\",\r\n                \"__v\": 0\r\n            },\r\n            \"post\": \"654dbc83c33b57c8af4efafb\",\r\n            \"createdAt\": \"2023-11-10T17:19:36.295Z\",\r\n            \"__v\": 0\r\n        },\r\n        {\r\n            \"_id\": \"654e662960cd4837be241170\",\r\n            \"comment\": \"It Was good.\",\r\n            \"user\": {\r\n                \"_id\": \"654c9a20b561791fe579b4b2\",\r\n                \"username\": \"alexxy\",\r\n                \"email\": \"aayushpandey616@gmail.com\",\r\n                \"profilePic\": \"https://i.imgur.com/Eyzrkg3.jpeg\",\r\n                \"verified\": true,\r\n                \"type\": \"manual\",\r\n                \"createdAt\": \"2023-11-09T08:36:48.176Z\",\r\n                \"__v\": 0\r\n            },\r\n            \"post\": \"654dbc83c33b57c8af4efafb\",\r\n            \"createdAt\": \"2023-11-10T17:19:37.445Z\",\r\n            \"__v\": 0\r\n        },\r\n        {\r\n            \"_id\": \"654e662a60cd4837be241174\",\r\n            \"comment\": \"It Was good.\",\r\n            \"user\": {\r\n                \"_id\": \"654c9a20b561791fe579b4b2\",\r\n                \"username\": \"alexxy\",\r\n                \"email\": \"aayushpandey616@gmail.com\",\r\n                \"profilePic\": \"https://i.imgur.com/Eyzrkg3.jpeg\",\r\n                \"verified\": true,\r\n                \"type\": \"manual\",\r\n                \"createdAt\": \"2023-11-09T08:36:48.176Z\",\r\n                \"__v\": 0\r\n            },\r\n            \"post\": \"654dbc83c33b57c8af4efafb\",\r\n            \"createdAt\": \"2023-11-10T17:19:38.494Z\",\r\n            \"__v\": 0\r\n        },\r\n        {\r\n            \"_id\": \"654e662b60cd4837be241178\",\r\n            \"comment\": \"It Was good.\",\r\n            \"user\": {\r\n                \"_id\": \"654c9a20b561791fe579b4b2\",\r\n                \"username\": \"alexxy\",\r\n                \"email\": \"aayushpandey616@gmail.com\",\r\n                \"profilePic\": \"https://i.imgur.com/Eyzrkg3.jpeg\",\r\n                \"verified\": true,\r\n                \"type\": \"manual\",\r\n                \"createdAt\": \"2023-11-09T08:36:48.176Z\",\r\n                \"__v\": 0\r\n            },\r\n            \"post\": \"654dbc83c33b57c8af4efafb\",\r\n            \"createdAt\": \"2023-11-10T17:19:39.652Z\",\r\n            \"__v\": 0\r\n        },\r\n        {\r\n            \"_id\": \"654e662f60cd4837be24117c\",\r\n            \"comment\": \"It Was good.\",\r\n            \"user\": {\r\n                \"_id\": \"654c9a20b561791fe579b4b2\",\r\n                \"username\": \"alexxy\",\r\n                \"email\": \"aayushpandey616@gmail.com\",\r\n                \"profilePic\": \"https://i.imgur.com/Eyzrkg3.jpeg\",\r\n                \"verified\": true,\r\n                \"type\": \"manual\",\r\n                \"createdAt\": \"2023-11-09T08:36:48.176Z\",\r\n                \"__v\": 0\r\n            },\r\n            \"post\": \"654dbc83c33b57c8af4efafb\",\r\n            \"createdAt\": \"2023-11-10T17:19:43.142Z\",\r\n            \"__v\": 0\r\n        },\r\n        {\r\n            \"_id\": \"654e663060cd4837be241180\",\r\n            \"comment\": \"It Was good.\",\r\n            \"user\": {\r\n                \"_id\": \"654c9a20b561791fe579b4b2\",\r\n                \"username\": \"alexxy\",\r\n                \"email\": \"aayushpandey616@gmail.com\",\r\n                \"profilePic\": \"https://i.imgur.com/Eyzrkg3.jpeg\",\r\n                \"verified\": true,\r\n                \"type\": \"manual\",\r\n                \"createdAt\": \"2023-11-09T08:36:48.176Z\",\r\n                \"__v\": 0\r\n            },\r\n            \"post\": \"654dbc83c33b57c8af4efafb\",\r\n            \"createdAt\": \"2023-11-10T17:19:44.622Z\",\r\n            \"__v\": 0\r\n        }\r\n    ]\r\n}"
+								}
+							]
+						},
+						{
+							"name": "Get Post Likes",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Response status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"",
+											"pm.test(\"Validate the success field is true\", function () {",
+											"    const responseData = pm.response.json();",
+											"    ",
+											"    pm.expect(responseData.success).to.be.true;",
+											"});",
+											"",
+											"",
+											"pm.test(\"Validate the 'message' field is empty\", function () {",
+											"  const responseData = pm.response.json();",
+											"",
+											"  pm.expect(responseData.message).to.be.empty;",
+											"});",
+											"",
+											"",
+											"pm.test(\"Verify that the 'data' field is an array and contains at least one element\", function () {",
+											"    const responseData = pm.response.json();",
+											"    ",
+											"    pm.expect(responseData.data).to.be.an('array').and.to.have.lengthOf.at.least(1);",
+											"});",
+											"",
+											"",
+											"pm.test(\"Validate that each element in the 'data' array has the required fields\", function () {",
+											"    const responseData = pm.response.json();",
+											"",
+											"    pm.expect(responseData.data).to.be.an('array');",
+											"",
+											"    responseData.data.forEach(function (post) {",
+											"        pm.expect(post._id).to.exist.and.to.be.a('string');",
+											"        pm.expect(post.content).to.exist.and.to.be.a('string');",
+											"        pm.expect(post.likes).to.exist.and.to.be.an('array');",
+											"        pm.expect(post.comments).to.exist.and.to.be.an('array');",
+											"    });",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NGM5YTIwYjU2MTc5MWZlNTc5YjRiMiIsInVzZXJuYW1lIjoiYWxleHh5IiwidHlwZSI6Im1hbnVhbCIsInByb2ZpbGVQaWMiOiJodHRwczovL2kuaW1ndXIuY29tL0V5enJrZzMuanBlZyIsImVtYWlsIjoiYWF5dXNocGFuZGV5NjE2QGdtYWlsLmNvbSIsImlhdCI6MTY5OTU5MzMzNywiZXhwIjoxNzAwMTk4MTM3fQ.cXx7l4P67JV_Cb9gpdPH33K8SWo1NX2a7k1wv8Lzjk0",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "apisecret",
+										"value": "Apple",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"postID\": \"654dbc83c33b57c8af4efafb\",\r\n    \"page\": 2\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/api/posts/getPostsComments",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"api",
+										"posts",
+										"getPostsComments"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Get Post Likes",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "apisecret",
+												"value": "Apple",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"postID\": \"654dbc83c33b57c8af4efafb\",\r\n    \"page\": 2\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:3001/api/posts/getPostsComments",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3001",
+											"path": [
+												"api",
+												"posts",
+												"getPostsComments"
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": "{\r\n    \"success\": true,\r\n    \"message\": \"Likes retrieved successfully\",\r\n    \"current_page\": 1,\r\n    \"data\": [\r\n        {\r\n            \"_id\": \"654c9a20b561791fe579b4b2\",\r\n            \"username\": \"alexxy\",\r\n            \"email\": \"aayushpandey616@gmail.com\",\r\n            \"profilePic\": \"https://i.imgur.com/Eyzrkg3.jpeg\",\r\n            \"verified\": true,\r\n            \"type\": \"manual\",\r\n            \"createdAt\": \"2023-11-09T08:36:48.176Z\",\r\n            \"__v\": 0\r\n        }\r\n    ]\r\n}"
+								}
+							]
+						},
+						{
+							"name": "Get Liked Posts",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Response status code is 200\", function () {",
+											"  pm.expect(pm.response.code).to.equal(200);",
+											"});",
+											"",
+											"",
+											"pm.test(\"Validate the success field is true\", function () {",
+											"  pm.expect(pm.response.json().success).to.be.true;",
+											"});",
+											"",
+											"",
+											"pm.test(\"Validate the message field is an empty string\", function () {",
+											"    const responseData = pm.response.json();",
+											"    ",
+											"    pm.expect(responseData).to.be.an('object');",
+											"    pm.expect(responseData.message).to.equal(\"\");",
+											"});",
+											"",
+											"",
+											"pm.test(\"Verify that the data array is present and contains at least one element\", function () {",
+											"    const responseData = pm.response.json();",
+											"    ",
+											"    pm.expect(responseData).to.be.an('object');",
+											"    pm.expect(responseData.data).to.exist.and.to.be.an('array');",
+											"    pm.expect(responseData.data.length).to.be.at.least(1);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NGM5YTIwYjU2MTc5MWZlNTc5YjRiMiIsInVzZXJuYW1lIjoiYWxleHh5IiwidHlwZSI6Im1hbnVhbCIsInByb2ZpbGVQaWMiOiJodHRwczovL2kuaW1ndXIuY29tL0V5enJrZzMuanBlZyIsImVtYWlsIjoiYWF5dXNocGFuZGV5NjE2QGdtYWlsLmNvbSIsImlhdCI6MTY5OTU5MzMzNywiZXhwIjoxNzAwMTk4MTM3fQ.cXx7l4P67JV_Cb9gpdPH33K8SWo1NX2a7k1wv8Lzjk0",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "apisecret",
+										"value": "Apple",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"page\": 1\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1284,7 +1717,7 @@
 								{
 									"name": "Get Liked Posts",
 									"originalRequest": {
-										"method": "GET",
+										"method": "POST",
 										"header": [
 											{
 												"key": "apisecret",
@@ -1294,7 +1727,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "",
+											"raw": "{\r\n    \"page\": 1\r\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -1318,12 +1751,60 @@
 									"_postman_previewlanguage": null,
 									"header": null,
 									"cookie": [],
-									"body": "{\r\n    \"success\": true,\r\n    \"message\": \"All posts retrieved successfully\",\r\n    \"data\": [\r\n        {\r\n            \"_id\": \"654dbc83c33b57c8af4efafb\",\r\n            \"content\": \"How was your day?\",\r\n            \"likes\": [\r\n                {\r\n                    \"_id\": \"654c9a20b561791fe579b4b2\",\r\n                    \"username\": \"alexxy\",\r\n                    \"email\": \"aayushpandey616@gmail.com\",\r\n                    \"profilePic\": \"https://i.imgur.com/Eyzrkg3.jpeg\",\r\n                    \"verified\": true,\r\n                    \"type\": \"manual\",\r\n                    \"createdAt\": \"2023-11-09T08:36:48.176Z\",\r\n                    \"__v\": 0\r\n                }\r\n            ],\r\n            \"comments\": []\r\n        }\r\n    ]\r\n}"
+									"body": "{\r\n    \"success\": true,\r\n    \"message\": \"All posts retrieved successfully\",\r\n    \"current_page\": 1,\r\n    \"data\": [\r\n        {\r\n            \"_id\": \"654dbc83c33b57c8af4efafb\",\r\n            \"content\": \"How was your day 2 ?\",\r\n            \"likes\": [\r\n                {\r\n                    \"_id\": \"654c9a20b561791fe579b4b2\",\r\n                    \"username\": \"alexxy\",\r\n                    \"email\": \"aayushpandey616@gmail.com\",\r\n                    \"profilePic\": \"https://i.imgur.com/Eyzrkg3.jpeg\",\r\n                    \"verified\": true,\r\n                    \"type\": \"manual\",\r\n                    \"createdAt\": \"2023-11-09T08:36:48.176Z\",\r\n                    \"__v\": 0\r\n                }\r\n            ],\r\n            \"comments\": [\r\n                {\r\n                    \"_id\": \"654dc2bab80d1abbd5a7deb7\",\r\n                    \"comment\": \"It Was good.\",\r\n                    \"user\": \"654c9a20b561791fe579b4b2\",\r\n                    \"post\": \"654dbc83c33b57c8af4efafb\",\r\n                    \"createdAt\": \"2023-11-10T05:42:18.547Z\",\r\n                    \"__v\": 0\r\n                },\r\n                {\r\n                    \"_id\": \"654e662460cd4837be241160\",\r\n                    \"comment\": \"It Was good.\",\r\n                    \"user\": \"654c9a20b561791fe579b4b2\",\r\n                    \"post\": \"654dbc83c33b57c8af4efafb\",\r\n                    \"createdAt\": \"2023-11-10T17:19:32.439Z\",\r\n                    \"__v\": 0\r\n                },\r\n                {\r\n                    \"_id\": \"654e662560cd4837be241164\",\r\n                    \"comment\": \"It Was good.\",\r\n                    \"user\": \"654c9a20b561791fe579b4b2\",\r\n                    \"post\": \"654dbc83c33b57c8af4efafb\",\r\n                    \"createdAt\": \"2023-11-10T17:19:33.883Z\",\r\n                    \"__v\": 0\r\n                },\r\n                {\r\n                    \"_id\": \"654e662760cd4837be241168\",\r\n                    \"comment\": \"It Was good.\",\r\n                    \"user\": \"654c9a20b561791fe579b4b2\",\r\n                    \"post\": \"654dbc83c33b57c8af4efafb\",\r\n                    \"createdAt\": \"2023-11-10T17:19:35.141Z\",\r\n                    \"__v\": 0\r\n                },\r\n                {\r\n                    \"_id\": \"654e662860cd4837be24116c\",\r\n                    \"comment\": \"It Was good.\",\r\n                    \"user\": \"654c9a20b561791fe579b4b2\",\r\n                    \"post\": \"654dbc83c33b57c8af4efafb\",\r\n                    \"createdAt\": \"2023-11-10T17:19:36.295Z\",\r\n                    \"__v\": 0\r\n                },\r\n                {\r\n                    \"_id\": \"654e662960cd4837be241170\",\r\n                    \"comment\": \"It Was good.\",\r\n                    \"user\": \"654c9a20b561791fe579b4b2\",\r\n                    \"post\": \"654dbc83c33b57c8af4efafb\",\r\n                    \"createdAt\": \"2023-11-10T17:19:37.445Z\",\r\n                    \"__v\": 0\r\n                },\r\n                {\r\n                    \"_id\": \"654e662a60cd4837be241174\",\r\n                    \"comment\": \"It Was good.\",\r\n                    \"user\": \"654c9a20b561791fe579b4b2\",\r\n                    \"post\": \"654dbc83c33b57c8af4efafb\",\r\n                    \"createdAt\": \"2023-11-10T17:19:38.494Z\",\r\n                    \"__v\": 0\r\n                },\r\n                {\r\n                    \"_id\": \"654e662b60cd4837be241178\",\r\n                    \"comment\": \"It Was good.\",\r\n                    \"user\": \"654c9a20b561791fe579b4b2\",\r\n                    \"post\": \"654dbc83c33b57c8af4efafb\",\r\n                    \"createdAt\": \"2023-11-10T17:19:39.652Z\",\r\n                    \"__v\": 0\r\n                },\r\n                {\r\n                    \"_id\": \"654e662f60cd4837be24117c\",\r\n                    \"comment\": \"It Was good.\",\r\n                    \"user\": \"654c9a20b561791fe579b4b2\",\r\n                    \"post\": \"654dbc83c33b57c8af4efafb\",\r\n                    \"createdAt\": \"2023-11-10T17:19:43.142Z\",\r\n                    \"__v\": 0\r\n                },\r\n                {\r\n                    \"_id\": \"654e663060cd4837be241180\",\r\n                    \"comment\": \"It Was good.\",\r\n                    \"user\": \"654c9a20b561791fe579b4b2\",\r\n                    \"post\": \"654dbc83c33b57c8af4efafb\",\r\n                    \"createdAt\": \"2023-11-10T17:19:44.622Z\",\r\n                    \"__v\": 0\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"_id\": \"654dc2b9b80d1abbd5a7deab\",\r\n            \"content\": \"How was your day?\",\r\n            \"likes\": [],\r\n            \"comments\": []\r\n        }\r\n    ]\r\n}"
 								}
 							]
 						},
 						{
 							"name": "Comment On Post",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Response status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"",
+											"pm.test(\"Response has required fields\", function () {",
+											"    const responseData = pm.response.json();",
+											"    ",
+											"    pm.expect(responseData).to.be.an('object');",
+											"    pm.expect(responseData.success).to.exist;",
+											"    pm.expect(responseData.message).to.exist;",
+											"    pm.expect(responseData.data).to.exist;",
+											"});",
+											"",
+											"",
+											"pm.test(\"Comment is a non-empty string\", function () {",
+											"    const responseData = pm.response.json();",
+											"",
+											"    pm.expect(responseData).to.be.an('object');",
+											"    pm.expect(responseData.data.comment).to.exist.and.to.be.a('string').and.to.have.lengthOf.at.least(1, \"Comment should not be empty\");",
+											"});",
+											"",
+											"",
+											"pm.test(\"User is a non-empty string\", function () {",
+											"  const responseData = pm.response.json();",
+											"",
+											"  pm.expect(responseData).to.be.an('object');",
+											"  pm.expect(responseData.data.user).to.be.a('string').and.to.have.lengthOf.at.least(1, \"User should not be empty\");",
+											"});",
+											"",
+											"",
+											"pm.test(\"Post is a non-empty string\", function () {",
+											"  const responseData = pm.response.json();",
+											"  ",
+											"  pm.expect(responseData).to.be.an('object');",
+											"  pm.expect(responseData.data).to.exist.and.to.be.an('object');",
+											"  pm.expect(responseData.data.post).to.exist.and.to.be.a('string').and.to.have.lengthOf.at.least(1, \"Value should not be empty\");",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
 							"request": {
 								"auth": {
 									"type": "bearer",
@@ -1496,6 +1977,43 @@
 						},
 						{
 							"name": "Update Post",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Response status code is 200\", function () {",
+											"  pm.response.to.have.status(200);",
+											"});",
+											"",
+											"",
+											"pm.test(\"Validate the success field in the response\", function () {",
+											"    const responseData = pm.response.json();",
+											"    ",
+											"    pm.expect(responseData).to.be.an('object');",
+											"    pm.expect(responseData.success).to.exist.and.to.be.a('boolean');",
+											"});",
+											"",
+											"",
+											"pm.test(\"Verify that the content field is a non-empty string\", function () {",
+											"    const responseData = pm.response.json();",
+											"",
+											"    pm.expect(responseData.data).to.be.an('object');",
+											"    pm.expect(responseData.data.content).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Value should not be empty\");",
+											"});",
+											"",
+											"",
+											"pm.test(\"Verify that the user field in the data object is a non-empty string\", function () {",
+											"  const responseData = pm.response.json();",
+											"",
+											"  pm.expect(responseData).to.be.an('object');",
+											"  pm.expect(responseData.data.user).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Value should not be empty\");",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
 							"request": {
 								"auth": {
 									"type": "bearer",
@@ -1581,7 +2099,50 @@
 							]
 						},
 						{
-							"name": "Like Post",
+							"name": "Like Unlike Post",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Response status code is 200\", function () {",
+											"  pm.response.to.have.status(200);",
+											"});",
+											"",
+											"",
+											"pm.test(\"Response has the 'success' field\", function () {",
+											"    const responseData = pm.response.json();",
+											"    ",
+											"    pm.expect(responseData).to.be.an('object');",
+											"    pm.expect(responseData.success).to.exist;",
+											"});",
+											"",
+											"",
+											"pm.test(\"The 'success' field should be a boolean value\", function () {",
+											"    const responseData = pm.response.json();",
+											"    ",
+											"    pm.expect(responseData.success).to.be.a('boolean');",
+											"});",
+											"",
+											"",
+											"pm.test(\"Response has the 'message' field\", function () {",
+											"    const responseData = pm.response.json();",
+											"",
+											"    pm.expect(responseData).to.have.property(\"message\");",
+											"});",
+											"",
+											"",
+											"pm.test(\"The message field is a non-empty string\", function () {",
+											"  const responseData = pm.response.json();",
+											"  ",
+											"  pm.expect(responseData).to.be.an('object');",
+											"  pm.expect(responseData.message).to.exist.and.to.be.a('string').and.to.have.lengthOf.at.least(1, \"Value should not be empty\");",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
 							"request": {
 								"auth": {
 									"type": "bearer",
@@ -1611,7 +2172,7 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:3001/api/posts/likePost",
+									"raw": "http://localhost:3001/api/posts/likeUnlikePost",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -1620,13 +2181,13 @@
 									"path": [
 										"api",
 										"posts",
-										"likePost"
+										"likeUnlikePost"
 									]
 								}
 							},
 							"response": [
 								{
-									"name": "Like Post",
+									"name": "Like Unlike Post",
 									"originalRequest": {
 										"method": "POST",
 										"header": [
@@ -1638,7 +2199,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n    \"postID\" : \"654c9c44145985b1cd78d27f\"\r\n}",
+											"raw": "{\r\n    \"postID\" : \"654dbc83c33b57c8af4efafb\"\r\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -1665,96 +2226,40 @@
 									"body": "{\r\n    \"success\": true,\r\n    \"message\": \"Post liked successfully\"\r\n}"
 								}
 							]
-						},
-						{
-							"name": "Unlike Post",
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NGM5YTIwYjU2MTc5MWZlNTc5YjRiMiIsInVzZXJuYW1lIjoiYWxleHh5IiwidHlwZSI6Im1hbnVhbCIsInByb2ZpbGVQaWMiOiJodHRwczovL2kuaW1ndXIuY29tL0V5enJrZzMuanBlZyIsImVtYWlsIjoiYWF5dXNocGFuZGV5NjE2QGdtYWlsLmNvbSIsImlhdCI6MTY5OTU5MzMzNywiZXhwIjoxNzAwMTk4MTM3fQ.cXx7l4P67JV_Cb9gpdPH33K8SWo1NX2a7k1wv8Lzjk0",
-											"type": "string"
-										}
-									]
-								},
-								"method": "POST",
-								"header": [
-									{
-										"key": "apisecret",
-										"value": "Apple",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"postID\" : \"654dbc83c33b57c8af4efafb\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "http://localhost:3001/api/posts/unlikePost",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3001",
-									"path": [
-										"api",
-										"posts",
-										"unlikePost"
-									]
-								}
-							},
-							"response": [
-								{
-									"name": "Unlike Post",
-									"originalRequest": {
-										"method": "POST",
-										"header": [
-											{
-												"key": "apisecret",
-												"value": "Apple",
-												"type": "text"
-											}
-										],
-										"body": {
-											"mode": "raw",
-											"raw": "{\r\n    \"postID\" : \"654c9c44145985b1cd78d27f\"\r\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "http://localhost:3001/api/posts/unlikePost",
-											"protocol": "http",
-											"host": [
-												"localhost"
-											],
-											"port": "3001",
-											"path": [
-												"api",
-												"posts",
-												"unlikePost"
-											]
-										}
-									},
-									"_postman_previewlanguage": null,
-									"header": null,
-									"cookie": [],
-									"body": "{\r\n    \"success\": true,\r\n    \"message\": \"Post was not liked\"\r\n}"
-								}
-							]
 						}
 					]
 				}
 			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NGM5YTIwYjU2MTc5MWZlNTc5YjRiMiIsInVzZXJuYW1lIjoiYWxleHh5IiwidHlwZSI6Im1hbnVhbCIsInByb2ZpbGVQaWMiOiJodHRwczovL2kuaW1ndXIuY29tL0V5enJrZzMuanBlZyIsImVtYWlsIjoiYWF5dXNocGFuZGV5NjE2QGdtYWlsLmNvbSIsImlhdCI6MTY5OTU5MzMzNywiZXhwIjoxNzAwMTk4MTM3fQ.cXx7l4P67JV_Cb9gpdPH33K8SWo1NX2a7k1wv8Lzjk0",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
 		}
 	]
 }

@@ -9,6 +9,8 @@ components:
     bearerAuth:
       type: http
       scheme: bearer
+security:
+  - bearerAuth: []
 tags:
   - name: Public
   - name: Public > Auth
@@ -482,10 +484,17 @@ paths:
                 type: string
               example: "{\r\n    \"success\": true,\r\n    \"message\": \"Post found successfully\",\r\n    \"data\": {\r\n        \"_id\": \"654dbc83c33b57c8af4efafb\",\r\n        \"content\": \"How was your day?\",\r\n        \"user\": \"654c9a20b561791fe579b4b2\",\r\n        \"comment\": [],\r\n        \"likes\": [\r\n            {\r\n                \"_id\": \"654c9a20b561791fe579b4b2\",\r\n                \"username\": \"alexxy\",\r\n                \"email\": \"aayushpandey616@gmail.com\",\r\n                \"password\": \"$2a$12$PTwunsMxnlHrYgt38mUeP.ia7sGoSqtkmicXzOju/EIjGc/cisxqa\",\r\n                \"profilePic\": \"https://i.imgur.com/Eyzrkg3.jpeg\",\r\n                \"verified\": true,\r\n                \"type\": \"manual\",\r\n                \"otp\": null,\r\n                \"createdAt\": \"2023-11-09T08:36:48.176Z\",\r\n                \"__v\": 0\r\n            }\r\n        ],\r\n        \"createdAt\": \"2023-11-10T05:15:47.295Z\",\r\n        \"__v\": 0\r\n    }\r\n}"
   /api/posts/getAllPosts:
-    get:
+    post:
       tags:
         - Public > Posts
       summary: Get All Posts
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                page: 1
       security:
         - bearerAuth: []
       parameters:
@@ -500,12 +509,47 @@ paths:
             text/plain:
               schema:
                 type: string
-              example: "{\r\n    \"success\": true,\r\n    \"message\": \"All posts retrieved successfully\",\r\n    \"data\": [\r\n        {\r\n            \"_id\": \"654dbc83c33b57c8af4efafb\",\r\n            \"content\": \"How was your day?\",\r\n            \"likes\": [\r\n                {\r\n                    \"_id\": \"654c9a20b561791fe579b4b2\",\r\n                    \"username\": \"alexxy\",\r\n                    \"email\": \"aayushpandey616@gmail.com\",\r\n                    \"profilePic\": \"https://i.imgur.com/Eyzrkg3.jpeg\",\r\n                    \"verified\": true,\r\n                    \"type\": \"manual\",\r\n                    \"createdAt\": \"2023-11-09T08:36:48.176Z\",\r\n                    \"__v\": 0\r\n                }\r\n            ],\r\n            \"comments\": []\r\n        }\r\n    ]\r\n}"
+              example: "{\r\n    \"success\": true,\r\n    \"message\": \"All posts retrieved successfully\",\r\n    \"current_page\": 1,\r\n    \"data\": [\r\n        {\r\n            \"_id\": \"654dbc83c33b57c8af4efafb\",\r\n            \"content\": \"How was your day 2 ?\",\r\n            \"likes\": [\r\n                {\r\n                    \"_id\": \"654c9a20b561791fe579b4b2\",\r\n                    \"username\": \"alexxy\",\r\n                    \"email\": \"aayushpandey616@gmail.com\",\r\n                    \"profilePic\": \"https://i.imgur.com/Eyzrkg3.jpeg\",\r\n                    \"verified\": true,\r\n                    \"type\": \"manual\",\r\n                    \"createdAt\": \"2023-11-09T08:36:48.176Z\",\r\n                    \"__v\": 0\r\n                }\r\n            ],\r\n            \"comments\": [\r\n                {\r\n                    \"_id\": \"654dc2bab80d1abbd5a7deb7\",\r\n                    \"comment\": \"It Was good.\",\r\n                    \"user\": \"654c9a20b561791fe579b4b2\",\r\n                    \"post\": \"654dbc83c33b57c8af4efafb\",\r\n                    \"createdAt\": \"2023-11-10T05:42:18.547Z\",\r\n                    \"__v\": 0\r\n                },\r\n                {\r\n                    \"_id\": \"654e662460cd4837be241160\",\r\n                    \"comment\": \"It Was good.\",\r\n                    \"user\": \"654c9a20b561791fe579b4b2\",\r\n                    \"post\": \"654dbc83c33b57c8af4efafb\",\r\n                    \"createdAt\": \"2023-11-10T17:19:32.439Z\",\r\n                    \"__v\": 0\r\n                },\r\n                {\r\n                    \"_id\": \"654e662560cd4837be241164\",\r\n                    \"comment\": \"It Was good.\",\r\n                    \"user\": \"654c9a20b561791fe579b4b2\",\r\n                    \"post\": \"654dbc83c33b57c8af4efafb\",\r\n                    \"createdAt\": \"2023-11-10T17:19:33.883Z\",\r\n                    \"__v\": 0\r\n                },\r\n                {\r\n                    \"_id\": \"654e662760cd4837be241168\",\r\n                    \"comment\": \"It Was good.\",\r\n                    \"user\": \"654c9a20b561791fe579b4b2\",\r\n                    \"post\": \"654dbc83c33b57c8af4efafb\",\r\n                    \"createdAt\": \"2023-11-10T17:19:35.141Z\",\r\n                    \"__v\": 0\r\n                },\r\n                {\r\n                    \"_id\": \"654e662860cd4837be24116c\",\r\n                    \"comment\": \"It Was good.\",\r\n                    \"user\": \"654c9a20b561791fe579b4b2\",\r\n                    \"post\": \"654dbc83c33b57c8af4efafb\",\r\n                    \"createdAt\": \"2023-11-10T17:19:36.295Z\",\r\n                    \"__v\": 0\r\n                },\r\n                {\r\n                    \"_id\": \"654e662960cd4837be241170\",\r\n                    \"comment\": \"It Was good.\",\r\n                    \"user\": \"654c9a20b561791fe579b4b2\",\r\n                    \"post\": \"654dbc83c33b57c8af4efafb\",\r\n                    \"createdAt\": \"2023-11-10T17:19:37.445Z\",\r\n                    \"__v\": 0\r\n                },\r\n                {\r\n                    \"_id\": \"654e662a60cd4837be241174\",\r\n                    \"comment\": \"It Was good.\",\r\n                    \"user\": \"654c9a20b561791fe579b4b2\",\r\n                    \"post\": \"654dbc83c33b57c8af4efafb\",\r\n                    \"createdAt\": \"2023-11-10T17:19:38.494Z\",\r\n                    \"__v\": 0\r\n                },\r\n                {\r\n                    \"_id\": \"654e662b60cd4837be241178\",\r\n                    \"comment\": \"It Was good.\",\r\n                    \"user\": \"654c9a20b561791fe579b4b2\",\r\n                    \"post\": \"654dbc83c33b57c8af4efafb\",\r\n                    \"createdAt\": \"2023-11-10T17:19:39.652Z\",\r\n                    \"__v\": 0\r\n                },\r\n                {\r\n                    \"_id\": \"654e662f60cd4837be24117c\",\r\n                    \"comment\": \"It Was good.\",\r\n                    \"user\": \"654c9a20b561791fe579b4b2\",\r\n                    \"post\": \"654dbc83c33b57c8af4efafb\",\r\n                    \"createdAt\": \"2023-11-10T17:19:43.142Z\",\r\n                    \"__v\": 0\r\n                },\r\n                {\r\n                    \"_id\": \"654e663060cd4837be241180\",\r\n                    \"comment\": \"It Was good.\",\r\n                    \"user\": \"654c9a20b561791fe579b4b2\",\r\n                    \"post\": \"654dbc83c33b57c8af4efafb\",\r\n                    \"createdAt\": \"2023-11-10T17:19:44.622Z\",\r\n                    \"__v\": 0\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"_id\": \"654dc2b9b80d1abbd5a7deab\",\r\n            \"content\": \"How was your day?\",\r\n            \"likes\": [],\r\n            \"comments\": []\r\n        }\r\n    ]\r\n}"
+  /api/posts/getPostsComments:
+    post:
+      tags:
+        - Public > Posts
+      summary: Get Post Likes
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                postID: 654dbc83c33b57c8af4efafb
+                page: 2
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: apisecret
+          in: header
+          schema:
+            type: string
+          example: Apple
+      responses:
+        undefined:
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: "{\r\n    \"success\": true,\r\n    \"message\": \"Likes retrieved successfully\",\r\n    \"current_page\": 1,\r\n    \"data\": [\r\n        {\r\n            \"_id\": \"654c9a20b561791fe579b4b2\",\r\n            \"username\": \"alexxy\",\r\n            \"email\": \"aayushpandey616@gmail.com\",\r\n            \"profilePic\": \"https://i.imgur.com/Eyzrkg3.jpeg\",\r\n            \"verified\": true,\r\n            \"type\": \"manual\",\r\n            \"createdAt\": \"2023-11-09T08:36:48.176Z\",\r\n            \"__v\": 0\r\n        }\r\n    ]\r\n}"
   /api/posts/getLikedPosts:
-    get:
+    post:
       tags:
         - Public > Posts
       summary: Get Liked Posts
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                page: 1
       security:
         - bearerAuth: []
       parameters:
@@ -520,7 +564,7 @@ paths:
             text/plain:
               schema:
                 type: string
-              example: "{\r\n    \"success\": true,\r\n    \"message\": \"All posts retrieved successfully\",\r\n    \"data\": [\r\n        {\r\n            \"_id\": \"654dbc83c33b57c8af4efafb\",\r\n            \"content\": \"How was your day?\",\r\n            \"likes\": [\r\n                {\r\n                    \"_id\": \"654c9a20b561791fe579b4b2\",\r\n                    \"username\": \"alexxy\",\r\n                    \"email\": \"aayushpandey616@gmail.com\",\r\n                    \"profilePic\": \"https://i.imgur.com/Eyzrkg3.jpeg\",\r\n                    \"verified\": true,\r\n                    \"type\": \"manual\",\r\n                    \"createdAt\": \"2023-11-09T08:36:48.176Z\",\r\n                    \"__v\": 0\r\n                }\r\n            ],\r\n            \"comments\": []\r\n        }\r\n    ]\r\n}"
+              example: "{\r\n    \"success\": true,\r\n    \"message\": \"All posts retrieved successfully\",\r\n    \"current_page\": 1,\r\n    \"data\": [\r\n        {\r\n            \"_id\": \"654dbc83c33b57c8af4efafb\",\r\n            \"content\": \"How was your day 2 ?\",\r\n            \"likes\": [\r\n                {\r\n                    \"_id\": \"654c9a20b561791fe579b4b2\",\r\n                    \"username\": \"alexxy\",\r\n                    \"email\": \"aayushpandey616@gmail.com\",\r\n                    \"profilePic\": \"https://i.imgur.com/Eyzrkg3.jpeg\",\r\n                    \"verified\": true,\r\n                    \"type\": \"manual\",\r\n                    \"createdAt\": \"2023-11-09T08:36:48.176Z\",\r\n                    \"__v\": 0\r\n                }\r\n            ],\r\n            \"comments\": [\r\n                {\r\n                    \"_id\": \"654dc2bab80d1abbd5a7deb7\",\r\n                    \"comment\": \"It Was good.\",\r\n                    \"user\": \"654c9a20b561791fe579b4b2\",\r\n                    \"post\": \"654dbc83c33b57c8af4efafb\",\r\n                    \"createdAt\": \"2023-11-10T05:42:18.547Z\",\r\n                    \"__v\": 0\r\n                },\r\n                {\r\n                    \"_id\": \"654e662460cd4837be241160\",\r\n                    \"comment\": \"It Was good.\",\r\n                    \"user\": \"654c9a20b561791fe579b4b2\",\r\n                    \"post\": \"654dbc83c33b57c8af4efafb\",\r\n                    \"createdAt\": \"2023-11-10T17:19:32.439Z\",\r\n                    \"__v\": 0\r\n                },\r\n                {\r\n                    \"_id\": \"654e662560cd4837be241164\",\r\n                    \"comment\": \"It Was good.\",\r\n                    \"user\": \"654c9a20b561791fe579b4b2\",\r\n                    \"post\": \"654dbc83c33b57c8af4efafb\",\r\n                    \"createdAt\": \"2023-11-10T17:19:33.883Z\",\r\n                    \"__v\": 0\r\n                },\r\n                {\r\n                    \"_id\": \"654e662760cd4837be241168\",\r\n                    \"comment\": \"It Was good.\",\r\n                    \"user\": \"654c9a20b561791fe579b4b2\",\r\n                    \"post\": \"654dbc83c33b57c8af4efafb\",\r\n                    \"createdAt\": \"2023-11-10T17:19:35.141Z\",\r\n                    \"__v\": 0\r\n                },\r\n                {\r\n                    \"_id\": \"654e662860cd4837be24116c\",\r\n                    \"comment\": \"It Was good.\",\r\n                    \"user\": \"654c9a20b561791fe579b4b2\",\r\n                    \"post\": \"654dbc83c33b57c8af4efafb\",\r\n                    \"createdAt\": \"2023-11-10T17:19:36.295Z\",\r\n                    \"__v\": 0\r\n                },\r\n                {\r\n                    \"_id\": \"654e662960cd4837be241170\",\r\n                    \"comment\": \"It Was good.\",\r\n                    \"user\": \"654c9a20b561791fe579b4b2\",\r\n                    \"post\": \"654dbc83c33b57c8af4efafb\",\r\n                    \"createdAt\": \"2023-11-10T17:19:37.445Z\",\r\n                    \"__v\": 0\r\n                },\r\n                {\r\n                    \"_id\": \"654e662a60cd4837be241174\",\r\n                    \"comment\": \"It Was good.\",\r\n                    \"user\": \"654c9a20b561791fe579b4b2\",\r\n                    \"post\": \"654dbc83c33b57c8af4efafb\",\r\n                    \"createdAt\": \"2023-11-10T17:19:38.494Z\",\r\n                    \"__v\": 0\r\n                },\r\n                {\r\n                    \"_id\": \"654e662b60cd4837be241178\",\r\n                    \"comment\": \"It Was good.\",\r\n                    \"user\": \"654c9a20b561791fe579b4b2\",\r\n                    \"post\": \"654dbc83c33b57c8af4efafb\",\r\n                    \"createdAt\": \"2023-11-10T17:19:39.652Z\",\r\n                    \"__v\": 0\r\n                },\r\n                {\r\n                    \"_id\": \"654e662f60cd4837be24117c\",\r\n                    \"comment\": \"It Was good.\",\r\n                    \"user\": \"654c9a20b561791fe579b4b2\",\r\n                    \"post\": \"654dbc83c33b57c8af4efafb\",\r\n                    \"createdAt\": \"2023-11-10T17:19:43.142Z\",\r\n                    \"__v\": 0\r\n                },\r\n                {\r\n                    \"_id\": \"654e663060cd4837be241180\",\r\n                    \"comment\": \"It Was good.\",\r\n                    \"user\": \"654c9a20b561791fe579b4b2\",\r\n                    \"post\": \"654dbc83c33b57c8af4efafb\",\r\n                    \"createdAt\": \"2023-11-10T17:19:44.622Z\",\r\n                    \"__v\": 0\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"_id\": \"654dc2b9b80d1abbd5a7deab\",\r\n            \"content\": \"How was your day?\",\r\n            \"likes\": [],\r\n            \"comments\": []\r\n        }\r\n    ]\r\n}"
   /api/posts/createComment:
     post:
       tags:
@@ -604,11 +648,11 @@ paths:
               schema:
                 type: string
               example: "{\r\n    \"success\": true,\r\n    \"message\": \"Post updated successfully\",\r\n    \"data\": {\r\n        \"_id\": \"654dbc83c33b57c8af4efafb\",\r\n        \"content\": \"How was your day 2 ?\",\r\n        \"user\": \"654c9a20b561791fe579b4b2\",\r\n        \"comment\": [],\r\n        \"likes\": [\r\n            \"654c9a20b561791fe579b4b2\"\r\n        ],\r\n        \"createdAt\": \"2023-11-10T05:15:47.295Z\",\r\n        \"__v\": 0\r\n    }\r\n}"
-  /api/posts/likePost:
+  /api/posts/likeUnlikePost:
     post:
       tags:
         - Public > Posts
-      summary: Like Post
+      summary: Like Unlike Post
       requestBody:
         content:
           application/json:
@@ -631,30 +675,3 @@ paths:
               schema:
                 type: string
               example: "{\r\n    \"success\": true,\r\n    \"message\": \"Post liked successfully\"\r\n}"
-  /api/posts/unlikePost:
-    post:
-      tags:
-        - Public > Posts
-      summary: Unlike Post
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              example:
-                postID: 654dbc83c33b57c8af4efafb
-      security:
-        - bearerAuth: []
-      parameters:
-        - name: apisecret
-          in: header
-          schema:
-            type: string
-          example: Apple
-      responses:
-        undefined:
-          content:
-            text/plain:
-              schema:
-                type: string
-              example: "{\r\n    \"success\": true,\r\n    \"message\": \"Post was not liked\"\r\n}"
