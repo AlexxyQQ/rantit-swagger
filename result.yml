@@ -55,15 +55,15 @@ paths:
             Content-Length:
               schema:
                 type: integer
-                example: '669'
+                example: '649'
             ETag:
               schema:
                 type: string
-                example: W/"29d-aHf4RSk+gEagCylnPRif6xzBJMA"
+                example: W/"289-gYEXEdWDemWZh2x4i8eKyPxwUTI"
             Date:
               schema:
                 type: string
-                example: Sat, 30 Sep 2023 08:44:51 GMT
+                example: Sun, 12 Nov 2023 04:30:11 GMT
             Connection:
               schema:
                 type: string
@@ -80,49 +80,23 @@ paths:
                 success: true
                 data:
                   user:
-                    _id: 6517dfbe345ee8f0da29a9b1
+                    _id: 6550549bd64f46e0826bb7d1
                     username: alexxy
                     email: aayushpandey616@gmail.com
-                    password: >-
-                      $2a$12$12l127hOC/4ZuPaO6fWBU.H6ZHiSNSkgUe1o4r.oyER4JpudpswZu
                     profilePic: https://i.imgur.com/Eyzrkg3.jpeg
                     verified: false
                     type: manual
+                    otp: FRM49A
+                    createdAt: '2023-11-12T04:29:15.723Z'
                     __v: 0
                   token: >-
-                    eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1MTdkZmJlMzQ1ZWU4ZjBkYTI5YTliMSIsInVzZXJuYW1lIjoiYWxleHh5IiwidHlwZSI6Im1hbnVhbCIsInByb2ZpbGVQaWMiOiJodHRwczovL2kuaW1ndXIuY29tL0V5enJrZzMuanBlZyIsImVtYWlsIjoiYWF5dXNocGFuZGV5NjE2QGdtYWlsLmNvbSIsImlhdCI6MTY5NjA2MzQ5MSwiZXhwIjoxNjk2NjY4MjkxfQ.9pBxnNrHjxx1uEOhizfABkjnvJFZQryU_3wSrMzCxQQ
+                    eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NTA1NDliZDY0ZjQ2ZTA4MjZiYjdkMSIsInVzZXJuYW1lIjoiYWxleHh5IiwidHlwZSI6Im1hbnVhbCIsInByb2ZpbGVQaWMiOiJodHRwczovL2kuaW1ndXIuY29tL0V5enJrZzMuanBlZyIsImVtYWlsIjoiYWF5dXNocGFuZGV5NjE2QGdtYWlsLmNvbSIsImlhdCI6MTY5OTc2MzQxMSwiZXhwIjoxNzAwMzY4MjExfQ.KCN35wDpVxoc_4UmzUe0x4axbXIgWsQ1dCGlQk0yN-0
                 message: User logged in successfully!
-  /api/users/otpValidator:
-    post:
-      tags:
-        - Public > Auth
-      summary: OTP Validator
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              example:
-                email: aayushpandey616@gmail.com
-                otp: 8J8JYJ
-      parameters:
-        - name: apisecret
-          in: header
-          schema:
-            type: string
-          example: Apple
-      responses:
-        undefined:
-          content:
-            text/plain:
-              schema:
-                type: string
-              example: "{\r\n    \"success\": true,\r\n    \"message\": \"OTP verified successfully!\"\r\n}"
   /api/users/signup:
     post:
       tags:
         - Public > Auth
-      summary: Register
+      summary: Signup
       requestBody:
         content:
           application/json:
@@ -159,15 +133,15 @@ paths:
             Content-Length:
               schema:
                 type: integer
-                example: '316'
+                example: '245'
             ETag:
               schema:
                 type: string
-                example: W/"13c-PouUk+Nw70O48/wDgiytirCl+bQ"
+                example: W/"f5-m2p0ldDSKqFJ3ruxRAha0zDWIjE"
             Date:
               schema:
                 type: string
-                example: Sat, 30 Sep 2023 08:43:42 GMT
+                example: Sun, 12 Nov 2023 04:29:19 GMT
             Connection:
               schema:
                 type: string
@@ -183,22 +157,26 @@ paths:
               example:
                 success: true
                 data:
+                  _id: 6550549bd64f46e0826bb7d1
                   username: alexxy
                   email: aayushpandey616@gmail.com
-                  password: $2a$12$12l127hOC/4ZuPaO6fWBU.H6ZHiSNSkgUe1o4r.oyER4JpudpswZu
                   profilePic: https://i.imgur.com/Eyzrkg3.jpeg
                   verified: false
                   type: manual
-                  _id: 6517dfbe345ee8f0da29a9b1
-                  __v: 0
-                message: User created successfully!
-  /api/users/loginWithToken:
-    get:
+                message: OTP sent to your email please verify!
+  /api/users/otpValidator:
+    post:
       tags:
         - Public > Auth
-      summary: LoginWithToken
-      security:
-        - bearerAuth: []
+      summary: Signup OTP Validator
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                email: aayushpandey616@gmail.com
+                otp: 8J8JYJ
       parameters:
         - name: apisecret
           in: header
@@ -224,15 +202,15 @@ paths:
             Content-Length:
               schema:
                 type: integer
-                example: '669'
+                example: '55'
             ETag:
               schema:
                 type: string
-                example: W/"29d-aHf4RSk+gEagCylnPRif6xzBJMA"
+                example: W/"37-8OvKtOmvqCGQofXWrYB/ebrYbxs"
             Date:
               schema:
                 type: string
-                example: Sat, 30 Sep 2023 08:45:12 GMT
+                example: Sun, 12 Nov 2023 04:30:24 GMT
             Connection:
               schema:
                 type: string
@@ -247,20 +225,131 @@ paths:
                 type: object
               example:
                 success: true
-                data:
-                  user:
-                    _id: 6517dfbe345ee8f0da29a9b1
-                    username: alexxy
-                    email: aayushpandey616@gmail.com
-                    password: >-
-                      $2a$12$12l127hOC/4ZuPaO6fWBU.H6ZHiSNSkgUe1o4r.oyER4JpudpswZu
-                    profilePic: https://i.imgur.com/Eyzrkg3.jpeg
-                    verified: false
-                    type: manual
-                    __v: 0
-                  token: >-
-                    eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1MTdkZmJlMzQ1ZWU4ZjBkYTI5YTliMSIsInVzZXJuYW1lIjoiYWxleHh5IiwidHlwZSI6Im1hbnVhbCIsInByb2ZpbGVQaWMiOiJodHRwczovL2kuaW1ndXIuY29tL0V5enJrZzMuanBlZyIsImVtYWlsIjoiYWF5dXNocGFuZGV5NjE2QGdtYWlsLmNvbSIsImlhdCI6MTY5NjA2MzQ5MSwiZXhwIjoxNjk2NjY4MjkxfQ.9pBxnNrHjxx1uEOhizfABkjnvJFZQryU_3wSrMzCxQQ
-                message: User logged in successfully!
+                message: OTP verified successfully!
+  /api/users/forgotPasswordOTP:
+    post:
+      tags:
+        - Public > Auth
+      summary: Forgot Passwor OTP Sender
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                email: aayushpandey616@gmail.com
+      parameters:
+        - name: apisecret
+          in: header
+          schema:
+            type: string
+          example: Apple
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Powered-By:
+              schema:
+                type: string
+                example: Express
+            Vary:
+              schema:
+                type: string
+                example: Origin
+            Content-Type:
+              schema:
+                type: string
+                example: application/json; charset=utf-8
+            Content-Length:
+              schema:
+                type: integer
+                example: '52'
+            ETag:
+              schema:
+                type: string
+                example: W/"34-FLuCn87VXEpDvebpV4UZUqbceDI"
+            Date:
+              schema:
+                type: string
+                example: Sun, 12 Nov 2023 04:30:33 GMT
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=5
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                success: true
+                message: OTP sent to your email!
+  /api/users/forgotPassword:
+    post:
+      tags:
+        - Public > Auth
+      summary: Forgot Password
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                email: aayushpandey616@gmail.com
+                otp: X39I92
+                newPassword: VerySecretPassword@123
+      parameters:
+        - name: apisecret
+          in: header
+          schema:
+            type: string
+          example: Apple
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Powered-By:
+              schema:
+                type: string
+                example: Express
+            Vary:
+              schema:
+                type: string
+                example: Origin
+            Content-Type:
+              schema:
+                type: string
+                example: application/json; charset=utf-8
+            Content-Length:
+              schema:
+                type: integer
+                example: '59'
+            ETag:
+              schema:
+                type: string
+                example: W/"3b-xe1RWVR7zsFcIMt1e6yC73508wY"
+            Date:
+              schema:
+                type: string
+                example: Sun, 12 Nov 2023 04:31:12 GMT
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=5
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                success: true
+                message: Password updated successfully!
   /api/users/uploadProfilePic:
     post:
       tags:
@@ -302,15 +391,15 @@ paths:
             Content-Length:
               schema:
                 type: integer
-                example: '357'
+                example: '332'
             ETag:
               schema:
                 type: string
-                example: W/"165-o8aPx8H17vfZnolCndKisWM24nY"
+                example: W/"14c-SeaeuyhaaVDwT/XhbzG5fddiONw"
             Date:
               schema:
                 type: string
-                example: Sat, 30 Sep 2023 08:45:35 GMT
+                example: Sun, 12 Nov 2023 04:32:07 GMT
             Connection:
               schema:
                 type: string
@@ -326,14 +415,15 @@ paths:
               example:
                 success: true
                 data:
-                  _id: 6517dfbe345ee8f0da29a9b1
+                  otp: null
+                  _id: 6550549bd64f46e0826bb7d1
                   username: alexxy
                   email: aayushpandey616@gmail.com
-                  password: $2a$12$12l127hOC/4ZuPaO6fWBU.H6ZHiSNSkgUe1o4r.oyER4JpudpswZu
                   profilePic: >-
-                    public\uploads\alexxy\profilePic\256108fbfc46b9a5941bd5cd317ef8cb.png
-                  verified: false
+                    public\uploads\alexxy\profilePic\c4107bb8abc222f7bb2caffc188209e2.jpg
+                  verified: true
                   type: manual
+                  createdAt: '2023-11-12T04:29:15.723Z'
                   __v: 0
                 message: File uploaded successfully
   /api/users/deleteUser:
@@ -378,7 +468,7 @@ paths:
             Date:
               schema:
                 type: string
-                example: Sat, 30 Sep 2023 08:46:03 GMT
+                example: Sun, 12 Nov 2023 04:26:23 GMT
             Connection:
               schema:
                 type: string
@@ -393,6 +483,75 @@ paths:
                 type: object
               example:
                 message: Profile deleted successfully
+  /api/users/loginWithToken:
+    get:
+      tags:
+        - Public > Auth
+      summary: LoginWithToken
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: apisecret
+          in: header
+          schema:
+            type: string
+          example: Apple
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Powered-By:
+              schema:
+                type: string
+                example: Express
+            Vary:
+              schema:
+                type: string
+                example: Origin
+            Content-Type:
+              schema:
+                type: string
+                example: application/json; charset=utf-8
+            Content-Length:
+              schema:
+                type: integer
+                example: '674'
+            ETag:
+              schema:
+                type: string
+                example: W/"2a2-5GEiEIT0eZ89Zq1Tjq0cW5T+pcs"
+            Date:
+              schema:
+                type: string
+                example: Sun, 12 Nov 2023 04:32:13 GMT
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=5
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                success: true
+                data:
+                  user:
+                    _id: 6550549bd64f46e0826bb7d1
+                    username: alexxy
+                    email: aayushpandey616@gmail.com
+                    profilePic: >-
+                      public\uploads\alexxy\profilePic\c4107bb8abc222f7bb2caffc188209e2.jpg
+                    verified: true
+                    type: manual
+                    createdAt: '2023-11-12T04:29:15.723Z'
+                    __v: 0
+                  token: >-
+                    eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NTA0ZWUwODEwMWYwYjAxZWYzMDMzMSIsInVzZXJuYW1lIjoiYWxleHh5IiwidHlwZSI6Im1hbnVhbCIsInByb2ZpbGVQaWMiOiJodHRwczovL2kuaW1ndXIuY29tL0V5enJrZzMuanBlZyIsImVtYWlsIjoiYWF5dXNocGFuZGV5NjE2QGdtYWlsLmNvbSIsImlhdCI6MTY5OTc2Mjg3MywiZXhwIjoxNzAwMzY3NjczfQ.4ffYBwVmdFjX6vc1xQ3XTSB2WZYKHhBk4Yx9mNWOI4A
+                message: User logged in successfully!
   /api/users/getListofUsers:
     get:
       tags:
@@ -450,12 +609,56 @@ paths:
             type: string
           example: Apple
       responses:
-        undefined:
-          content:
-            text/plain:
+        '200':
+          description: OK
+          headers:
+            X-Powered-By:
               schema:
                 type: string
-              example: "{\r\n    \"success\": true,\r\n    \"message\": \"Post created successfully\",\r\n    \"data\": {\r\n        \"content\": \"How was your day?\",\r\n        \"user\": \"654c9a20b561791fe579b4b2\",\r\n        \"comment\": [],\r\n        \"likes\": [],\r\n        \"_id\": \"654dbc83c33b57c8af4efafb\",\r\n        \"createdAt\": \"2023-11-10T05:15:47.295Z\",\r\n        \"__v\": 0\r\n    }\r\n}"
+                example: Express
+            Vary:
+              schema:
+                type: string
+                example: Origin
+            Content-Type:
+              schema:
+                type: string
+                example: application/json; charset=utf-8
+            Content-Length:
+              schema:
+                type: integer
+                example: '231'
+            ETag:
+              schema:
+                type: string
+                example: W/"e7-rouVbMw7OyZsOiHPCDAPbJssK4k"
+            Date:
+              schema:
+                type: string
+                example: Sun, 12 Nov 2023 04:39:42 GMT
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=5
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                success: true
+                message: Post created successfully
+                data:
+                  content: How was your day?
+                  user: 654c9a20b561791fe579b4b2
+                  comment: []
+                  likes: []
+                  _id: 6550570ee0c23e097aeda5e1
+                  createdAt: '2023-11-12T04:39:42.072Z'
+                  __v: 0
   /api/posts/getOnePost:
     post:
       tags:
@@ -467,7 +670,7 @@ paths:
             schema:
               type: object
               example:
-                contentID: 654dbc83c33b57c8af4efafb
+                contentID: 654c9a20b561791fe579b4b2
       security:
         - bearerAuth: []
       parameters:
@@ -477,12 +680,80 @@ paths:
             type: string
           example: Apple
       responses:
-        undefined:
-          content:
-            text/plain:
+        '200':
+          description: OK
+          headers:
+            X-Powered-By:
               schema:
                 type: string
-              example: "{\r\n    \"success\": true,\r\n    \"message\": \"Post found successfully\",\r\n    \"data\": {\r\n        \"_id\": \"654dbc83c33b57c8af4efafb\",\r\n        \"content\": \"How was your day?\",\r\n        \"user\": \"654c9a20b561791fe579b4b2\",\r\n        \"comment\": [],\r\n        \"likes\": [\r\n            {\r\n                \"_id\": \"654c9a20b561791fe579b4b2\",\r\n                \"username\": \"alexxy\",\r\n                \"email\": \"aayushpandey616@gmail.com\",\r\n                \"password\": \"$2a$12$PTwunsMxnlHrYgt38mUeP.ia7sGoSqtkmicXzOju/EIjGc/cisxqa\",\r\n                \"profilePic\": \"https://i.imgur.com/Eyzrkg3.jpeg\",\r\n                \"verified\": true,\r\n                \"type\": \"manual\",\r\n                \"otp\": null,\r\n                \"createdAt\": \"2023-11-09T08:36:48.176Z\",\r\n                \"__v\": 0\r\n            }\r\n        ],\r\n        \"createdAt\": \"2023-11-10T05:15:47.295Z\",\r\n        \"__v\": 0\r\n    }\r\n}"
+                example: Express
+            Vary:
+              schema:
+                type: string
+                example: Origin
+            Content-Type:
+              schema:
+                type: string
+                example: application/json; charset=utf-8
+            Content-Length:
+              schema:
+                type: integer
+                example: '928'
+            ETag:
+              schema:
+                type: string
+                example: W/"3a0-BvQknyh2SwB3HvDRxtWz5Tj6DFQ"
+            Date:
+              schema:
+                type: string
+                example: Sun, 12 Nov 2023 08:44:22 GMT
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=5
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                success: true
+                message: Post found successfully
+                data:
+                  _id: 65508ec54e7e6c3270b70077
+                  content: How was your day 1 ?
+                  user: 654c9a20b561791fe579b4b2
+                  comment:
+                    - _id: 65508f8a24ff053d699ffa07
+                      comment: It Was good 3.
+                      user: 6550549bd64f46e0826bb7d1
+                      post: 65508ec54e7e6c3270b70077
+                      createdAt: '2023-11-12T08:40:42.353Z'
+                      __v: 0
+                    - _id: 65508fdc02d6ce4d7e459a4e
+                      comment: It Was good 3.
+                      user: 6550549bd64f46e0826bb7d1
+                      post: 65508ec54e7e6c3270b70077
+                      createdAt: '2023-11-12T08:42:04.021Z'
+                      __v: 0
+                  likes:
+                    - otp: null
+                      _id: 6550549bd64f46e0826bb7d1
+                      username: alexxy
+                      email: aayushpandey616@gmail.com
+                      password: >-
+                        $2a$12$g8UQX9IDUYMiWBUGe5tJI.jDAupulR/8wsmEgxeaAZeJekec6Dk.a
+                      profilePic: >-
+                        public\uploads\alexxy\profilePic\c4107bb8abc222f7bb2caffc188209e2.jpg
+                      verified: true
+                      type: manual
+                      createdAt: '2023-11-12T04:29:15.723Z'
+                      __v: 0
+                  createdAt: '2023-11-12T08:37:25.561Z'
+                  __v: 0
   /api/posts/getAllPosts:
     post:
       tags:
@@ -504,17 +775,80 @@ paths:
             type: string
           example: Apple
       responses:
-        undefined:
-          content:
-            text/plain:
+        '200':
+          description: OK
+          headers:
+            X-Powered-By:
               schema:
                 type: string
-              example: "{\r\n    \"success\": true,\r\n    \"message\": \"All posts retrieved successfully\",\r\n    \"current_page\": 1,\r\n    \"data\": [\r\n        {\r\n            \"_id\": \"654dbc83c33b57c8af4efafb\",\r\n            \"content\": \"How was your day 2 ?\",\r\n            \"likes\": [\r\n                {\r\n                    \"_id\": \"654c9a20b561791fe579b4b2\",\r\n                    \"username\": \"alexxy\",\r\n                    \"email\": \"aayushpandey616@gmail.com\",\r\n                    \"profilePic\": \"https://i.imgur.com/Eyzrkg3.jpeg\",\r\n                    \"verified\": true,\r\n                    \"type\": \"manual\",\r\n                    \"createdAt\": \"2023-11-09T08:36:48.176Z\",\r\n                    \"__v\": 0\r\n                }\r\n            ],\r\n            \"comments\": [\r\n                {\r\n                    \"_id\": \"654dc2bab80d1abbd5a7deb7\",\r\n                    \"comment\": \"It Was good.\",\r\n                    \"user\": \"654c9a20b561791fe579b4b2\",\r\n                    \"post\": \"654dbc83c33b57c8af4efafb\",\r\n                    \"createdAt\": \"2023-11-10T05:42:18.547Z\",\r\n                    \"__v\": 0\r\n                },\r\n                {\r\n                    \"_id\": \"654e662460cd4837be241160\",\r\n                    \"comment\": \"It Was good.\",\r\n                    \"user\": \"654c9a20b561791fe579b4b2\",\r\n                    \"post\": \"654dbc83c33b57c8af4efafb\",\r\n                    \"createdAt\": \"2023-11-10T17:19:32.439Z\",\r\n                    \"__v\": 0\r\n                },\r\n                {\r\n                    \"_id\": \"654e662560cd4837be241164\",\r\n                    \"comment\": \"It Was good.\",\r\n                    \"user\": \"654c9a20b561791fe579b4b2\",\r\n                    \"post\": \"654dbc83c33b57c8af4efafb\",\r\n                    \"createdAt\": \"2023-11-10T17:19:33.883Z\",\r\n                    \"__v\": 0\r\n                },\r\n                {\r\n                    \"_id\": \"654e662760cd4837be241168\",\r\n                    \"comment\": \"It Was good.\",\r\n                    \"user\": \"654c9a20b561791fe579b4b2\",\r\n                    \"post\": \"654dbc83c33b57c8af4efafb\",\r\n                    \"createdAt\": \"2023-11-10T17:19:35.141Z\",\r\n                    \"__v\": 0\r\n                },\r\n                {\r\n                    \"_id\": \"654e662860cd4837be24116c\",\r\n                    \"comment\": \"It Was good.\",\r\n                    \"user\": \"654c9a20b561791fe579b4b2\",\r\n                    \"post\": \"654dbc83c33b57c8af4efafb\",\r\n                    \"createdAt\": \"2023-11-10T17:19:36.295Z\",\r\n                    \"__v\": 0\r\n                },\r\n                {\r\n                    \"_id\": \"654e662960cd4837be241170\",\r\n                    \"comment\": \"It Was good.\",\r\n                    \"user\": \"654c9a20b561791fe579b4b2\",\r\n                    \"post\": \"654dbc83c33b57c8af4efafb\",\r\n                    \"createdAt\": \"2023-11-10T17:19:37.445Z\",\r\n                    \"__v\": 0\r\n                },\r\n                {\r\n                    \"_id\": \"654e662a60cd4837be241174\",\r\n                    \"comment\": \"It Was good.\",\r\n                    \"user\": \"654c9a20b561791fe579b4b2\",\r\n                    \"post\": \"654dbc83c33b57c8af4efafb\",\r\n                    \"createdAt\": \"2023-11-10T17:19:38.494Z\",\r\n                    \"__v\": 0\r\n                },\r\n                {\r\n                    \"_id\": \"654e662b60cd4837be241178\",\r\n                    \"comment\": \"It Was good.\",\r\n                    \"user\": \"654c9a20b561791fe579b4b2\",\r\n                    \"post\": \"654dbc83c33b57c8af4efafb\",\r\n                    \"createdAt\": \"2023-11-10T17:19:39.652Z\",\r\n                    \"__v\": 0\r\n                },\r\n                {\r\n                    \"_id\": \"654e662f60cd4837be24117c\",\r\n                    \"comment\": \"It Was good.\",\r\n                    \"user\": \"654c9a20b561791fe579b4b2\",\r\n                    \"post\": \"654dbc83c33b57c8af4efafb\",\r\n                    \"createdAt\": \"2023-11-10T17:19:43.142Z\",\r\n                    \"__v\": 0\r\n                },\r\n                {\r\n                    \"_id\": \"654e663060cd4837be241180\",\r\n                    \"comment\": \"It Was good.\",\r\n                    \"user\": \"654c9a20b561791fe579b4b2\",\r\n                    \"post\": \"654dbc83c33b57c8af4efafb\",\r\n                    \"createdAt\": \"2023-11-10T17:19:44.622Z\",\r\n                    \"__v\": 0\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"_id\": \"654dc2b9b80d1abbd5a7deab\",\r\n            \"content\": \"How was your day?\",\r\n            \"likes\": [],\r\n            \"comments\": []\r\n        }\r\n    ]\r\n}"
+                example: Express
+            Vary:
+              schema:
+                type: string
+                example: Origin
+            Content-Type:
+              schema:
+                type: string
+                example: application/json; charset=utf-8
+            Content-Length:
+              schema:
+                type: integer
+                example: '791'
+            ETag:
+              schema:
+                type: string
+                example: W/"317-J4mSN75hD2xmALWXrV1ntqPtjJs"
+            Date:
+              schema:
+                type: string
+                example: Sun, 12 Nov 2023 08:44:07 GMT
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=5
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                success: true
+                message: All posts retrieved successfully
+                current_page: 1
+                data:
+                  - _id: 65508ec54e7e6c3270b70077
+                    content: How was your day 1 ?
+                    likes:
+                      - _id: 6550549bd64f46e0826bb7d1
+                        username: alexxy
+                        email: aayushpandey616@gmail.com
+                        profilePic: >-
+                          public\uploads\alexxy\profilePic\c4107bb8abc222f7bb2caffc188209e2.jpg
+                        verified: true
+                        type: manual
+                        createdAt: '2023-11-12T04:29:15.723Z'
+                        __v: 0
+                    comments:
+                      - _id: 65508f8a24ff053d699ffa07
+                        comment: It Was good 3.
+                        user: 6550549bd64f46e0826bb7d1
+                        post: 65508ec54e7e6c3270b70077
+                        createdAt: '2023-11-12T08:40:42.353Z'
+                        __v: 0
+                      - _id: 65508fdc02d6ce4d7e459a4e
+                        comment: It Was good 3.
+                        user: 6550549bd64f46e0826bb7d1
+                        post: 65508ec54e7e6c3270b70077
+                        createdAt: '2023-11-12T08:42:04.021Z'
+                        __v: 0
   /api/posts/getPostsComments:
     post:
       tags:
         - Public > Posts
-      summary: Get Post Likes
+      summary: Get Post Comments
       requestBody:
         content:
           application/json:
@@ -532,12 +866,155 @@ paths:
             type: string
           example: Apple
       responses:
-        undefined:
-          content:
-            text/plain:
+        '200':
+          description: OK
+          headers:
+            X-Powered-By:
               schema:
                 type: string
-              example: "{\r\n    \"success\": true,\r\n    \"message\": \"Likes retrieved successfully\",\r\n    \"current_page\": 1,\r\n    \"data\": [\r\n        {\r\n            \"_id\": \"654c9a20b561791fe579b4b2\",\r\n            \"username\": \"alexxy\",\r\n            \"email\": \"aayushpandey616@gmail.com\",\r\n            \"profilePic\": \"https://i.imgur.com/Eyzrkg3.jpeg\",\r\n            \"verified\": true,\r\n            \"type\": \"manual\",\r\n            \"createdAt\": \"2023-11-09T08:36:48.176Z\",\r\n            \"__v\": 0\r\n        }\r\n    ]\r\n}"
+                example: Express
+            Vary:
+              schema:
+                type: string
+                example: Origin
+            Content-Type:
+              schema:
+                type: string
+                example: application/json; charset=utf-8
+            Content-Length:
+              schema:
+                type: integer
+                example: '904'
+            ETag:
+              schema:
+                type: string
+                example: W/"388-9O5DBOdHnPbJNSSIwmqkiIpJUZ8"
+            Date:
+              schema:
+                type: string
+                example: Sun, 12 Nov 2023 08:42:56 GMT
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=5
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                success: true
+                current_page: 1
+                message: Comments retrieved successfully
+                data:
+                  - _id: 65508f8a24ff053d699ffa07
+                    comment: It Was good 3.
+                    user:
+                      _id: 6550549bd64f46e0826bb7d1
+                      username: alexxy
+                      email: aayushpandey616@gmail.com
+                      profilePic: >-
+                        public\uploads\alexxy\profilePic\c4107bb8abc222f7bb2caffc188209e2.jpg
+                      verified: true
+                      type: manual
+                      createdAt: '2023-11-12T04:29:15.723Z'
+                      __v: 0
+                    post: 65508ec54e7e6c3270b70077
+                    createdAt: '2023-11-12T08:40:42.353Z'
+                    __v: 0
+                  - _id: 65508fdc02d6ce4d7e459a4e
+                    comment: It Was good 3.
+                    user:
+                      _id: 6550549bd64f46e0826bb7d1
+                      username: alexxy
+                      email: aayushpandey616@gmail.com
+                      profilePic: >-
+                        public\uploads\alexxy\profilePic\c4107bb8abc222f7bb2caffc188209e2.jpg
+                      verified: true
+                      type: manual
+                      createdAt: '2023-11-12T04:29:15.723Z'
+                      __v: 0
+                    post: 65508ec54e7e6c3270b70077
+                    createdAt: '2023-11-12T08:42:04.021Z'
+                    __v: 0
+  /api/posts/getPostsLikes:
+    post:
+      tags:
+        - Public > Posts
+      summary: Get Post Likes
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                postID: 65508ec54e7e6c3270b70077
+                page: 1
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: apisecret
+          in: header
+          schema:
+            type: string
+          example: Apple
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Powered-By:
+              schema:
+                type: string
+                example: Express
+            Vary:
+              schema:
+                type: string
+                example: Origin
+            Content-Type:
+              schema:
+                type: string
+                example: application/json; charset=utf-8
+            Content-Length:
+              schema:
+                type: integer
+                example: '342'
+            ETag:
+              schema:
+                type: string
+                example: W/"156-k1NvnuzUcZ99Us9ZP7s9odKDjRY"
+            Date:
+              schema:
+                type: string
+                example: Sun, 12 Nov 2023 08:43:51 GMT
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=5
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                success: true
+                message: Likes retrieved successfully
+                current_page: 1
+                data:
+                  - _id: 6550549bd64f46e0826bb7d1
+                    username: alexxy
+                    email: aayushpandey616@gmail.com
+                    profilePic: >-
+                      public\uploads\alexxy\profilePic\c4107bb8abc222f7bb2caffc188209e2.jpg
+                    verified: true
+                    type: manual
+                    createdAt: '2023-11-12T04:29:15.723Z'
+                    __v: 0
   /api/posts/getLikedPosts:
     post:
       tags:
@@ -559,12 +1036,78 @@ paths:
             type: string
           example: Apple
       responses:
-        undefined:
-          content:
-            text/plain:
+        '200':
+          description: OK
+          headers:
+            X-Powered-By:
               schema:
                 type: string
-              example: "{\r\n    \"success\": true,\r\n    \"message\": \"All posts retrieved successfully\",\r\n    \"current_page\": 1,\r\n    \"data\": [\r\n        {\r\n            \"_id\": \"654dbc83c33b57c8af4efafb\",\r\n            \"content\": \"How was your day 2 ?\",\r\n            \"likes\": [\r\n                {\r\n                    \"_id\": \"654c9a20b561791fe579b4b2\",\r\n                    \"username\": \"alexxy\",\r\n                    \"email\": \"aayushpandey616@gmail.com\",\r\n                    \"profilePic\": \"https://i.imgur.com/Eyzrkg3.jpeg\",\r\n                    \"verified\": true,\r\n                    \"type\": \"manual\",\r\n                    \"createdAt\": \"2023-11-09T08:36:48.176Z\",\r\n                    \"__v\": 0\r\n                }\r\n            ],\r\n            \"comments\": [\r\n                {\r\n                    \"_id\": \"654dc2bab80d1abbd5a7deb7\",\r\n                    \"comment\": \"It Was good.\",\r\n                    \"user\": \"654c9a20b561791fe579b4b2\",\r\n                    \"post\": \"654dbc83c33b57c8af4efafb\",\r\n                    \"createdAt\": \"2023-11-10T05:42:18.547Z\",\r\n                    \"__v\": 0\r\n                },\r\n                {\r\n                    \"_id\": \"654e662460cd4837be241160\",\r\n                    \"comment\": \"It Was good.\",\r\n                    \"user\": \"654c9a20b561791fe579b4b2\",\r\n                    \"post\": \"654dbc83c33b57c8af4efafb\",\r\n                    \"createdAt\": \"2023-11-10T17:19:32.439Z\",\r\n                    \"__v\": 0\r\n                },\r\n                {\r\n                    \"_id\": \"654e662560cd4837be241164\",\r\n                    \"comment\": \"It Was good.\",\r\n                    \"user\": \"654c9a20b561791fe579b4b2\",\r\n                    \"post\": \"654dbc83c33b57c8af4efafb\",\r\n                    \"createdAt\": \"2023-11-10T17:19:33.883Z\",\r\n                    \"__v\": 0\r\n                },\r\n                {\r\n                    \"_id\": \"654e662760cd4837be241168\",\r\n                    \"comment\": \"It Was good.\",\r\n                    \"user\": \"654c9a20b561791fe579b4b2\",\r\n                    \"post\": \"654dbc83c33b57c8af4efafb\",\r\n                    \"createdAt\": \"2023-11-10T17:19:35.141Z\",\r\n                    \"__v\": 0\r\n                },\r\n                {\r\n                    \"_id\": \"654e662860cd4837be24116c\",\r\n                    \"comment\": \"It Was good.\",\r\n                    \"user\": \"654c9a20b561791fe579b4b2\",\r\n                    \"post\": \"654dbc83c33b57c8af4efafb\",\r\n                    \"createdAt\": \"2023-11-10T17:19:36.295Z\",\r\n                    \"__v\": 0\r\n                },\r\n                {\r\n                    \"_id\": \"654e662960cd4837be241170\",\r\n                    \"comment\": \"It Was good.\",\r\n                    \"user\": \"654c9a20b561791fe579b4b2\",\r\n                    \"post\": \"654dbc83c33b57c8af4efafb\",\r\n                    \"createdAt\": \"2023-11-10T17:19:37.445Z\",\r\n                    \"__v\": 0\r\n                },\r\n                {\r\n                    \"_id\": \"654e662a60cd4837be241174\",\r\n                    \"comment\": \"It Was good.\",\r\n                    \"user\": \"654c9a20b561791fe579b4b2\",\r\n                    \"post\": \"654dbc83c33b57c8af4efafb\",\r\n                    \"createdAt\": \"2023-11-10T17:19:38.494Z\",\r\n                    \"__v\": 0\r\n                },\r\n                {\r\n                    \"_id\": \"654e662b60cd4837be241178\",\r\n                    \"comment\": \"It Was good.\",\r\n                    \"user\": \"654c9a20b561791fe579b4b2\",\r\n                    \"post\": \"654dbc83c33b57c8af4efafb\",\r\n                    \"createdAt\": \"2023-11-10T17:19:39.652Z\",\r\n                    \"__v\": 0\r\n                },\r\n                {\r\n                    \"_id\": \"654e662f60cd4837be24117c\",\r\n                    \"comment\": \"It Was good.\",\r\n                    \"user\": \"654c9a20b561791fe579b4b2\",\r\n                    \"post\": \"654dbc83c33b57c8af4efafb\",\r\n                    \"createdAt\": \"2023-11-10T17:19:43.142Z\",\r\n                    \"__v\": 0\r\n                },\r\n                {\r\n                    \"_id\": \"654e663060cd4837be241180\",\r\n                    \"comment\": \"It Was good.\",\r\n                    \"user\": \"654c9a20b561791fe579b4b2\",\r\n                    \"post\": \"654dbc83c33b57c8af4efafb\",\r\n                    \"createdAt\": \"2023-11-10T17:19:44.622Z\",\r\n                    \"__v\": 0\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"_id\": \"654dc2b9b80d1abbd5a7deab\",\r\n            \"content\": \"How was your day?\",\r\n            \"likes\": [],\r\n            \"comments\": []\r\n        }\r\n    ]\r\n}"
+                example: Express
+            Vary:
+              schema:
+                type: string
+                example: Origin
+            Content-Type:
+              schema:
+                type: string
+                example: application/json; charset=utf-8
+            Content-Length:
+              schema:
+                type: integer
+                example: '871'
+            ETag:
+              schema:
+                type: string
+                example: W/"367-p993RgfWn1UtJYcAWhvPOsXDeoQ"
+            Date:
+              schema:
+                type: string
+                example: Sun, 12 Nov 2023 08:55:31 GMT
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=5
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                success: true
+                message: All posts retrieved successfully
+                current_page: 1
+                data:
+                  - _id: 65508ec54e7e6c3270b70077
+                    content: How was your day 1 ?
+                    user: 654c9a20b561791fe579b4b2
+                    comment:
+                      - _id: 65508f8a24ff053d699ffa07
+                        comment: It Was good 3.
+                        user: 6550549bd64f46e0826bb7d1
+                        post: 65508ec54e7e6c3270b70077
+                        createdAt: '2023-11-12T08:40:42.353Z'
+                        __v: 0
+                      - _id: 65508fdc02d6ce4d7e459a4e
+                        comment: It Was good 3.
+                        user: 6550549bd64f46e0826bb7d1
+                        post: 65508ec54e7e6c3270b70077
+                        createdAt: '2023-11-12T08:42:04.021Z'
+                        __v: 0
+                    likes:
+                      - _id: 6550549bd64f46e0826bb7d1
+                        username: alexxy
+                        email: aayushpandey616@gmail.com
+                        profilePic: >-
+                          public\uploads\alexxy\profilePic\c4107bb8abc222f7bb2caffc188209e2.jpg
+                        verified: true
+                        type: manual
+                        createdAt: '2023-11-12T04:29:15.723Z'
+                        __v: 0
+                    createdAt: '2023-11-12T08:37:25.561Z'
+                    __v: 0
   /api/posts/createComment:
     post:
       tags:
@@ -576,8 +1119,8 @@ paths:
             schema:
               type: object
               example:
-                contentID: 654dbc83c33b57c8af4efafb
-                comment: It Was good.
+                contentID: 6550570ee0c23e097aeda5e1
+                comment: It Was good 3.
       security:
         - bearerAuth: []
       parameters:
@@ -587,12 +1130,55 @@ paths:
             type: string
           example: Apple
       responses:
-        undefined:
-          content:
-            text/plain:
+        '200':
+          description: OK
+          headers:
+            X-Powered-By:
               schema:
                 type: string
-              example: "{\r\n    \"success\": true,\r\n    \"message\": \"Comment created successfully\",\r\n    \"data\": {\r\n        \"comment\": \"It Was good.\",\r\n        \"user\": \"654c9a20b561791fe579b4b2\",\r\n        \"post\": \"654dbc83c33b57c8af4efafb\",\r\n        \"_id\": \"654dbf4fb80d1abbd5a7de9b\",\r\n        \"createdAt\": \"2023-11-10T05:27:43.566Z\",\r\n        \"__v\": 0\r\n    }\r\n}"
+                example: Express
+            Vary:
+              schema:
+                type: string
+                example: Origin
+            Content-Type:
+              schema:
+                type: string
+                example: application/json; charset=utf-8
+            Content-Length:
+              schema:
+                type: integer
+                example: '241'
+            ETag:
+              schema:
+                type: string
+                example: W/"f1-aEweWbPQOeUOJDW8jEIq3YiwV7A"
+            Date:
+              schema:
+                type: string
+                example: Sun, 12 Nov 2023 04:55:12 GMT
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=5
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                success: true
+                message: Comment created successfully
+                data:
+                  comment: It Was good 1.
+                  user: 6550549bd64f46e0826bb7d1
+                  post: 6550570ee0c23e097aeda5e1
+                  _id: 65505ab08729484b8a9f7fa3
+                  createdAt: '2023-11-12T04:55:12.421Z'
+                  __v: 0
   /api/posts/deleteComment:
     post:
       tags:
@@ -614,12 +1200,48 @@ paths:
             type: string
           example: Apple
       responses:
-        undefined:
-          content:
-            text/plain:
+        '200':
+          description: OK
+          headers:
+            X-Powered-By:
               schema:
                 type: string
-              example: "{\r\n    \"success\": true,\r\n    \"message\": \"Comment deleted successfully\"\r\n}"
+                example: Express
+            Vary:
+              schema:
+                type: string
+                example: Origin
+            Content-Type:
+              schema:
+                type: string
+                example: application/json; charset=utf-8
+            Content-Length:
+              schema:
+                type: integer
+                example: '57'
+            ETag:
+              schema:
+                type: string
+                example: W/"39-3wNSX2zqQ1/8B8c4vXR4x1IbeIQ"
+            Date:
+              schema:
+                type: string
+                example: Sun, 12 Nov 2023 08:39:44 GMT
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=5
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                success: true
+                message: Comment deleted successfully
   /api/posts/updatePost:
     post:
       tags:
@@ -631,8 +1253,8 @@ paths:
             schema:
               type: object
               example:
-                content: How was your day 2 ?
-                postID: 654dbc83c33b57c8af4efafb
+                content: How was your day 1 ?
+                postID: 65508ec54e7e6c3270b70077
       security:
         - bearerAuth: []
       parameters:
@@ -642,12 +1264,77 @@ paths:
             type: string
           example: Apple
       responses:
-        undefined:
-          content:
-            text/plain:
+        '200':
+          description: OK
+          headers:
+            X-Powered-By:
               schema:
                 type: string
-              example: "{\r\n    \"success\": true,\r\n    \"message\": \"Post updated successfully\",\r\n    \"data\": {\r\n        \"_id\": \"654dbc83c33b57c8af4efafb\",\r\n        \"content\": \"How was your day 2 ?\",\r\n        \"user\": \"654c9a20b561791fe579b4b2\",\r\n        \"comment\": [],\r\n        \"likes\": [\r\n            \"654c9a20b561791fe579b4b2\"\r\n        ],\r\n        \"createdAt\": \"2023-11-10T05:15:47.295Z\",\r\n        \"__v\": 0\r\n    }\r\n}"
+                example: Express
+            Vary:
+              schema:
+                type: string
+                example: Origin
+            Content-Type:
+              schema:
+                type: string
+                example: application/json; charset=utf-8
+            Content-Length:
+              schema:
+                type: integer
+                example: '845'
+            ETag:
+              schema:
+                type: string
+                example: W/"34d-x21UEFRbAoSx3BDR3KyelGQeKfw"
+            Date:
+              schema:
+                type: string
+                example: Sun, 12 Nov 2023 08:42:08 GMT
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=5
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                success: true
+                message: Post updated successfully
+                data:
+                  _id: 65508ec54e7e6c3270b70077
+                  content: How was your day 1 ?
+                  user: 654c9a20b561791fe579b4b2
+                  comment:
+                    - _id: 65508f8a24ff053d699ffa07
+                      comment: It Was good 3.
+                      user: 6550549bd64f46e0826bb7d1
+                      post: 65508ec54e7e6c3270b70077
+                      createdAt: '2023-11-12T08:40:42.353Z'
+                      __v: 0
+                    - _id: 65508fdc02d6ce4d7e459a4e
+                      comment: It Was good 3.
+                      user: 6550549bd64f46e0826bb7d1
+                      post: 65508ec54e7e6c3270b70077
+                      createdAt: '2023-11-12T08:42:04.021Z'
+                      __v: 0
+                  likes:
+                    - _id: 6550549bd64f46e0826bb7d1
+                      username: alexxy
+                      email: aayushpandey616@gmail.com
+                      profilePic: >-
+                        public\uploads\alexxy\profilePic\c4107bb8abc222f7bb2caffc188209e2.jpg
+                      verified: true
+                      type: manual
+                      createdAt: '2023-11-12T04:29:15.723Z'
+                      __v: 0
+                  createdAt: '2023-11-12T08:37:25.561Z'
+                  __v: 0
   /api/posts/likeUnlikePost:
     post:
       tags:
@@ -669,9 +1356,45 @@ paths:
             type: string
           example: Apple
       responses:
-        undefined:
-          content:
-            text/plain:
+        '200':
+          description: OK
+          headers:
+            X-Powered-By:
               schema:
                 type: string
-              example: "{\r\n    \"success\": true,\r\n    \"message\": \"Post liked successfully\"\r\n}"
+                example: Express
+            Vary:
+              schema:
+                type: string
+                example: Origin
+            Content-Type:
+              schema:
+                type: string
+                example: application/json; charset=utf-8
+            Content-Length:
+              schema:
+                type: integer
+                example: '52'
+            ETag:
+              schema:
+                type: string
+                example: W/"34-LJtpHAi061mmDS6hwdu704MpiCE"
+            Date:
+              schema:
+                type: string
+                example: Sun, 12 Nov 2023 08:40:45 GMT
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=5
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                success: true
+                message: Post liked successfully

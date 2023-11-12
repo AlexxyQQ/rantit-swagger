@@ -138,15 +138,15 @@
 										},
 										{
 											"key": "Content-Length",
-											"value": "669"
+											"value": "649"
 										},
 										{
 											"key": "ETag",
-											"value": "W/\"29d-aHf4RSk+gEagCylnPRif6xzBJMA\""
+											"value": "W/\"289-gYEXEdWDemWZh2x4i8eKyPxwUTI\""
 										},
 										{
 											"key": "Date",
-											"value": "Sat, 30 Sep 2023 08:44:51 GMT"
+											"value": "Sun, 12 Nov 2023 04:30:11 GMT"
 										},
 										{
 											"key": "Connection",
@@ -158,97 +158,12 @@
 										}
 									],
 									"cookie": [],
-									"body": "{\n    \"success\": true,\n    \"data\": {\n        \"user\": {\n            \"_id\": \"6517dfbe345ee8f0da29a9b1\",\n            \"username\": \"alexxy\",\n            \"email\": \"aayushpandey616@gmail.com\",\n            \"password\": \"$2a$12$12l127hOC/4ZuPaO6fWBU.H6ZHiSNSkgUe1o4r.oyER4JpudpswZu\",\n            \"profilePic\": \"https://i.imgur.com/Eyzrkg3.jpeg\",\n            \"verified\": false,\n            \"type\": \"manual\",\n            \"__v\": 0\n        },\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1MTdkZmJlMzQ1ZWU4ZjBkYTI5YTliMSIsInVzZXJuYW1lIjoiYWxleHh5IiwidHlwZSI6Im1hbnVhbCIsInByb2ZpbGVQaWMiOiJodHRwczovL2kuaW1ndXIuY29tL0V5enJrZzMuanBlZyIsImVtYWlsIjoiYWF5dXNocGFuZGV5NjE2QGdtYWlsLmNvbSIsImlhdCI6MTY5NjA2MzQ5MSwiZXhwIjoxNjk2NjY4MjkxfQ.9pBxnNrHjxx1uEOhizfABkjnvJFZQryU_3wSrMzCxQQ\"\n    },\n    \"message\": \"User logged in successfully!\"\n}"
+									"body": "{\n    \"success\": true,\n    \"data\": {\n        \"user\": {\n            \"_id\": \"6550549bd64f46e0826bb7d1\",\n            \"username\": \"alexxy\",\n            \"email\": \"aayushpandey616@gmail.com\",\n            \"profilePic\": \"https://i.imgur.com/Eyzrkg3.jpeg\",\n            \"verified\": false,\n            \"type\": \"manual\",\n            \"otp\": \"FRM49A\",\n            \"createdAt\": \"2023-11-12T04:29:15.723Z\",\n            \"__v\": 0\n        },\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NTA1NDliZDY0ZjQ2ZTA4MjZiYjdkMSIsInVzZXJuYW1lIjoiYWxleHh5IiwidHlwZSI6Im1hbnVhbCIsInByb2ZpbGVQaWMiOiJodHRwczovL2kuaW1ndXIuY29tL0V5enJrZzMuanBlZyIsImVtYWlsIjoiYWF5dXNocGFuZGV5NjE2QGdtYWlsLmNvbSIsImlhdCI6MTY5OTc2MzQxMSwiZXhwIjoxNzAwMzY4MjExfQ.KCN35wDpVxoc_4UmzUe0x4axbXIgWsQ1dCGlQk0yN-0\"\n    },\n    \"message\": \"User logged in successfully!\"\n}"
 								}
 							]
 						},
 						{
-							"name": "OTP Validator",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											""
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "apisecret",
-										"value": "Apple"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n  \"email\": \"aayushpandey616@gmail.com\",\n  \"otp\": \"8J8JYJ\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "http://localhost:3001/api/users/otpValidator",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3001",
-									"path": [
-										"api",
-										"users",
-										"otpValidator"
-									]
-								}
-							},
-							"response": [
-								{
-									"name": "OTP Validator",
-									"originalRequest": {
-										"method": "POST",
-										"header": [
-											{
-												"key": "apisecret",
-												"value": "Apple"
-											}
-										],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n  \"email\": \"aayushpandey616@gmail.com\",\n  \"otp\": \"8J8JYJ\"\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "http://localhost:3001/api/users/otpValidator",
-											"protocol": "http",
-											"host": [
-												"localhost"
-											],
-											"port": "3001",
-											"path": [
-												"api",
-												"users",
-												"otpValidator"
-											]
-										}
-									},
-									"_postman_previewlanguage": null,
-									"header": null,
-									"cookie": [],
-									"body": "{\r\n    \"success\": true,\r\n    \"message\": \"OTP verified successfully!\"\r\n}"
-								}
-							]
-						},
-						{
-							"name": "Register",
+							"name": "Signup",
 							"event": [
 								{
 									"listen": "test",
@@ -324,7 +239,7 @@
 							},
 							"response": [
 								{
-									"name": "Register",
+									"name": "Signup",
 									"originalRequest": {
 										"method": "POST",
 										"header": [
@@ -374,15 +289,15 @@
 										},
 										{
 											"key": "Content-Length",
-											"value": "316"
+											"value": "245"
 										},
 										{
 											"key": "ETag",
-											"value": "W/\"13c-PouUk+Nw70O48/wDgiytirCl+bQ\""
+											"value": "W/\"f5-m2p0ldDSKqFJ3ruxRAha0zDWIjE\""
 										},
 										{
 											"key": "Date",
-											"value": "Sat, 30 Sep 2023 08:43:42 GMT"
+											"value": "Sun, 12 Nov 2023 04:29:19 GMT"
 										},
 										{
 											"key": "Connection",
@@ -394,70 +309,42 @@
 										}
 									],
 									"cookie": [],
-									"body": "{\n    \"success\": true,\n    \"data\": {\n        \"username\": \"alexxy\",\n        \"email\": \"aayushpandey616@gmail.com\",\n        \"password\": \"$2a$12$12l127hOC/4ZuPaO6fWBU.H6ZHiSNSkgUe1o4r.oyER4JpudpswZu\",\n        \"profilePic\": \"https://i.imgur.com/Eyzrkg3.jpeg\",\n        \"verified\": false,\n        \"type\": \"manual\",\n        \"_id\": \"6517dfbe345ee8f0da29a9b1\",\n        \"__v\": 0\n    },\n    \"message\": \"User created successfully!\"\n}"
+									"body": "{\n    \"success\": true,\n    \"data\": {\n        \"_id\": \"6550549bd64f46e0826bb7d1\",\n        \"username\": \"alexxy\",\n        \"email\": \"aayushpandey616@gmail.com\",\n        \"profilePic\": \"https://i.imgur.com/Eyzrkg3.jpeg\",\n        \"verified\": false,\n        \"type\": \"manual\"\n    },\n    \"message\": \"OTP sent to your email please verify!\"\n}"
 								}
 							]
 						},
 						{
-							"name": "LoginWithToken",
+							"name": "Signup OTP Validator",
 							"event": [
 								{
 									"listen": "test",
 									"script": {
 										"exec": [
-											"pm.test(\"Response status code is 401\", function () {",
-											"    pm.expect(pm.response.code).to.equal(401);",
-											"});",
-											"",
-											"",
-											"pm.test(\"Verify that the 'success' field is true\", function () {",
-											"    const responseData = pm.response.json();",
-											"    ",
-											"    pm.expect(responseData.success).to.be.true;",
-											"});",
-											"",
-											"",
-											"pm.test(\"Verify that the 'message' field is empty\", function () {",
-											"    const responseData = pm.response.json();",
-											"    ",
-											"    pm.expect(responseData).to.be.an('object');",
-											"    pm.expect(responseData.message).to.be.empty;",
-											"});",
-											"",
-											"",
-											"pm.test(\"Response time is less than 500ms\", function () {",
-											"  pm.expect(pm.response.responseTime).to.be.below(500);",
-											"});",
-											"",
-											"",
-											"pm.test(\"Response body is not empty\", function () {",
-											"  pm.expect(pm.response.text()).to.not.be.empty;",
-											"});"
+											""
 										],
 										"type": "text/javascript"
 									}
 								}
 							],
 							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YTAyMWJiZmZhYjYxMTNkODVjZjBlYiIsInVzZXJuYW1lIjoiYWxleHh5IiwidHlwZSI6Im1hbnVhbCIsInByb2ZpbGVQaWMiOiJodHRwczovL2kuaW1ndXIuY29tL0V5enJrZzMuanBlZyIsImVtYWlsIjoiYWF5dXNocGFuZGV5NjE2QGdtYWlsLmNvbSIsImlhdCI6MTY5MDk2MDk4MywiZXhwIjoxNjkxNTY1NzgzfQ.i8zQoLN_eJVBT17uL7JAl-yLL-pl2q2IeqDmkwbu7Fs",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
+								"method": "POST",
 								"header": [
 									{
 										"key": "apisecret",
 										"value": "Apple"
 									}
 								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"email\": \"aayushpandey616@gmail.com\",\n  \"otp\": \"8J8JYJ\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
 								"url": {
-									"raw": "http://localhost:3001/api/users/loginWithToken",
+									"raw": "http://localhost:3001/api/users/otpValidator",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -466,23 +353,32 @@
 									"path": [
 										"api",
 										"users",
-										"loginWithToken"
+										"otpValidator"
 									]
 								}
 							},
 							"response": [
 								{
-									"name": "LoginWithToken",
+									"name": "Signup OTP Validator",
 									"originalRequest": {
-										"method": "GET",
+										"method": "POST",
 										"header": [
 											{
 												"key": "apisecret",
 												"value": "Apple"
 											}
 										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"email\": \"aayushpandey616@gmail.com\",\n  \"otp\": \"FRM49A\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
 										"url": {
-											"raw": "http://localhost:3001/api/users/loginWithToken",
+											"raw": "http://localhost:3001/api/users/otpValidator",
 											"protocol": "http",
 											"host": [
 												"localhost"
@@ -491,7 +387,7 @@
 											"path": [
 												"api",
 												"users",
-												"loginWithToken"
+												"otpValidator"
 											]
 										}
 									},
@@ -513,15 +409,15 @@
 										},
 										{
 											"key": "Content-Length",
-											"value": "669"
+											"value": "55"
 										},
 										{
 											"key": "ETag",
-											"value": "W/\"29d-aHf4RSk+gEagCylnPRif6xzBJMA\""
+											"value": "W/\"37-8OvKtOmvqCGQofXWrYB/ebrYbxs\""
 										},
 										{
 											"key": "Date",
-											"value": "Sat, 30 Sep 2023 08:45:12 GMT"
+											"value": "Sun, 12 Nov 2023 04:30:24 GMT"
 										},
 										{
 											"key": "Connection",
@@ -533,7 +429,247 @@
 										}
 									],
 									"cookie": [],
-									"body": "{\n    \"success\": true,\n    \"data\": {\n        \"user\": {\n            \"_id\": \"6517dfbe345ee8f0da29a9b1\",\n            \"username\": \"alexxy\",\n            \"email\": \"aayushpandey616@gmail.com\",\n            \"password\": \"$2a$12$12l127hOC/4ZuPaO6fWBU.H6ZHiSNSkgUe1o4r.oyER4JpudpswZu\",\n            \"profilePic\": \"https://i.imgur.com/Eyzrkg3.jpeg\",\n            \"verified\": false,\n            \"type\": \"manual\",\n            \"__v\": 0\n        },\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1MTdkZmJlMzQ1ZWU4ZjBkYTI5YTliMSIsInVzZXJuYW1lIjoiYWxleHh5IiwidHlwZSI6Im1hbnVhbCIsInByb2ZpbGVQaWMiOiJodHRwczovL2kuaW1ndXIuY29tL0V5enJrZzMuanBlZyIsImVtYWlsIjoiYWF5dXNocGFuZGV5NjE2QGdtYWlsLmNvbSIsImlhdCI6MTY5NjA2MzQ5MSwiZXhwIjoxNjk2NjY4MjkxfQ.9pBxnNrHjxx1uEOhizfABkjnvJFZQryU_3wSrMzCxQQ\"\n    },\n    \"message\": \"User logged in successfully!\"\n}"
+									"body": "{\n    \"success\": true,\n    \"message\": \"OTP verified successfully!\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Forgot Passwor OTP Sender",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "apisecret",
+										"value": "Apple"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"email\": \"aayushpandey616@gmail.com\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/api/users/forgotPasswordOTP",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"api",
+										"users",
+										"forgotPasswordOTP"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Signup OTP Validator Copy",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "apisecret",
+												"value": "Apple"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"email\": \"aayushpandey616@gmail.com\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:3001/api/users/forgotPasswordOTP",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3001",
+											"path": [
+												"api",
+												"users",
+												"forgotPasswordOTP"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "52"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"34-FLuCn87VXEpDvebpV4UZUqbceDI\""
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 12 Nov 2023 04:30:33 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"success\": true,\n    \"message\": \"OTP sent to your email!\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Forgot Password",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "apisecret",
+										"value": "Apple"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"email\": \"aayushpandey616@gmail.com\",\n  \"otp\": \"X39I92\",\n  \"newPassword\": \"VerySecretPassword@123\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/api/users/forgotPassword",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"api",
+										"users",
+										"forgotPassword"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Forgot Passwor OTP Sender Copy",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "apisecret",
+												"value": "Apple"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"email\": \"aayushpandey616@gmail.com\",\n  \"otp\": \"Z1837I\",\n  \"newPassword\": \"VerySecretPassword@123\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:3001/api/users/forgotPassword",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3001",
+											"path": [
+												"api",
+												"users",
+												"forgotPassword"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "59"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"3b-xe1RWVR7zsFcIMt1e6yC73508wY\""
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 12 Nov 2023 04:31:12 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"success\": true,\n    \"message\": \"Password updated successfully!\"\n}"
 								}
 							]
 						},
@@ -652,7 +788,7 @@
 												{
 													"key": "profilePic",
 													"type": "file",
-													"src": "/C:/Users/aayus/OneDrive/Projects/Pictures/1302283.png"
+													"src": "/C:/Users/aayus/OneDrive/Projects/Pictures/IMG_20220813_083857.jpg"
 												}
 											]
 										},
@@ -688,15 +824,15 @@
 										},
 										{
 											"key": "Content-Length",
-											"value": "357"
+											"value": "332"
 										},
 										{
 											"key": "ETag",
-											"value": "W/\"165-o8aPx8H17vfZnolCndKisWM24nY\""
+											"value": "W/\"14c-SeaeuyhaaVDwT/XhbzG5fddiONw\""
 										},
 										{
 											"key": "Date",
-											"value": "Sat, 30 Sep 2023 08:45:35 GMT"
+											"value": "Sun, 12 Nov 2023 04:32:07 GMT"
 										},
 										{
 											"key": "Connection",
@@ -708,7 +844,7 @@
 										}
 									],
 									"cookie": [],
-									"body": "{\n    \"success\": true,\n    \"data\": {\n        \"_id\": \"6517dfbe345ee8f0da29a9b1\",\n        \"username\": \"alexxy\",\n        \"email\": \"aayushpandey616@gmail.com\",\n        \"password\": \"$2a$12$12l127hOC/4ZuPaO6fWBU.H6ZHiSNSkgUe1o4r.oyER4JpudpswZu\",\n        \"profilePic\": \"public\\\\uploads\\\\alexxy\\\\profilePic\\\\256108fbfc46b9a5941bd5cd317ef8cb.png\",\n        \"verified\": false,\n        \"type\": \"manual\",\n        \"__v\": 0\n    },\n    \"message\": \"File uploaded successfully\"\n}"
+									"body": "{\n    \"success\": true,\n    \"data\": {\n        \"otp\": null,\n        \"_id\": \"6550549bd64f46e0826bb7d1\",\n        \"username\": \"alexxy\",\n        \"email\": \"aayushpandey616@gmail.com\",\n        \"profilePic\": \"public\\\\uploads\\\\alexxy\\\\profilePic\\\\c4107bb8abc222f7bb2caffc188209e2.jpg\",\n        \"verified\": true,\n        \"type\": \"manual\",\n        \"createdAt\": \"2023-11-12T04:29:15.723Z\",\n        \"__v\": 0\n    },\n    \"message\": \"File uploaded successfully\"\n}"
 								}
 							]
 						},
@@ -838,7 +974,7 @@
 										},
 										{
 											"key": "Date",
-											"value": "Sat, 30 Sep 2023 08:46:03 GMT"
+											"value": "Sun, 12 Nov 2023 04:26:23 GMT"
 										},
 										{
 											"key": "Connection",
@@ -851,6 +987,145 @@
 									],
 									"cookie": [],
 									"body": "{\n    \"message\": \"Profile deleted successfully\"\n}"
+								}
+							]
+						},
+						{
+							"name": "LoginWithToken",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Response status code is 401\", function () {",
+											"    pm.expect(pm.response.code).to.equal(401);",
+											"});",
+											"",
+											"",
+											"pm.test(\"Verify that the 'success' field is true\", function () {",
+											"    const responseData = pm.response.json();",
+											"    ",
+											"    pm.expect(responseData.success).to.be.true;",
+											"});",
+											"",
+											"",
+											"pm.test(\"Verify that the 'message' field is empty\", function () {",
+											"    const responseData = pm.response.json();",
+											"    ",
+											"    pm.expect(responseData).to.be.an('object');",
+											"    pm.expect(responseData.message).to.be.empty;",
+											"});",
+											"",
+											"",
+											"pm.test(\"Response time is less than 500ms\", function () {",
+											"  pm.expect(pm.response.responseTime).to.be.below(500);",
+											"});",
+											"",
+											"",
+											"pm.test(\"Response body is not empty\", function () {",
+											"  pm.expect(pm.response.text()).to.not.be.empty;",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YTAyMWJiZmZhYjYxMTNkODVjZjBlYiIsInVzZXJuYW1lIjoiYWxleHh5IiwidHlwZSI6Im1hbnVhbCIsInByb2ZpbGVQaWMiOiJodHRwczovL2kuaW1ndXIuY29tL0V5enJrZzMuanBlZyIsImVtYWlsIjoiYWF5dXNocGFuZGV5NjE2QGdtYWlsLmNvbSIsImlhdCI6MTY5MDk2MDk4MywiZXhwIjoxNjkxNTY1NzgzfQ.i8zQoLN_eJVBT17uL7JAl-yLL-pl2q2IeqDmkwbu7Fs",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "apisecret",
+										"value": "Apple"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3001/api/users/loginWithToken",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"api",
+										"users",
+										"loginWithToken"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "LoginWithToken",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "apisecret",
+												"value": "Apple"
+											}
+										],
+										"url": {
+											"raw": "http://localhost:3001/api/users/loginWithToken",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3001",
+											"path": [
+												"api",
+												"users",
+												"loginWithToken"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "674"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"2a2-5GEiEIT0eZ89Zq1Tjq0cW5T+pcs\""
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 12 Nov 2023 04:32:13 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"success\": true,\n    \"data\": {\n        \"user\": {\n            \"_id\": \"6550549bd64f46e0826bb7d1\",\n            \"username\": \"alexxy\",\n            \"email\": \"aayushpandey616@gmail.com\",\n            \"profilePic\": \"public\\\\uploads\\\\alexxy\\\\profilePic\\\\c4107bb8abc222f7bb2caffc188209e2.jpg\",\n            \"verified\": true,\n            \"type\": \"manual\",\n            \"createdAt\": \"2023-11-12T04:29:15.723Z\",\n            \"__v\": 0\n        },\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NTA0ZWUwODEwMWYwYjAxZWYzMDMzMSIsInVzZXJuYW1lIjoiYWxleHh5IiwidHlwZSI6Im1hbnVhbCIsInByb2ZpbGVQaWMiOiJodHRwczovL2kuaW1ndXIuY29tL0V5enJrZzMuanBlZyIsImVtYWlsIjoiYWF5dXNocGFuZGV5NjE2QGdtYWlsLmNvbSIsImlhdCI6MTY5OTc2Mjg3MywiZXhwIjoxNzAwMzY3NjczfQ.4ffYBwVmdFjX6vc1xQ3XTSB2WZYKHhBk4Yx9mNWOI4A\"\n    },\n    \"message\": \"User logged in successfully!\"\n}"
 								}
 							]
 						}
@@ -1073,7 +1348,13 @@
 									"name": "Create Post",
 									"originalRequest": {
 										"method": "POST",
-										"header": [],
+										"header": [
+											{
+												"key": "apisecret",
+												"value": "Apple",
+												"type": "text"
+											}
+										],
 										"body": {
 											"mode": "raw",
 											"raw": "{\r\n    \"content\" : \"How was your day?\"\r\n}",
@@ -1097,10 +1378,45 @@
 											]
 										}
 									},
-									"_postman_previewlanguage": null,
-									"header": null,
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "231"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"e7-rouVbMw7OyZsOiHPCDAPbJssK4k\""
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 12 Nov 2023 04:39:42 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
 									"cookie": [],
-									"body": "{\r\n    \"success\": true,\r\n    \"message\": \"Post created successfully\",\r\n    \"data\": {\r\n        \"content\": \"How was your day?\",\r\n        \"user\": \"654c9a20b561791fe579b4b2\",\r\n        \"comment\": [],\r\n        \"likes\": [],\r\n        \"_id\": \"654dbc83c33b57c8af4efafb\",\r\n        \"createdAt\": \"2023-11-10T05:15:47.295Z\",\r\n        \"__v\": 0\r\n    }\r\n}"
+									"body": "{\n    \"success\": true,\n    \"message\": \"Post created successfully\",\n    \"data\": {\n        \"content\": \"How was your day?\",\n        \"user\": \"654c9a20b561791fe579b4b2\",\n        \"comment\": [],\n        \"likes\": [],\n        \"_id\": \"6550570ee0c23e097aeda5e1\",\n        \"createdAt\": \"2023-11-12T04:39:42.072Z\",\n        \"__v\": 0\n    }\n}"
 								}
 							]
 						},
@@ -1169,7 +1485,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"contentID\" : \"654dbc83c33b57c8af4efafb\"\r\n}",
+									"raw": "{\r\n    \"contentID\" : \"654c9a20b561791fe579b4b2\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1204,7 +1520,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n    \"contentID\" : \"654db6debadd5e805f8a24bd\"\r\n}",
+											"raw": "{\r\n    \"contentID\" : \"65508ec54e7e6c3270b70077\"\r\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -1225,10 +1541,45 @@
 											]
 										}
 									},
-									"_postman_previewlanguage": null,
-									"header": null,
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "928"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"3a0-BvQknyh2SwB3HvDRxtWz5Tj6DFQ\""
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 12 Nov 2023 08:44:22 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
 									"cookie": [],
-									"body": "{\r\n    \"success\": true,\r\n    \"message\": \"Post found successfully\",\r\n    \"data\": {\r\n        \"_id\": \"654dbc83c33b57c8af4efafb\",\r\n        \"content\": \"How was your day?\",\r\n        \"user\": \"654c9a20b561791fe579b4b2\",\r\n        \"comment\": [],\r\n        \"likes\": [\r\n            {\r\n                \"_id\": \"654c9a20b561791fe579b4b2\",\r\n                \"username\": \"alexxy\",\r\n                \"email\": \"aayushpandey616@gmail.com\",\r\n                \"password\": \"$2a$12$PTwunsMxnlHrYgt38mUeP.ia7sGoSqtkmicXzOju/EIjGc/cisxqa\",\r\n                \"profilePic\": \"https://i.imgur.com/Eyzrkg3.jpeg\",\r\n                \"verified\": true,\r\n                \"type\": \"manual\",\r\n                \"otp\": null,\r\n                \"createdAt\": \"2023-11-09T08:36:48.176Z\",\r\n                \"__v\": 0\r\n            }\r\n        ],\r\n        \"createdAt\": \"2023-11-10T05:15:47.295Z\",\r\n        \"__v\": 0\r\n    }\r\n}"
+									"body": "{\n    \"success\": true,\n    \"message\": \"Post found successfully\",\n    \"data\": {\n        \"_id\": \"65508ec54e7e6c3270b70077\",\n        \"content\": \"How was your day 1 ?\",\n        \"user\": \"654c9a20b561791fe579b4b2\",\n        \"comment\": [\n            {\n                \"_id\": \"65508f8a24ff053d699ffa07\",\n                \"comment\": \"It Was good 3.\",\n                \"user\": \"6550549bd64f46e0826bb7d1\",\n                \"post\": \"65508ec54e7e6c3270b70077\",\n                \"createdAt\": \"2023-11-12T08:40:42.353Z\",\n                \"__v\": 0\n            },\n            {\n                \"_id\": \"65508fdc02d6ce4d7e459a4e\",\n                \"comment\": \"It Was good 3.\",\n                \"user\": \"6550549bd64f46e0826bb7d1\",\n                \"post\": \"65508ec54e7e6c3270b70077\",\n                \"createdAt\": \"2023-11-12T08:42:04.021Z\",\n                \"__v\": 0\n            }\n        ],\n        \"likes\": [\n            {\n                \"otp\": null,\n                \"_id\": \"6550549bd64f46e0826bb7d1\",\n                \"username\": \"alexxy\",\n                \"email\": \"aayushpandey616@gmail.com\",\n                \"password\": \"$2a$12$g8UQX9IDUYMiWBUGe5tJI.jDAupulR/8wsmEgxeaAZeJekec6Dk.a\",\n                \"profilePic\": \"public\\\\uploads\\\\alexxy\\\\profilePic\\\\c4107bb8abc222f7bb2caffc188209e2.jpg\",\n                \"verified\": true,\n                \"type\": \"manual\",\n                \"createdAt\": \"2023-11-12T04:29:15.723Z\",\n                \"__v\": 0\n            }\n        ],\n        \"createdAt\": \"2023-11-12T08:37:25.561Z\",\n        \"__v\": 0\n    }\n}"
 								}
 							]
 						},
@@ -1359,10 +1710,45 @@
 											]
 										}
 									},
-									"_postman_previewlanguage": null,
-									"header": null,
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "791"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"317-J4mSN75hD2xmALWXrV1ntqPtjJs\""
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 12 Nov 2023 08:44:07 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
 									"cookie": [],
-									"body": "{\r\n    \"success\": true,\r\n    \"message\": \"All posts retrieved successfully\",\r\n    \"current_page\": 1,\r\n    \"data\": [\r\n        {\r\n            \"_id\": \"654dbc83c33b57c8af4efafb\",\r\n            \"content\": \"How was your day 2 ?\",\r\n            \"likes\": [\r\n                {\r\n                    \"_id\": \"654c9a20b561791fe579b4b2\",\r\n                    \"username\": \"alexxy\",\r\n                    \"email\": \"aayushpandey616@gmail.com\",\r\n                    \"profilePic\": \"https://i.imgur.com/Eyzrkg3.jpeg\",\r\n                    \"verified\": true,\r\n                    \"type\": \"manual\",\r\n                    \"createdAt\": \"2023-11-09T08:36:48.176Z\",\r\n                    \"__v\": 0\r\n                }\r\n            ],\r\n            \"comments\": [\r\n                {\r\n                    \"_id\": \"654dc2bab80d1abbd5a7deb7\",\r\n                    \"comment\": \"It Was good.\",\r\n                    \"user\": \"654c9a20b561791fe579b4b2\",\r\n                    \"post\": \"654dbc83c33b57c8af4efafb\",\r\n                    \"createdAt\": \"2023-11-10T05:42:18.547Z\",\r\n                    \"__v\": 0\r\n                },\r\n                {\r\n                    \"_id\": \"654e662460cd4837be241160\",\r\n                    \"comment\": \"It Was good.\",\r\n                    \"user\": \"654c9a20b561791fe579b4b2\",\r\n                    \"post\": \"654dbc83c33b57c8af4efafb\",\r\n                    \"createdAt\": \"2023-11-10T17:19:32.439Z\",\r\n                    \"__v\": 0\r\n                },\r\n                {\r\n                    \"_id\": \"654e662560cd4837be241164\",\r\n                    \"comment\": \"It Was good.\",\r\n                    \"user\": \"654c9a20b561791fe579b4b2\",\r\n                    \"post\": \"654dbc83c33b57c8af4efafb\",\r\n                    \"createdAt\": \"2023-11-10T17:19:33.883Z\",\r\n                    \"__v\": 0\r\n                },\r\n                {\r\n                    \"_id\": \"654e662760cd4837be241168\",\r\n                    \"comment\": \"It Was good.\",\r\n                    \"user\": \"654c9a20b561791fe579b4b2\",\r\n                    \"post\": \"654dbc83c33b57c8af4efafb\",\r\n                    \"createdAt\": \"2023-11-10T17:19:35.141Z\",\r\n                    \"__v\": 0\r\n                },\r\n                {\r\n                    \"_id\": \"654e662860cd4837be24116c\",\r\n                    \"comment\": \"It Was good.\",\r\n                    \"user\": \"654c9a20b561791fe579b4b2\",\r\n                    \"post\": \"654dbc83c33b57c8af4efafb\",\r\n                    \"createdAt\": \"2023-11-10T17:19:36.295Z\",\r\n                    \"__v\": 0\r\n                },\r\n                {\r\n                    \"_id\": \"654e662960cd4837be241170\",\r\n                    \"comment\": \"It Was good.\",\r\n                    \"user\": \"654c9a20b561791fe579b4b2\",\r\n                    \"post\": \"654dbc83c33b57c8af4efafb\",\r\n                    \"createdAt\": \"2023-11-10T17:19:37.445Z\",\r\n                    \"__v\": 0\r\n                },\r\n                {\r\n                    \"_id\": \"654e662a60cd4837be241174\",\r\n                    \"comment\": \"It Was good.\",\r\n                    \"user\": \"654c9a20b561791fe579b4b2\",\r\n                    \"post\": \"654dbc83c33b57c8af4efafb\",\r\n                    \"createdAt\": \"2023-11-10T17:19:38.494Z\",\r\n                    \"__v\": 0\r\n                },\r\n                {\r\n                    \"_id\": \"654e662b60cd4837be241178\",\r\n                    \"comment\": \"It Was good.\",\r\n                    \"user\": \"654c9a20b561791fe579b4b2\",\r\n                    \"post\": \"654dbc83c33b57c8af4efafb\",\r\n                    \"createdAt\": \"2023-11-10T17:19:39.652Z\",\r\n                    \"__v\": 0\r\n                },\r\n                {\r\n                    \"_id\": \"654e662f60cd4837be24117c\",\r\n                    \"comment\": \"It Was good.\",\r\n                    \"user\": \"654c9a20b561791fe579b4b2\",\r\n                    \"post\": \"654dbc83c33b57c8af4efafb\",\r\n                    \"createdAt\": \"2023-11-10T17:19:43.142Z\",\r\n                    \"__v\": 0\r\n                },\r\n                {\r\n                    \"_id\": \"654e663060cd4837be241180\",\r\n                    \"comment\": \"It Was good.\",\r\n                    \"user\": \"654c9a20b561791fe579b4b2\",\r\n                    \"post\": \"654dbc83c33b57c8af4efafb\",\r\n                    \"createdAt\": \"2023-11-10T17:19:44.622Z\",\r\n                    \"__v\": 0\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"_id\": \"654dc2b9b80d1abbd5a7deab\",\r\n            \"content\": \"How was your day?\",\r\n            \"likes\": [],\r\n            \"comments\": []\r\n        }\r\n    ]\r\n}"
+									"body": "{\n    \"success\": true,\n    \"message\": \"All posts retrieved successfully\",\n    \"current_page\": 1,\n    \"data\": [\n        {\n            \"_id\": \"65508ec54e7e6c3270b70077\",\n            \"content\": \"How was your day 1 ?\",\n            \"likes\": [\n                {\n                    \"_id\": \"6550549bd64f46e0826bb7d1\",\n                    \"username\": \"alexxy\",\n                    \"email\": \"aayushpandey616@gmail.com\",\n                    \"profilePic\": \"public\\\\uploads\\\\alexxy\\\\profilePic\\\\c4107bb8abc222f7bb2caffc188209e2.jpg\",\n                    \"verified\": true,\n                    \"type\": \"manual\",\n                    \"createdAt\": \"2023-11-12T04:29:15.723Z\",\n                    \"__v\": 0\n                }\n            ],\n            \"comments\": [\n                {\n                    \"_id\": \"65508f8a24ff053d699ffa07\",\n                    \"comment\": \"It Was good 3.\",\n                    \"user\": \"6550549bd64f46e0826bb7d1\",\n                    \"post\": \"65508ec54e7e6c3270b70077\",\n                    \"createdAt\": \"2023-11-12T08:40:42.353Z\",\n                    \"__v\": 0\n                },\n                {\n                    \"_id\": \"65508fdc02d6ce4d7e459a4e\",\n                    \"comment\": \"It Was good 3.\",\n                    \"user\": \"6550549bd64f46e0826bb7d1\",\n                    \"post\": \"65508ec54e7e6c3270b70077\",\n                    \"createdAt\": \"2023-11-12T08:42:04.021Z\",\n                    \"__v\": 0\n                }\n            ]\n        }\n    ]\n}"
 								}
 							]
 						},
@@ -1472,7 +1858,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n    \"postID\": \"654dbc83c33b57c8af4efafb\",\r\n    \"page\": 2\r\n}",
+											"raw": "{\r\n    \"postID\": \"65508ec54e7e6c3270b70077\",\r\n    \"page\": 1\r\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -1493,10 +1879,45 @@
 											]
 										}
 									},
-									"_postman_previewlanguage": null,
-									"header": null,
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "904"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"388-9O5DBOdHnPbJNSSIwmqkiIpJUZ8\""
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 12 Nov 2023 08:42:56 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
 									"cookie": [],
-									"body": "{\r\n    \"success\": true,\r\n    \"current_page\": 1,\r\n    \"message\": \"Comments retrieved successfully\",\r\n    \"data\": [\r\n        {\r\n            \"_id\": \"654dc2bab80d1abbd5a7deb7\",\r\n            \"comment\": \"It Was good.\",\r\n            \"user\": {\r\n                \"_id\": \"654c9a20b561791fe579b4b2\",\r\n                \"username\": \"alexxy\",\r\n                \"email\": \"aayushpandey616@gmail.com\",\r\n                \"profilePic\": \"https://i.imgur.com/Eyzrkg3.jpeg\",\r\n                \"verified\": true,\r\n                \"type\": \"manual\",\r\n                \"createdAt\": \"2023-11-09T08:36:48.176Z\",\r\n                \"__v\": 0\r\n            },\r\n            \"post\": \"654dbc83c33b57c8af4efafb\",\r\n            \"createdAt\": \"2023-11-10T05:42:18.547Z\",\r\n            \"__v\": 0\r\n        },\r\n        {\r\n            \"_id\": \"654e662460cd4837be241160\",\r\n            \"comment\": \"It Was good.\",\r\n            \"user\": {\r\n                \"_id\": \"654c9a20b561791fe579b4b2\",\r\n                \"username\": \"alexxy\",\r\n                \"email\": \"aayushpandey616@gmail.com\",\r\n                \"profilePic\": \"https://i.imgur.com/Eyzrkg3.jpeg\",\r\n                \"verified\": true,\r\n                \"type\": \"manual\",\r\n                \"createdAt\": \"2023-11-09T08:36:48.176Z\",\r\n                \"__v\": 0\r\n            },\r\n            \"post\": \"654dbc83c33b57c8af4efafb\",\r\n            \"createdAt\": \"2023-11-10T17:19:32.439Z\",\r\n            \"__v\": 0\r\n        },\r\n        {\r\n            \"_id\": \"654e662560cd4837be241164\",\r\n            \"comment\": \"It Was good.\",\r\n            \"user\": {\r\n                \"_id\": \"654c9a20b561791fe579b4b2\",\r\n                \"username\": \"alexxy\",\r\n                \"email\": \"aayushpandey616@gmail.com\",\r\n                \"profilePic\": \"https://i.imgur.com/Eyzrkg3.jpeg\",\r\n                \"verified\": true,\r\n                \"type\": \"manual\",\r\n                \"createdAt\": \"2023-11-09T08:36:48.176Z\",\r\n                \"__v\": 0\r\n            },\r\n            \"post\": \"654dbc83c33b57c8af4efafb\",\r\n            \"createdAt\": \"2023-11-10T17:19:33.883Z\",\r\n            \"__v\": 0\r\n        },\r\n        {\r\n            \"_id\": \"654e662760cd4837be241168\",\r\n            \"comment\": \"It Was good.\",\r\n            \"user\": {\r\n                \"_id\": \"654c9a20b561791fe579b4b2\",\r\n                \"username\": \"alexxy\",\r\n                \"email\": \"aayushpandey616@gmail.com\",\r\n                \"profilePic\": \"https://i.imgur.com/Eyzrkg3.jpeg\",\r\n                \"verified\": true,\r\n                \"type\": \"manual\",\r\n                \"createdAt\": \"2023-11-09T08:36:48.176Z\",\r\n                \"__v\": 0\r\n            },\r\n            \"post\": \"654dbc83c33b57c8af4efafb\",\r\n            \"createdAt\": \"2023-11-10T17:19:35.141Z\",\r\n            \"__v\": 0\r\n        },\r\n        {\r\n            \"_id\": \"654e662860cd4837be24116c\",\r\n            \"comment\": \"It Was good.\",\r\n            \"user\": {\r\n                \"_id\": \"654c9a20b561791fe579b4b2\",\r\n                \"username\": \"alexxy\",\r\n                \"email\": \"aayushpandey616@gmail.com\",\r\n                \"profilePic\": \"https://i.imgur.com/Eyzrkg3.jpeg\",\r\n                \"verified\": true,\r\n                \"type\": \"manual\",\r\n                \"createdAt\": \"2023-11-09T08:36:48.176Z\",\r\n                \"__v\": 0\r\n            },\r\n            \"post\": \"654dbc83c33b57c8af4efafb\",\r\n            \"createdAt\": \"2023-11-10T17:19:36.295Z\",\r\n            \"__v\": 0\r\n        },\r\n        {\r\n            \"_id\": \"654e662960cd4837be241170\",\r\n            \"comment\": \"It Was good.\",\r\n            \"user\": {\r\n                \"_id\": \"654c9a20b561791fe579b4b2\",\r\n                \"username\": \"alexxy\",\r\n                \"email\": \"aayushpandey616@gmail.com\",\r\n                \"profilePic\": \"https://i.imgur.com/Eyzrkg3.jpeg\",\r\n                \"verified\": true,\r\n                \"type\": \"manual\",\r\n                \"createdAt\": \"2023-11-09T08:36:48.176Z\",\r\n                \"__v\": 0\r\n            },\r\n            \"post\": \"654dbc83c33b57c8af4efafb\",\r\n            \"createdAt\": \"2023-11-10T17:19:37.445Z\",\r\n            \"__v\": 0\r\n        },\r\n        {\r\n            \"_id\": \"654e662a60cd4837be241174\",\r\n            \"comment\": \"It Was good.\",\r\n            \"user\": {\r\n                \"_id\": \"654c9a20b561791fe579b4b2\",\r\n                \"username\": \"alexxy\",\r\n                \"email\": \"aayushpandey616@gmail.com\",\r\n                \"profilePic\": \"https://i.imgur.com/Eyzrkg3.jpeg\",\r\n                \"verified\": true,\r\n                \"type\": \"manual\",\r\n                \"createdAt\": \"2023-11-09T08:36:48.176Z\",\r\n                \"__v\": 0\r\n            },\r\n            \"post\": \"654dbc83c33b57c8af4efafb\",\r\n            \"createdAt\": \"2023-11-10T17:19:38.494Z\",\r\n            \"__v\": 0\r\n        },\r\n        {\r\n            \"_id\": \"654e662b60cd4837be241178\",\r\n            \"comment\": \"It Was good.\",\r\n            \"user\": {\r\n                \"_id\": \"654c9a20b561791fe579b4b2\",\r\n                \"username\": \"alexxy\",\r\n                \"email\": \"aayushpandey616@gmail.com\",\r\n                \"profilePic\": \"https://i.imgur.com/Eyzrkg3.jpeg\",\r\n                \"verified\": true,\r\n                \"type\": \"manual\",\r\n                \"createdAt\": \"2023-11-09T08:36:48.176Z\",\r\n                \"__v\": 0\r\n            },\r\n            \"post\": \"654dbc83c33b57c8af4efafb\",\r\n            \"createdAt\": \"2023-11-10T17:19:39.652Z\",\r\n            \"__v\": 0\r\n        },\r\n        {\r\n            \"_id\": \"654e662f60cd4837be24117c\",\r\n            \"comment\": \"It Was good.\",\r\n            \"user\": {\r\n                \"_id\": \"654c9a20b561791fe579b4b2\",\r\n                \"username\": \"alexxy\",\r\n                \"email\": \"aayushpandey616@gmail.com\",\r\n                \"profilePic\": \"https://i.imgur.com/Eyzrkg3.jpeg\",\r\n                \"verified\": true,\r\n                \"type\": \"manual\",\r\n                \"createdAt\": \"2023-11-09T08:36:48.176Z\",\r\n                \"__v\": 0\r\n            },\r\n            \"post\": \"654dbc83c33b57c8af4efafb\",\r\n            \"createdAt\": \"2023-11-10T17:19:43.142Z\",\r\n            \"__v\": 0\r\n        },\r\n        {\r\n            \"_id\": \"654e663060cd4837be241180\",\r\n            \"comment\": \"It Was good.\",\r\n            \"user\": {\r\n                \"_id\": \"654c9a20b561791fe579b4b2\",\r\n                \"username\": \"alexxy\",\r\n                \"email\": \"aayushpandey616@gmail.com\",\r\n                \"profilePic\": \"https://i.imgur.com/Eyzrkg3.jpeg\",\r\n                \"verified\": true,\r\n                \"type\": \"manual\",\r\n                \"createdAt\": \"2023-11-09T08:36:48.176Z\",\r\n                \"__v\": 0\r\n            },\r\n            \"post\": \"654dbc83c33b57c8af4efafb\",\r\n            \"createdAt\": \"2023-11-10T17:19:44.622Z\",\r\n            \"__v\": 0\r\n        }\r\n    ]\r\n}"
+									"body": "{\n    \"success\": true,\n    \"current_page\": 1,\n    \"message\": \"Comments retrieved successfully\",\n    \"data\": [\n        {\n            \"_id\": \"65508f8a24ff053d699ffa07\",\n            \"comment\": \"It Was good 3.\",\n            \"user\": {\n                \"_id\": \"6550549bd64f46e0826bb7d1\",\n                \"username\": \"alexxy\",\n                \"email\": \"aayushpandey616@gmail.com\",\n                \"profilePic\": \"public\\\\uploads\\\\alexxy\\\\profilePic\\\\c4107bb8abc222f7bb2caffc188209e2.jpg\",\n                \"verified\": true,\n                \"type\": \"manual\",\n                \"createdAt\": \"2023-11-12T04:29:15.723Z\",\n                \"__v\": 0\n            },\n            \"post\": \"65508ec54e7e6c3270b70077\",\n            \"createdAt\": \"2023-11-12T08:40:42.353Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"65508fdc02d6ce4d7e459a4e\",\n            \"comment\": \"It Was good 3.\",\n            \"user\": {\n                \"_id\": \"6550549bd64f46e0826bb7d1\",\n                \"username\": \"alexxy\",\n                \"email\": \"aayushpandey616@gmail.com\",\n                \"profilePic\": \"public\\\\uploads\\\\alexxy\\\\profilePic\\\\c4107bb8abc222f7bb2caffc188209e2.jpg\",\n                \"verified\": true,\n                \"type\": \"manual\",\n                \"createdAt\": \"2023-11-12T04:29:15.723Z\",\n                \"__v\": 0\n            },\n            \"post\": \"65508ec54e7e6c3270b70077\",\n            \"createdAt\": \"2023-11-12T08:42:04.021Z\",\n            \"__v\": 0\n        }\n    ]\n}"
 								}
 							]
 						},
@@ -1571,7 +1992,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"postID\": \"654dbc83c33b57c8af4efafb\",\r\n    \"page\": 2\r\n}",
+									"raw": "{\r\n    \"postID\": \"65508ec54e7e6c3270b70077\",\r\n    \"page\": 1\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1579,7 +2000,7 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:3001/api/posts/getPostsComments",
+									"raw": "http://localhost:3001/api/posts/getPostsLikes",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -1588,7 +2009,7 @@
 									"path": [
 										"api",
 										"posts",
-										"getPostsComments"
+										"getPostsLikes"
 									]
 								}
 							},
@@ -1606,7 +2027,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n    \"postID\": \"654dbc83c33b57c8af4efafb\",\r\n    \"page\": 2\r\n}",
+											"raw": "{\r\n    \"postID\": \"65508ec54e7e6c3270b70077\",\r\n    \"page\": 1\r\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -1614,7 +2035,7 @@
 											}
 										},
 										"url": {
-											"raw": "http://localhost:3001/api/posts/getPostsComments",
+											"raw": "http://localhost:3001/api/posts/getPostsLikes",
 											"protocol": "http",
 											"host": [
 												"localhost"
@@ -1623,14 +2044,49 @@
 											"path": [
 												"api",
 												"posts",
-												"getPostsComments"
+												"getPostsLikes"
 											]
 										}
 									},
-									"_postman_previewlanguage": null,
-									"header": null,
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "342"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"156-k1NvnuzUcZ99Us9ZP7s9odKDjRY\""
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 12 Nov 2023 08:43:51 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
 									"cookie": [],
-									"body": "{\r\n    \"success\": true,\r\n    \"message\": \"Likes retrieved successfully\",\r\n    \"current_page\": 1,\r\n    \"data\": [\r\n        {\r\n            \"_id\": \"654c9a20b561791fe579b4b2\",\r\n            \"username\": \"alexxy\",\r\n            \"email\": \"aayushpandey616@gmail.com\",\r\n            \"profilePic\": \"https://i.imgur.com/Eyzrkg3.jpeg\",\r\n            \"verified\": true,\r\n            \"type\": \"manual\",\r\n            \"createdAt\": \"2023-11-09T08:36:48.176Z\",\r\n            \"__v\": 0\r\n        }\r\n    ]\r\n}"
+									"body": "{\n    \"success\": true,\n    \"message\": \"Likes retrieved successfully\",\n    \"current_page\": 1,\n    \"data\": [\n        {\n            \"_id\": \"6550549bd64f46e0826bb7d1\",\n            \"username\": \"alexxy\",\n            \"email\": \"aayushpandey616@gmail.com\",\n            \"profilePic\": \"public\\\\uploads\\\\alexxy\\\\profilePic\\\\c4107bb8abc222f7bb2caffc188209e2.jpg\",\n            \"verified\": true,\n            \"type\": \"manual\",\n            \"createdAt\": \"2023-11-12T04:29:15.723Z\",\n            \"__v\": 0\n        }\n    ]\n}"
 								}
 							]
 						},
@@ -1735,7 +2191,7 @@
 											}
 										},
 										"url": {
-											"raw": "http://localhost:3001/api/posts/getAllPosts",
+											"raw": "http://localhost:3001/api/posts/getLikedPosts",
 											"protocol": "http",
 											"host": [
 												"localhost"
@@ -1744,14 +2200,49 @@
 											"path": [
 												"api",
 												"posts",
-												"getAllPosts"
+												"getLikedPosts"
 											]
 										}
 									},
-									"_postman_previewlanguage": null,
-									"header": null,
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "871"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"367-p993RgfWn1UtJYcAWhvPOsXDeoQ\""
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 12 Nov 2023 08:55:31 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
 									"cookie": [],
-									"body": "{\r\n    \"success\": true,\r\n    \"message\": \"All posts retrieved successfully\",\r\n    \"current_page\": 1,\r\n    \"data\": [\r\n        {\r\n            \"_id\": \"654dbc83c33b57c8af4efafb\",\r\n            \"content\": \"How was your day 2 ?\",\r\n            \"likes\": [\r\n                {\r\n                    \"_id\": \"654c9a20b561791fe579b4b2\",\r\n                    \"username\": \"alexxy\",\r\n                    \"email\": \"aayushpandey616@gmail.com\",\r\n                    \"profilePic\": \"https://i.imgur.com/Eyzrkg3.jpeg\",\r\n                    \"verified\": true,\r\n                    \"type\": \"manual\",\r\n                    \"createdAt\": \"2023-11-09T08:36:48.176Z\",\r\n                    \"__v\": 0\r\n                }\r\n            ],\r\n            \"comments\": [\r\n                {\r\n                    \"_id\": \"654dc2bab80d1abbd5a7deb7\",\r\n                    \"comment\": \"It Was good.\",\r\n                    \"user\": \"654c9a20b561791fe579b4b2\",\r\n                    \"post\": \"654dbc83c33b57c8af4efafb\",\r\n                    \"createdAt\": \"2023-11-10T05:42:18.547Z\",\r\n                    \"__v\": 0\r\n                },\r\n                {\r\n                    \"_id\": \"654e662460cd4837be241160\",\r\n                    \"comment\": \"It Was good.\",\r\n                    \"user\": \"654c9a20b561791fe579b4b2\",\r\n                    \"post\": \"654dbc83c33b57c8af4efafb\",\r\n                    \"createdAt\": \"2023-11-10T17:19:32.439Z\",\r\n                    \"__v\": 0\r\n                },\r\n                {\r\n                    \"_id\": \"654e662560cd4837be241164\",\r\n                    \"comment\": \"It Was good.\",\r\n                    \"user\": \"654c9a20b561791fe579b4b2\",\r\n                    \"post\": \"654dbc83c33b57c8af4efafb\",\r\n                    \"createdAt\": \"2023-11-10T17:19:33.883Z\",\r\n                    \"__v\": 0\r\n                },\r\n                {\r\n                    \"_id\": \"654e662760cd4837be241168\",\r\n                    \"comment\": \"It Was good.\",\r\n                    \"user\": \"654c9a20b561791fe579b4b2\",\r\n                    \"post\": \"654dbc83c33b57c8af4efafb\",\r\n                    \"createdAt\": \"2023-11-10T17:19:35.141Z\",\r\n                    \"__v\": 0\r\n                },\r\n                {\r\n                    \"_id\": \"654e662860cd4837be24116c\",\r\n                    \"comment\": \"It Was good.\",\r\n                    \"user\": \"654c9a20b561791fe579b4b2\",\r\n                    \"post\": \"654dbc83c33b57c8af4efafb\",\r\n                    \"createdAt\": \"2023-11-10T17:19:36.295Z\",\r\n                    \"__v\": 0\r\n                },\r\n                {\r\n                    \"_id\": \"654e662960cd4837be241170\",\r\n                    \"comment\": \"It Was good.\",\r\n                    \"user\": \"654c9a20b561791fe579b4b2\",\r\n                    \"post\": \"654dbc83c33b57c8af4efafb\",\r\n                    \"createdAt\": \"2023-11-10T17:19:37.445Z\",\r\n                    \"__v\": 0\r\n                },\r\n                {\r\n                    \"_id\": \"654e662a60cd4837be241174\",\r\n                    \"comment\": \"It Was good.\",\r\n                    \"user\": \"654c9a20b561791fe579b4b2\",\r\n                    \"post\": \"654dbc83c33b57c8af4efafb\",\r\n                    \"createdAt\": \"2023-11-10T17:19:38.494Z\",\r\n                    \"__v\": 0\r\n                },\r\n                {\r\n                    \"_id\": \"654e662b60cd4837be241178\",\r\n                    \"comment\": \"It Was good.\",\r\n                    \"user\": \"654c9a20b561791fe579b4b2\",\r\n                    \"post\": \"654dbc83c33b57c8af4efafb\",\r\n                    \"createdAt\": \"2023-11-10T17:19:39.652Z\",\r\n                    \"__v\": 0\r\n                },\r\n                {\r\n                    \"_id\": \"654e662f60cd4837be24117c\",\r\n                    \"comment\": \"It Was good.\",\r\n                    \"user\": \"654c9a20b561791fe579b4b2\",\r\n                    \"post\": \"654dbc83c33b57c8af4efafb\",\r\n                    \"createdAt\": \"2023-11-10T17:19:43.142Z\",\r\n                    \"__v\": 0\r\n                },\r\n                {\r\n                    \"_id\": \"654e663060cd4837be241180\",\r\n                    \"comment\": \"It Was good.\",\r\n                    \"user\": \"654c9a20b561791fe579b4b2\",\r\n                    \"post\": \"654dbc83c33b57c8af4efafb\",\r\n                    \"createdAt\": \"2023-11-10T17:19:44.622Z\",\r\n                    \"__v\": 0\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"_id\": \"654dc2b9b80d1abbd5a7deab\",\r\n            \"content\": \"How was your day?\",\r\n            \"likes\": [],\r\n            \"comments\": []\r\n        }\r\n    ]\r\n}"
+									"body": "{\n    \"success\": true,\n    \"message\": \"All posts retrieved successfully\",\n    \"current_page\": 1,\n    \"data\": [\n        {\n            \"_id\": \"65508ec54e7e6c3270b70077\",\n            \"content\": \"How was your day 1 ?\",\n            \"user\": \"654c9a20b561791fe579b4b2\",\n            \"comment\": [\n                {\n                    \"_id\": \"65508f8a24ff053d699ffa07\",\n                    \"comment\": \"It Was good 3.\",\n                    \"user\": \"6550549bd64f46e0826bb7d1\",\n                    \"post\": \"65508ec54e7e6c3270b70077\",\n                    \"createdAt\": \"2023-11-12T08:40:42.353Z\",\n                    \"__v\": 0\n                },\n                {\n                    \"_id\": \"65508fdc02d6ce4d7e459a4e\",\n                    \"comment\": \"It Was good 3.\",\n                    \"user\": \"6550549bd64f46e0826bb7d1\",\n                    \"post\": \"65508ec54e7e6c3270b70077\",\n                    \"createdAt\": \"2023-11-12T08:42:04.021Z\",\n                    \"__v\": 0\n                }\n            ],\n            \"likes\": [\n                {\n                    \"_id\": \"6550549bd64f46e0826bb7d1\",\n                    \"username\": \"alexxy\",\n                    \"email\": \"aayushpandey616@gmail.com\",\n                    \"profilePic\": \"public\\\\uploads\\\\alexxy\\\\profilePic\\\\c4107bb8abc222f7bb2caffc188209e2.jpg\",\n                    \"verified\": true,\n                    \"type\": \"manual\",\n                    \"createdAt\": \"2023-11-12T04:29:15.723Z\",\n                    \"__v\": 0\n                }\n            ],\n            \"createdAt\": \"2023-11-12T08:37:25.561Z\",\n            \"__v\": 0\n        }\n    ]\n}"
 								}
 							]
 						},
@@ -1811,7 +2302,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NGM5YTIwYjU2MTc5MWZlNTc5YjRiMiIsInVzZXJuYW1lIjoiYWxleHh5IiwidHlwZSI6Im1hbnVhbCIsInByb2ZpbGVQaWMiOiJodHRwczovL2kuaW1ndXIuY29tL0V5enJrZzMuanBlZyIsImVtYWlsIjoiYWF5dXNocGFuZGV5NjE2QGdtYWlsLmNvbSIsImlhdCI6MTY5OTU5MzMzNywiZXhwIjoxNzAwMTk4MTM3fQ.cXx7l4P67JV_Cb9gpdPH33K8SWo1NX2a7k1wv8Lzjk0",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NTA1NDliZDY0ZjQ2ZTA4MjZiYjdkMSIsInVzZXJuYW1lIjoiYWxleHh5IiwidHlwZSI6Im1hbnVhbCIsInByb2ZpbGVQaWMiOiJwdWJsaWNcXHVwbG9hZHNcXGFsZXh4eVxccHJvZmlsZVBpY1xcYzQxMDdiYjhhYmMyMjJmN2JiMmNhZmZjMTg4MjA5ZTIuanBnIiwiZW1haWwiOiJhYXl1c2hwYW5kZXk2MTZAZ21haWwuY29tIiwiaWF0IjoxNjk5NzY0NTk0LCJleHAiOjE3MDAzNjkzOTR9.cJmybsotRncJpKTaciEETQA4eqevWsucUEngWccBvQQ",
 											"type": "string"
 										}
 									]
@@ -1826,7 +2317,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"contentID\" : \"654dbc83c33b57c8af4efafb\",\r\n    \"comment\": \"It Was good.\"\r\n}",
+									"raw": "{\r\n    \"contentID\" : \"6550570ee0c23e097aeda5e1\",\r\n    \"comment\": \"It Was good 3.\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1861,7 +2352,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n    \"contentID\" : \"654db53ed83835851d9badcc\",\r\n    \"comment\": \"It Was good.\"\r\n}",
+											"raw": "{\r\n    \"contentID\" : \"6550570ee0c23e097aeda5e1\",\r\n    \"comment\": \"It Was good 1.\"\r\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -1882,10 +2373,45 @@
 											]
 										}
 									},
-									"_postman_previewlanguage": null,
-									"header": null,
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "241"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"f1-aEweWbPQOeUOJDW8jEIq3YiwV7A\""
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 12 Nov 2023 04:55:12 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
 									"cookie": [],
-									"body": "{\r\n    \"success\": true,\r\n    \"message\": \"Comment created successfully\",\r\n    \"data\": {\r\n        \"comment\": \"It Was good.\",\r\n        \"user\": \"654c9a20b561791fe579b4b2\",\r\n        \"post\": \"654dbc83c33b57c8af4efafb\",\r\n        \"_id\": \"654dbf4fb80d1abbd5a7de9b\",\r\n        \"createdAt\": \"2023-11-10T05:27:43.566Z\",\r\n        \"__v\": 0\r\n    }\r\n}"
+									"body": "{\n    \"success\": true,\n    \"message\": \"Comment created successfully\",\n    \"data\": {\n        \"comment\": \"It Was good 1.\",\n        \"user\": \"6550549bd64f46e0826bb7d1\",\n        \"post\": \"6550570ee0c23e097aeda5e1\",\n        \"_id\": \"65505ab08729484b8a9f7fa3\",\n        \"createdAt\": \"2023-11-12T04:55:12.421Z\",\n        \"__v\": 0\n    }\n}"
 								}
 							]
 						},
@@ -1947,7 +2473,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n    \"contentID\" : \"654db53ed83835851d9badcc\",\r\n    \"comment\": \"It Was good.\"\r\n}",
+											"raw": "{\r\n    \"commentID\" : \"65508ed04e7e6c3270b7007a\"\r\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -1955,7 +2481,7 @@
 											}
 										},
 										"url": {
-											"raw": "http://localhost:3001/api/posts/createComment",
+											"raw": "http://localhost:3001/api/posts/deleteComment",
 											"protocol": "http",
 											"host": [
 												"localhost"
@@ -1964,14 +2490,49 @@
 											"path": [
 												"api",
 												"posts",
-												"createComment"
+												"deleteComment"
 											]
 										}
 									},
-									"_postman_previewlanguage": null,
-									"header": null,
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "57"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"39-3wNSX2zqQ1/8B8c4vXR4x1IbeIQ\""
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 12 Nov 2023 08:39:44 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
 									"cookie": [],
-									"body": "{\r\n    \"success\": true,\r\n    \"message\": \"Comment deleted successfully\"\r\n}"
+									"body": "{\n    \"success\": true,\n    \"message\": \"Comment deleted successfully\"\n}"
 								}
 							]
 						},
@@ -2035,7 +2596,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"content\" : \"How was your day 2 ?\",\r\n    \"postID\" : \"654dbc83c33b57c8af4efafb\"\r\n}",
+									"raw": "{\r\n    \"content\" : \"How was your day 1 ?\",\r\n    \"postID\" : \"65508ec54e7e6c3270b70077\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -2070,7 +2631,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n    \"content\" : \"How was your day 2 ?\",\r\n    \"postID\" : \"654c9c44145985b1cd78d27f\"\r\n}",
+											"raw": "{\r\n    \"content\" : \"How was your day 1 ?\",\r\n    \"postID\" : \"65508ec54e7e6c3270b70077\"\r\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -2078,7 +2639,7 @@
 											}
 										},
 										"url": {
-											"raw": "http://localhost:3001/api/posts/createPost",
+											"raw": "http://localhost:3001/api/posts/updatePost",
 											"protocol": "http",
 											"host": [
 												"localhost"
@@ -2087,14 +2648,49 @@
 											"path": [
 												"api",
 												"posts",
-												"createPost"
+												"updatePost"
 											]
 										}
 									},
-									"_postman_previewlanguage": null,
-									"header": null,
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "845"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"34d-x21UEFRbAoSx3BDR3KyelGQeKfw\""
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 12 Nov 2023 08:42:08 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
 									"cookie": [],
-									"body": "{\r\n    \"success\": true,\r\n    \"message\": \"Post updated successfully\",\r\n    \"data\": {\r\n        \"_id\": \"654dbc83c33b57c8af4efafb\",\r\n        \"content\": \"How was your day 2 ?\",\r\n        \"user\": \"654c9a20b561791fe579b4b2\",\r\n        \"comment\": [],\r\n        \"likes\": [\r\n            \"654c9a20b561791fe579b4b2\"\r\n        ],\r\n        \"createdAt\": \"2023-11-10T05:15:47.295Z\",\r\n        \"__v\": 0\r\n    }\r\n}"
+									"body": "{\n    \"success\": true,\n    \"message\": \"Post updated successfully\",\n    \"data\": {\n        \"_id\": \"65508ec54e7e6c3270b70077\",\n        \"content\": \"How was your day 1 ?\",\n        \"user\": \"654c9a20b561791fe579b4b2\",\n        \"comment\": [\n            {\n                \"_id\": \"65508f8a24ff053d699ffa07\",\n                \"comment\": \"It Was good 3.\",\n                \"user\": \"6550549bd64f46e0826bb7d1\",\n                \"post\": \"65508ec54e7e6c3270b70077\",\n                \"createdAt\": \"2023-11-12T08:40:42.353Z\",\n                \"__v\": 0\n            },\n            {\n                \"_id\": \"65508fdc02d6ce4d7e459a4e\",\n                \"comment\": \"It Was good 3.\",\n                \"user\": \"6550549bd64f46e0826bb7d1\",\n                \"post\": \"65508ec54e7e6c3270b70077\",\n                \"createdAt\": \"2023-11-12T08:42:04.021Z\",\n                \"__v\": 0\n            }\n        ],\n        \"likes\": [\n            {\n                \"_id\": \"6550549bd64f46e0826bb7d1\",\n                \"username\": \"alexxy\",\n                \"email\": \"aayushpandey616@gmail.com\",\n                \"profilePic\": \"public\\\\uploads\\\\alexxy\\\\profilePic\\\\c4107bb8abc222f7bb2caffc188209e2.jpg\",\n                \"verified\": true,\n                \"type\": \"manual\",\n                \"createdAt\": \"2023-11-12T04:29:15.723Z\",\n                \"__v\": 0\n            }\n        ],\n        \"createdAt\": \"2023-11-12T08:37:25.561Z\",\n        \"__v\": 0\n    }\n}"
 								}
 							]
 						},
@@ -2199,7 +2795,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n    \"postID\" : \"654dbc83c33b57c8af4efafb\"\r\n}",
+											"raw": "{\r\n    \"postID\" : \"65508ec54e7e6c3270b70077\"\r\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -2207,7 +2803,7 @@
 											}
 										},
 										"url": {
-											"raw": "http://localhost:3001/api/posts/likePost",
+											"raw": "http://localhost:3001/api/posts/likeUnlikePost",
 											"protocol": "http",
 											"host": [
 												"localhost"
@@ -2216,14 +2812,49 @@
 											"path": [
 												"api",
 												"posts",
-												"likePost"
+												"likeUnlikePost"
 											]
 										}
 									},
-									"_postman_previewlanguage": null,
-									"header": null,
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "52"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"34-LJtpHAi061mmDS6hwdu704MpiCE\""
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 12 Nov 2023 08:40:45 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
 									"cookie": [],
-									"body": "{\r\n    \"success\": true,\r\n    \"message\": \"Post liked successfully\"\r\n}"
+									"body": "{\n    \"success\": true,\n    \"message\": \"Post liked successfully\"\n}"
 								}
 							]
 						}
