@@ -30,5 +30,5 @@ To update the Swagger documentation, follow the steps below:
 3. Run the p2o command:
 
    ```bash
-   npx p2o ./path/to/PostmantoCollection.json -f ./path/to/result.yml
+   npx p2o ./path/to/Rantit.postman_collection.json -f ./path/to/result.yml
    ```

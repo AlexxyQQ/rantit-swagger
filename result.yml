@@ -35,7 +35,7 @@ paths:
           in: header
           schema:
             type: string
-          example: Apple
+          example: '{{apisecret}}'
       responses:
         '200':
           description: OK
@@ -55,15 +55,15 @@ paths:
             Content-Length:
               schema:
                 type: integer
-                example: '649'
+                example: '644'
             ETag:
               schema:
                 type: string
-                example: W/"289-gYEXEdWDemWZh2x4i8eKyPxwUTI"
+                example: W/"284-onFLM100sW9LDydCcDpnMjr9ejc"
             Date:
               schema:
                 type: string
-                example: Sun, 12 Nov 2023 04:30:11 GMT
+                example: Sun, 19 Nov 2023 13:20:07 GMT
             Connection:
               schema:
                 type: string
@@ -80,17 +80,17 @@ paths:
                 success: true
                 data:
                   user:
-                    _id: 6550549bd64f46e0826bb7d1
+                    _id: 655a0b6574a5f80df3d24b98
                     username: alexxy
                     email: aayushpandey616@gmail.com
                     profilePic: https://i.imgur.com/Eyzrkg3.jpeg
-                    verified: false
+                    verified: true
                     type: manual
-                    otp: FRM49A
-                    createdAt: '2023-11-12T04:29:15.723Z'
+                    otp: null
+                    createdAt: '2023-11-19T13:19:33.127Z'
                     __v: 0
                   token: >-
-                    eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NTA1NDliZDY0ZjQ2ZTA4MjZiYjdkMSIsInVzZXJuYW1lIjoiYWxleHh5IiwidHlwZSI6Im1hbnVhbCIsInByb2ZpbGVQaWMiOiJodHRwczovL2kuaW1ndXIuY29tL0V5enJrZzMuanBlZyIsImVtYWlsIjoiYWF5dXNocGFuZGV5NjE2QGdtYWlsLmNvbSIsImlhdCI6MTY5OTc2MzQxMSwiZXhwIjoxNzAwMzY4MjExfQ.KCN35wDpVxoc_4UmzUe0x4axbXIgWsQ1dCGlQk0yN-0
+                    eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NWEwYjY1NzRhNWY4MGRmM2QyNGI5OCIsInVzZXJuYW1lIjoiYWxleHh5IiwidHlwZSI6Im1hbnVhbCIsInByb2ZpbGVQaWMiOiJodHRwczovL2kuaW1ndXIuY29tL0V5enJrZzMuanBlZyIsImVtYWlsIjoiYWF5dXNocGFuZGV5NjE2QGdtYWlsLmNvbSIsImlhdCI6MTcwMDQwMDAwNywiZXhwIjoxNzAxMDA0ODA3fQ.zXIatb4qms8nP9Mo-eEXEuYKUX9f3YegbnMYWf59_Tw
                 message: User logged in successfully!
   /api/users/signup:
     post:
@@ -113,7 +113,7 @@ paths:
           in: header
           schema:
             type: string
-          example: Apple
+          example: '{{apisecret}}'
       responses:
         '200':
           description: OK
@@ -137,11 +137,11 @@ paths:
             ETag:
               schema:
                 type: string
-                example: W/"f5-m2p0ldDSKqFJ3ruxRAha0zDWIjE"
+                example: W/"f5-hYy59r6Wy5tFA7GiRj8yqdTVrxE"
             Date:
               schema:
                 type: string
-                example: Sun, 12 Nov 2023 04:29:19 GMT
+                example: Sun, 19 Nov 2023 13:19:36 GMT
             Connection:
               schema:
                 type: string
@@ -157,7 +157,7 @@ paths:
               example:
                 success: true
                 data:
-                  _id: 6550549bd64f46e0826bb7d1
+                  _id: 655a0b6574a5f80df3d24b98
                   username: alexxy
                   email: aayushpandey616@gmail.com
                   profilePic: https://i.imgur.com/Eyzrkg3.jpeg
@@ -176,13 +176,13 @@ paths:
               type: object
               example:
                 email: aayushpandey616@gmail.com
-                otp: 8J8JYJ
+                otp: PC85OR
       parameters:
         - name: apisecret
           in: header
           schema:
             type: string
-          example: Apple
+          example: '{{apisecret}}'
       responses:
         '200':
           description: OK
@@ -210,7 +210,7 @@ paths:
             Date:
               schema:
                 type: string
-                example: Sun, 12 Nov 2023 04:30:24 GMT
+                example: Sun, 19 Nov 2023 13:16:58 GMT
             Connection:
               schema:
                 type: string
@@ -243,7 +243,7 @@ paths:
           in: header
           schema:
             type: string
-          example: Apple
+          example: '{{apisecret}}'
       responses:
         '200':
           description: OK
@@ -271,7 +271,7 @@ paths:
             Date:
               schema:
                 type: string
-                example: Sun, 12 Nov 2023 04:30:33 GMT
+                example: Sun, 19 Nov 2023 13:20:47 GMT
             Connection:
               schema:
                 type: string
@@ -299,14 +299,14 @@ paths:
               type: object
               example:
                 email: aayushpandey616@gmail.com
-                otp: X39I92
+                otp: WE78PK
                 newPassword: VerySecretPassword@123
       parameters:
         - name: apisecret
           in: header
           schema:
             type: string
-          example: Apple
+          example: '{{apisecret}}'
       responses:
         '200':
           description: OK
@@ -334,7 +334,7 @@ paths:
             Date:
               schema:
                 type: string
-                example: Sun, 12 Nov 2023 04:31:12 GMT
+                example: Sun, 19 Nov 2023 13:21:14 GMT
             Connection:
               schema:
                 type: string
@@ -371,7 +371,7 @@ paths:
           in: header
           schema:
             type: string
-          example: Apple
+          example: '{{apisecret}}'
       responses:
         '200':
           description: OK
@@ -395,11 +395,11 @@ paths:
             ETag:
               schema:
                 type: string
-                example: W/"14c-SeaeuyhaaVDwT/XhbzG5fddiONw"
+                example: W/"14c-Bt/1XG4ZOVxa+8Crj5cdkiq/JoQ"
             Date:
               schema:
                 type: string
-                example: Sun, 12 Nov 2023 04:32:07 GMT
+                example: Sun, 19 Nov 2023 13:20:25 GMT
             Connection:
               schema:
                 type: string
@@ -415,15 +415,15 @@ paths:
               example:
                 success: true
                 data:
-                  otp: null
-                  _id: 6550549bd64f46e0826bb7d1
+                  _id: 655a0b6574a5f80df3d24b98
                   username: alexxy
                   email: aayushpandey616@gmail.com
                   profilePic: >-
-                    public\uploads\alexxy\profilePic\c4107bb8abc222f7bb2caffc188209e2.jpg
+                    public\uploads\alexxy\profilePic\db55d61e1b6c2f47aca75e73c8e6c0b4.jpg
                   verified: true
                   type: manual
-                  createdAt: '2023-11-12T04:29:15.723Z'
+                  otp: null
+                  createdAt: '2023-11-19T13:19:33.127Z'
                   __v: 0
                 message: File uploaded successfully
   /api/users/deleteUser:
@@ -440,7 +440,7 @@ paths:
           in: header
           schema:
             type: string
-          example: Apple
+          example: '{{apisecret}}'
       responses:
         '200':
           description: OK
@@ -460,15 +460,15 @@ paths:
             Content-Length:
               schema:
                 type: integer
-                example: '42'
+                example: '57'
             ETag:
               schema:
                 type: string
-                example: W/"2a-TkGcC/0+lkh26Mo7bHbw30135PA"
+                example: W/"39-sZPh74kIw8O+sZquuL306iLUX2s"
             Date:
               schema:
                 type: string
-                example: Sun, 12 Nov 2023 04:26:23 GMT
+                example: Sun, 19 Nov 2023 13:14:16 GMT
             Connection:
               schema:
                 type: string
@@ -482,6 +482,7 @@ paths:
               schema:
                 type: object
               example:
+                success: true
                 message: Profile deleted successfully
   /api/users/loginWithToken:
     get:
@@ -495,7 +496,7 @@ paths:
           in: header
           schema:
             type: string
-          example: Apple
+          example: '{{apisecret}}'
       responses:
         '200':
           description: OK
@@ -519,11 +520,11 @@ paths:
             ETag:
               schema:
                 type: string
-                example: W/"2a2-5GEiEIT0eZ89Zq1Tjq0cW5T+pcs"
+                example: W/"2a2-syC3uTaBVaTBgXFA+G6BvEWi7h4"
             Date:
               schema:
                 type: string
-                example: Sun, 12 Nov 2023 04:32:13 GMT
+                example: Sun, 19 Nov 2023 13:21:24 GMT
             Connection:
               schema:
                 type: string
@@ -540,17 +541,17 @@ paths:
                 success: true
                 data:
                   user:
-                    _id: 6550549bd64f46e0826bb7d1
+                    _id: 655a0b6574a5f80df3d24b98
                     username: alexxy
                     email: aayushpandey616@gmail.com
                     profilePic: >-
-                      public\uploads\alexxy\profilePic\c4107bb8abc222f7bb2caffc188209e2.jpg
+                      public\uploads\alexxy\profilePic\db55d61e1b6c2f47aca75e73c8e6c0b4.jpg
                     verified: true
                     type: manual
-                    createdAt: '2023-11-12T04:29:15.723Z'
+                    createdAt: '2023-11-19T13:19:33.127Z'
                     __v: 0
                   token: >-
-                    eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NTA0ZWUwODEwMWYwYjAxZWYzMDMzMSIsInVzZXJuYW1lIjoiYWxleHh5IiwidHlwZSI6Im1hbnVhbCIsInByb2ZpbGVQaWMiOiJodHRwczovL2kuaW1ndXIuY29tL0V5enJrZzMuanBlZyIsImVtYWlsIjoiYWF5dXNocGFuZGV5NjE2QGdtYWlsLmNvbSIsImlhdCI6MTY5OTc2Mjg3MywiZXhwIjoxNzAwMzY3NjczfQ.4ffYBwVmdFjX6vc1xQ3XTSB2WZYKHhBk4Yx9mNWOI4A
+                    eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NWEwYTNhNzRhNWY4MGRmM2QyNGI4OSIsInVzZXJuYW1lIjoiYWxleHh5IiwidHlwZSI6Im1hbnVhbCIsInByb2ZpbGVQaWMiOiJodHRwczovL2kuaW1ndXIuY29tL0V5enJrZzMuanBlZyIsImVtYWlsIjoiYWF5dXNocGFuZGV5NjE2QGdtYWlsLmNvbSIsImlhdCI6MTcwMDM5OTkwMCwiZXhwIjoxNzAxMDA0NzAwfQ.0hi09gTcGAL2flsq64QSlFO5cWIxaOvVuzlA3XoT85U
                 message: User logged in successfully!
   /api/users/getListofUsers:
     get:
@@ -599,7 +600,8 @@ paths:
             schema:
               type: object
               example:
-                content: How was your day?
+                content: How are you doing 1
+                type: public
       security:
         - bearerAuth: []
       parameters:
@@ -607,7 +609,7 @@ paths:
           in: header
           schema:
             type: string
-          example: Apple
+          example: '{{apisecret}}'
       responses:
         '200':
           description: OK
@@ -627,15 +629,15 @@ paths:
             Content-Length:
               schema:
                 type: integer
-                example: '231'
+                example: '249'
             ETag:
               schema:
                 type: string
-                example: W/"e7-rouVbMw7OyZsOiHPCDAPbJssK4k"
+                example: W/"f9-ryO0u/ahhuOtR/tW0AxHcu4iyCU"
             Date:
               schema:
                 type: string
-                example: Sun, 12 Nov 2023 04:39:42 GMT
+                example: Sun, 19 Nov 2023 14:49:59 GMT
             Connection:
               schema:
                 type: string
@@ -652,596 +654,14 @@ paths:
                 success: true
                 message: Post created successfully
                 data:
-                  content: How was your day?
-                  user: 654c9a20b561791fe579b4b2
+                  content: How are you doing 1
+                  user: 655a0b6574a5f80df3d24b98
                   comment: []
                   likes: []
-                  _id: 6550570ee0c23e097aeda5e1
-                  createdAt: '2023-11-12T04:39:42.072Z'
+                  type: public
+                  _id: 655a20977d41d3b46fc4737e
+                  createdAt: '2023-11-19T14:49:59.544Z'
                   __v: 0
-  /api/posts/getOnePost:
-    post:
-      tags:
-        - Public > Posts
-      summary: Get One Post
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              example:
-                contentID: 654c9a20b561791fe579b4b2
-      security:
-        - bearerAuth: []
-      parameters:
-        - name: apisecret
-          in: header
-          schema:
-            type: string
-          example: Apple
-      responses:
-        '200':
-          description: OK
-          headers:
-            X-Powered-By:
-              schema:
-                type: string
-                example: Express
-            Vary:
-              schema:
-                type: string
-                example: Origin
-            Content-Type:
-              schema:
-                type: string
-                example: application/json; charset=utf-8
-            Content-Length:
-              schema:
-                type: integer
-                example: '928'
-            ETag:
-              schema:
-                type: string
-                example: W/"3a0-BvQknyh2SwB3HvDRxtWz5Tj6DFQ"
-            Date:
-              schema:
-                type: string
-                example: Sun, 12 Nov 2023 08:44:22 GMT
-            Connection:
-              schema:
-                type: string
-                example: keep-alive
-            Keep-Alive:
-              schema:
-                type: string
-                example: timeout=5
-          content:
-            application/json:
-              schema:
-                type: object
-              example:
-                success: true
-                message: Post found successfully
-                data:
-                  _id: 65508ec54e7e6c3270b70077
-                  content: How was your day 1 ?
-                  user: 654c9a20b561791fe579b4b2
-                  comment:
-                    - _id: 65508f8a24ff053d699ffa07
-                      comment: It Was good 3.
-                      user: 6550549bd64f46e0826bb7d1
-                      post: 65508ec54e7e6c3270b70077
-                      createdAt: '2023-11-12T08:40:42.353Z'
-                      __v: 0
-                    - _id: 65508fdc02d6ce4d7e459a4e
-                      comment: It Was good 3.
-                      user: 6550549bd64f46e0826bb7d1
-                      post: 65508ec54e7e6c3270b70077
-                      createdAt: '2023-11-12T08:42:04.021Z'
-                      __v: 0
-                  likes:
-                    - otp: null
-                      _id: 6550549bd64f46e0826bb7d1
-                      username: alexxy
-                      email: aayushpandey616@gmail.com
-                      password: >-
-                        $2a$12$g8UQX9IDUYMiWBUGe5tJI.jDAupulR/8wsmEgxeaAZeJekec6Dk.a
-                      profilePic: >-
-                        public\uploads\alexxy\profilePic\c4107bb8abc222f7bb2caffc188209e2.jpg
-                      verified: true
-                      type: manual
-                      createdAt: '2023-11-12T04:29:15.723Z'
-                      __v: 0
-                  createdAt: '2023-11-12T08:37:25.561Z'
-                  __v: 0
-  /api/posts/getAllPosts:
-    post:
-      tags:
-        - Public > Posts
-      summary: Get All Posts
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              example:
-                page: 1
-      security:
-        - bearerAuth: []
-      parameters:
-        - name: apisecret
-          in: header
-          schema:
-            type: string
-          example: Apple
-      responses:
-        '200':
-          description: OK
-          headers:
-            X-Powered-By:
-              schema:
-                type: string
-                example: Express
-            Vary:
-              schema:
-                type: string
-                example: Origin
-            Content-Type:
-              schema:
-                type: string
-                example: application/json; charset=utf-8
-            Content-Length:
-              schema:
-                type: integer
-                example: '791'
-            ETag:
-              schema:
-                type: string
-                example: W/"317-J4mSN75hD2xmALWXrV1ntqPtjJs"
-            Date:
-              schema:
-                type: string
-                example: Sun, 12 Nov 2023 08:44:07 GMT
-            Connection:
-              schema:
-                type: string
-                example: keep-alive
-            Keep-Alive:
-              schema:
-                type: string
-                example: timeout=5
-          content:
-            application/json:
-              schema:
-                type: object
-              example:
-                success: true
-                message: All posts retrieved successfully
-                current_page: 1
-                data:
-                  - _id: 65508ec54e7e6c3270b70077
-                    content: How was your day 1 ?
-                    likes:
-                      - _id: 6550549bd64f46e0826bb7d1
-                        username: alexxy
-                        email: aayushpandey616@gmail.com
-                        profilePic: >-
-                          public\uploads\alexxy\profilePic\c4107bb8abc222f7bb2caffc188209e2.jpg
-                        verified: true
-                        type: manual
-                        createdAt: '2023-11-12T04:29:15.723Z'
-                        __v: 0
-                    comments:
-                      - _id: 65508f8a24ff053d699ffa07
-                        comment: It Was good 3.
-                        user: 6550549bd64f46e0826bb7d1
-                        post: 65508ec54e7e6c3270b70077
-                        createdAt: '2023-11-12T08:40:42.353Z'
-                        __v: 0
-                      - _id: 65508fdc02d6ce4d7e459a4e
-                        comment: It Was good 3.
-                        user: 6550549bd64f46e0826bb7d1
-                        post: 65508ec54e7e6c3270b70077
-                        createdAt: '2023-11-12T08:42:04.021Z'
-                        __v: 0
-  /api/posts/getPostsComments:
-    post:
-      tags:
-        - Public > Posts
-      summary: Get Post Comments
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              example:
-                postID: 654dbc83c33b57c8af4efafb
-                page: 2
-      security:
-        - bearerAuth: []
-      parameters:
-        - name: apisecret
-          in: header
-          schema:
-            type: string
-          example: Apple
-      responses:
-        '200':
-          description: OK
-          headers:
-            X-Powered-By:
-              schema:
-                type: string
-                example: Express
-            Vary:
-              schema:
-                type: string
-                example: Origin
-            Content-Type:
-              schema:
-                type: string
-                example: application/json; charset=utf-8
-            Content-Length:
-              schema:
-                type: integer
-                example: '904'
-            ETag:
-              schema:
-                type: string
-                example: W/"388-9O5DBOdHnPbJNSSIwmqkiIpJUZ8"
-            Date:
-              schema:
-                type: string
-                example: Sun, 12 Nov 2023 08:42:56 GMT
-            Connection:
-              schema:
-                type: string
-                example: keep-alive
-            Keep-Alive:
-              schema:
-                type: string
-                example: timeout=5
-          content:
-            application/json:
-              schema:
-                type: object
-              example:
-                success: true
-                current_page: 1
-                message: Comments retrieved successfully
-                data:
-                  - _id: 65508f8a24ff053d699ffa07
-                    comment: It Was good 3.
-                    user:
-                      _id: 6550549bd64f46e0826bb7d1
-                      username: alexxy
-                      email: aayushpandey616@gmail.com
-                      profilePic: >-
-                        public\uploads\alexxy\profilePic\c4107bb8abc222f7bb2caffc188209e2.jpg
-                      verified: true
-                      type: manual
-                      createdAt: '2023-11-12T04:29:15.723Z'
-                      __v: 0
-                    post: 65508ec54e7e6c3270b70077
-                    createdAt: '2023-11-12T08:40:42.353Z'
-                    __v: 0
-                  - _id: 65508fdc02d6ce4d7e459a4e
-                    comment: It Was good 3.
-                    user:
-                      _id: 6550549bd64f46e0826bb7d1
-                      username: alexxy
-                      email: aayushpandey616@gmail.com
-                      profilePic: >-
-                        public\uploads\alexxy\profilePic\c4107bb8abc222f7bb2caffc188209e2.jpg
-                      verified: true
-                      type: manual
-                      createdAt: '2023-11-12T04:29:15.723Z'
-                      __v: 0
-                    post: 65508ec54e7e6c3270b70077
-                    createdAt: '2023-11-12T08:42:04.021Z'
-                    __v: 0
-  /api/posts/getPostsLikes:
-    post:
-      tags:
-        - Public > Posts
-      summary: Get Post Likes
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              example:
-                postID: 65508ec54e7e6c3270b70077
-                page: 1
-      security:
-        - bearerAuth: []
-      parameters:
-        - name: apisecret
-          in: header
-          schema:
-            type: string
-          example: Apple
-      responses:
-        '200':
-          description: OK
-          headers:
-            X-Powered-By:
-              schema:
-                type: string
-                example: Express
-            Vary:
-              schema:
-                type: string
-                example: Origin
-            Content-Type:
-              schema:
-                type: string
-                example: application/json; charset=utf-8
-            Content-Length:
-              schema:
-                type: integer
-                example: '342'
-            ETag:
-              schema:
-                type: string
-                example: W/"156-k1NvnuzUcZ99Us9ZP7s9odKDjRY"
-            Date:
-              schema:
-                type: string
-                example: Sun, 12 Nov 2023 08:43:51 GMT
-            Connection:
-              schema:
-                type: string
-                example: keep-alive
-            Keep-Alive:
-              schema:
-                type: string
-                example: timeout=5
-          content:
-            application/json:
-              schema:
-                type: object
-              example:
-                success: true
-                message: Likes retrieved successfully
-                current_page: 1
-                data:
-                  - _id: 6550549bd64f46e0826bb7d1
-                    username: alexxy
-                    email: aayushpandey616@gmail.com
-                    profilePic: >-
-                      public\uploads\alexxy\profilePic\c4107bb8abc222f7bb2caffc188209e2.jpg
-                    verified: true
-                    type: manual
-                    createdAt: '2023-11-12T04:29:15.723Z'
-                    __v: 0
-  /api/posts/getLikedPosts:
-    post:
-      tags:
-        - Public > Posts
-      summary: Get Liked Posts
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              example:
-                page: 1
-      security:
-        - bearerAuth: []
-      parameters:
-        - name: apisecret
-          in: header
-          schema:
-            type: string
-          example: Apple
-      responses:
-        '200':
-          description: OK
-          headers:
-            X-Powered-By:
-              schema:
-                type: string
-                example: Express
-            Vary:
-              schema:
-                type: string
-                example: Origin
-            Content-Type:
-              schema:
-                type: string
-                example: application/json; charset=utf-8
-            Content-Length:
-              schema:
-                type: integer
-                example: '871'
-            ETag:
-              schema:
-                type: string
-                example: W/"367-p993RgfWn1UtJYcAWhvPOsXDeoQ"
-            Date:
-              schema:
-                type: string
-                example: Sun, 12 Nov 2023 08:55:31 GMT
-            Connection:
-              schema:
-                type: string
-                example: keep-alive
-            Keep-Alive:
-              schema:
-                type: string
-                example: timeout=5
-          content:
-            application/json:
-              schema:
-                type: object
-              example:
-                success: true
-                message: All posts retrieved successfully
-                current_page: 1
-                data:
-                  - _id: 65508ec54e7e6c3270b70077
-                    content: How was your day 1 ?
-                    user: 654c9a20b561791fe579b4b2
-                    comment:
-                      - _id: 65508f8a24ff053d699ffa07
-                        comment: It Was good 3.
-                        user: 6550549bd64f46e0826bb7d1
-                        post: 65508ec54e7e6c3270b70077
-                        createdAt: '2023-11-12T08:40:42.353Z'
-                        __v: 0
-                      - _id: 65508fdc02d6ce4d7e459a4e
-                        comment: It Was good 3.
-                        user: 6550549bd64f46e0826bb7d1
-                        post: 65508ec54e7e6c3270b70077
-                        createdAt: '2023-11-12T08:42:04.021Z'
-                        __v: 0
-                    likes:
-                      - _id: 6550549bd64f46e0826bb7d1
-                        username: alexxy
-                        email: aayushpandey616@gmail.com
-                        profilePic: >-
-                          public\uploads\alexxy\profilePic\c4107bb8abc222f7bb2caffc188209e2.jpg
-                        verified: true
-                        type: manual
-                        createdAt: '2023-11-12T04:29:15.723Z'
-                        __v: 0
-                    createdAt: '2023-11-12T08:37:25.561Z'
-                    __v: 0
-  /api/posts/createComment:
-    post:
-      tags:
-        - Public > Posts
-      summary: Comment On Post
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              example:
-                contentID: 6550570ee0c23e097aeda5e1
-                comment: It Was good 3.
-      security:
-        - bearerAuth: []
-      parameters:
-        - name: apisecret
-          in: header
-          schema:
-            type: string
-          example: Apple
-      responses:
-        '200':
-          description: OK
-          headers:
-            X-Powered-By:
-              schema:
-                type: string
-                example: Express
-            Vary:
-              schema:
-                type: string
-                example: Origin
-            Content-Type:
-              schema:
-                type: string
-                example: application/json; charset=utf-8
-            Content-Length:
-              schema:
-                type: integer
-                example: '241'
-            ETag:
-              schema:
-                type: string
-                example: W/"f1-aEweWbPQOeUOJDW8jEIq3YiwV7A"
-            Date:
-              schema:
-                type: string
-                example: Sun, 12 Nov 2023 04:55:12 GMT
-            Connection:
-              schema:
-                type: string
-                example: keep-alive
-            Keep-Alive:
-              schema:
-                type: string
-                example: timeout=5
-          content:
-            application/json:
-              schema:
-                type: object
-              example:
-                success: true
-                message: Comment created successfully
-                data:
-                  comment: It Was good 1.
-                  user: 6550549bd64f46e0826bb7d1
-                  post: 6550570ee0c23e097aeda5e1
-                  _id: 65505ab08729484b8a9f7fa3
-                  createdAt: '2023-11-12T04:55:12.421Z'
-                  __v: 0
-  /api/posts/deleteComment:
-    post:
-      tags:
-        - Public > Posts
-      summary: Delete Comment
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              example:
-                commentID: 654dbf4fb80d1abbd5a7de9b
-      security:
-        - bearerAuth: []
-      parameters:
-        - name: apisecret
-          in: header
-          schema:
-            type: string
-          example: Apple
-      responses:
-        '200':
-          description: OK
-          headers:
-            X-Powered-By:
-              schema:
-                type: string
-                example: Express
-            Vary:
-              schema:
-                type: string
-                example: Origin
-            Content-Type:
-              schema:
-                type: string
-                example: application/json; charset=utf-8
-            Content-Length:
-              schema:
-                type: integer
-                example: '57'
-            ETag:
-              schema:
-                type: string
-                example: W/"39-3wNSX2zqQ1/8B8c4vXR4x1IbeIQ"
-            Date:
-              schema:
-                type: string
-                example: Sun, 12 Nov 2023 08:39:44 GMT
-            Connection:
-              schema:
-                type: string
-                example: keep-alive
-            Keep-Alive:
-              schema:
-                type: string
-                example: timeout=5
-          content:
-            application/json:
-              schema:
-                type: object
-              example:
-                success: true
-                message: Comment deleted successfully
   /api/posts/updatePost:
     post:
       tags:
@@ -1254,7 +674,7 @@ paths:
               type: object
               example:
                 content: How was your day 1 ?
-                postID: 65508ec54e7e6c3270b70077
+                postID: 655a08eb74a5f80df3d24b63
       security:
         - bearerAuth: []
       parameters:
@@ -1262,7 +682,7 @@ paths:
           in: header
           schema:
             type: string
-          example: Apple
+          example: '{{apisecret}}'
       responses:
         '200':
           description: OK
@@ -1282,15 +702,15 @@ paths:
             Content-Length:
               schema:
                 type: integer
-                example: '845'
+                example: '1177'
             ETag:
               schema:
                 type: string
-                example: W/"34d-x21UEFRbAoSx3BDR3KyelGQeKfw"
+                example: W/"499-rl+ihf2hyPi5pT6PIj7W3RFfAXE"
             Date:
               schema:
                 type: string
-                example: Sun, 12 Nov 2023 08:42:08 GMT
+                example: Sun, 19 Nov 2023 14:58:37 GMT
             Connection:
               schema:
                 type: string
@@ -1307,33 +727,48 @@ paths:
                 success: true
                 message: Post updated successfully
                 data:
-                  _id: 65508ec54e7e6c3270b70077
+                  _id: 655a21133d2887289b746b1f
                   content: How was your day 1 ?
-                  user: 654c9a20b561791fe579b4b2
+                  user:
+                    _id: 655a0b6574a5f80df3d24b98
+                    username: alexxy
+                    email: aayushpandey616@gmail.com
+                    profilePic: >-
+                      public\uploads\alexxy\profilePic\db55d61e1b6c2f47aca75e73c8e6c0b4.jpg
+                    verified: true
+                    type: manual
+                    createdAt: '2023-11-19T13:19:33.127Z'
+                    __v: 0
                   comment:
-                    - _id: 65508f8a24ff053d699ffa07
-                      comment: It Was good 3.
-                      user: 6550549bd64f46e0826bb7d1
-                      post: 65508ec54e7e6c3270b70077
-                      createdAt: '2023-11-12T08:40:42.353Z'
-                      __v: 0
-                    - _id: 65508fdc02d6ce4d7e459a4e
-                      comment: It Was good 3.
-                      user: 6550549bd64f46e0826bb7d1
-                      post: 65508ec54e7e6c3270b70077
-                      createdAt: '2023-11-12T08:42:04.021Z'
+                    - _id: 655a21773d2887289b746b2a
+                      comment: It Was good 1.
+                      type: public
+                      user:
+                        _id: 655a0b6574a5f80df3d24b98
+                        username: alexxy
+                        email: aayushpandey616@gmail.com
+                        profilePic: >-
+                          public\uploads\alexxy\profilePic\db55d61e1b6c2f47aca75e73c8e6c0b4.jpg
+                        verified: true
+                        type: manual
+                        createdAt: '2023-11-19T13:19:33.127Z'
+                        __v: 0
+                      post: 655a21133d2887289b746b1f
+                      replies: []
+                      createdAt: '2023-11-19T14:53:43.211Z'
                       __v: 0
                   likes:
-                    - _id: 6550549bd64f46e0826bb7d1
+                    - _id: 655a0b6574a5f80df3d24b98
                       username: alexxy
                       email: aayushpandey616@gmail.com
                       profilePic: >-
-                        public\uploads\alexxy\profilePic\c4107bb8abc222f7bb2caffc188209e2.jpg
+                        public\uploads\alexxy\profilePic\db55d61e1b6c2f47aca75e73c8e6c0b4.jpg
                       verified: true
                       type: manual
-                      createdAt: '2023-11-12T04:29:15.723Z'
+                      createdAt: '2023-11-19T13:19:33.127Z'
                       __v: 0
-                  createdAt: '2023-11-12T08:37:25.561Z'
+                  type: public
+                  createdAt: '2023-11-19T14:52:03.936Z'
                   __v: 0
   /api/posts/likeUnlikePost:
     post:
@@ -1346,7 +781,7 @@ paths:
             schema:
               type: object
               example:
-                postID: 654dbc83c33b57c8af4efafb
+                postID: 655a1cc64f1c5a55a5c15200
       security:
         - bearerAuth: []
       parameters:
@@ -1354,7 +789,7 @@ paths:
           in: header
           schema:
             type: string
-          example: Apple
+          example: '{{apisecret}}'
       responses:
         '200':
           description: OK
@@ -1382,7 +817,7 @@ paths:
             Date:
               schema:
                 type: string
-                example: Sun, 12 Nov 2023 08:40:45 GMT
+                example: Sun, 19 Nov 2023 14:53:27 GMT
             Connection:
               schema:
                 type: string
@@ -1398,3 +833,898 @@ paths:
               example:
                 success: true
                 message: Post liked successfully
+  /api/posts/createComment:
+    post:
+      tags:
+        - Public > Posts
+      summary: Comment On Post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                contentID: 655a1cc64f1c5a55a5c15200
+                comment: It Was good 1.
+                type: public
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: apisecret
+          in: header
+          schema:
+            type: string
+          example: '{{apisecret}}'
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Powered-By:
+              schema:
+                type: string
+                example: Express
+            Vary:
+              schema:
+                type: string
+                example: Origin
+            Content-Type:
+              schema:
+                type: string
+                example: application/json; charset=utf-8
+            Content-Length:
+              schema:
+                type: integer
+                example: '273'
+            ETag:
+              schema:
+                type: string
+                example: W/"111-pU0AYgvIYc42nakqjerrwsOVHHg"
+            Date:
+              schema:
+                type: string
+                example: Sun, 19 Nov 2023 14:53:50 GMT
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=5
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                success: true
+                message: Comment created successfully
+                data:
+                  comment: It Was good 1.
+                  type: anonymous
+                  user: 655a0b6574a5f80df3d24b98
+                  post: 655a21133d2887289b746b1f
+                  replies: []
+                  _id: 655a217e3d2887289b746b2e
+                  createdAt: '2023-11-19T14:53:50.104Z'
+                  __v: 0
+  /api/posts/deleteComment:
+    post:
+      tags:
+        - Public > Posts
+      summary: Delete Comment
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                commentID: 655a094d74a5f80df3d24b6a
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: apisecret
+          in: header
+          schema:
+            type: string
+          example: '{{apisecret}}'
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Powered-By:
+              schema:
+                type: string
+                example: Express
+            Vary:
+              schema:
+                type: string
+                example: Origin
+            Content-Type:
+              schema:
+                type: string
+                example: application/json; charset=utf-8
+            Content-Length:
+              schema:
+                type: integer
+                example: '57'
+            ETag:
+              schema:
+                type: string
+                example: W/"39-3wNSX2zqQ1/8B8c4vXR4x1IbeIQ"
+            Date:
+              schema:
+                type: string
+                example: Sun, 19 Nov 2023 14:56:24 GMT
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=5
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                success: true
+                message: Comment deleted successfully
+  /api/posts/getOnePost:
+    post:
+      tags:
+        - Public > Posts
+      summary: Get One Post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                contentID: 655a1cc64f1c5a55a5c15200
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: apisecret
+          in: header
+          schema:
+            type: string
+          example: '{{apisecret}}'
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Powered-By:
+              schema:
+                type: string
+                example: Express
+            Vary:
+              schema:
+                type: string
+                example: Origin
+            Content-Type:
+              schema:
+                type: string
+                example: application/json; charset=utf-8
+            Content-Length:
+              schema:
+                type: integer
+                example: '2055'
+            ETag:
+              schema:
+                type: string
+                example: W/"807-FWsoMT2KCOBTOGIy9rYALby1nD8"
+            Date:
+              schema:
+                type: string
+                example: Sun, 19 Nov 2023 14:55:37 GMT
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=5
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                success: true
+                message: Post found successfully
+                data:
+                  _id: 655a21133d2887289b746b1f
+                  content: How was your day 75 ?
+                  user:
+                    _id: 655a0b6574a5f80df3d24b98
+                    username: alexxy
+                    email: aayushpandey616@gmail.com
+                    profilePic: >-
+                      public\uploads\alexxy\profilePic\db55d61e1b6c2f47aca75e73c8e6c0b4.jpg
+                    verified: true
+                    type: manual
+                    createdAt: '2023-11-19T13:19:33.127Z'
+                    __v: 0
+                  comment:
+                    - _id: 655a21773d2887289b746b2a
+                      comment: It Was good 1.
+                      type: public
+                      user: 655a0b6574a5f80df3d24b98
+                      post: 655a21133d2887289b746b1f
+                      replies: []
+                      createdAt: '2023-11-19T14:53:43.211Z'
+                      __v: 0
+                    - _id: 655a217e3d2887289b746b2e
+                      comment: It Was good 1.
+                      type: anonymous
+                      user: 655a0b6574a5f80df3d24b98
+                      post: 655a21133d2887289b746b1f
+                      replies:
+                        - _id: 655a21b33d2887289b746b33
+                          reply: sad
+                          type: public
+                          user:
+                            _id: 655a0b6574a5f80df3d24b98
+                            username: alexxy
+                            email: aayushpandey616@gmail.com
+                            profilePic: >-
+                              public\uploads\alexxy\profilePic\db55d61e1b6c2f47aca75e73c8e6c0b4.jpg
+                            verified: true
+                            type: manual
+                            createdAt: '2023-11-19T13:19:33.127Z'
+                            __v: 0
+                          post: 655a21133d2887289b746b1f
+                          comment: 655a217e3d2887289b746b2e
+                          createdAt: '2023-11-19T14:54:43.683Z'
+                          __v: 0
+                        - _id: 655a21be3d2887289b746b38
+                          reply: sad 2
+                          type: anonymous
+                          user:
+                            _id: 655a0b6574a5f80df3d24b98
+                            username: alexxy
+                            email: aayushpandey616@gmail.com
+                            profilePic: >-
+                              public\uploads\alexxy\profilePic\db55d61e1b6c2f47aca75e73c8e6c0b4.jpg
+                            verified: true
+                            type: manual
+                            createdAt: '2023-11-19T13:19:33.127Z'
+                            __v: 0
+                          post: 655a21133d2887289b746b1f
+                          comment: 655a217e3d2887289b746b2e
+                          createdAt: '2023-11-19T14:54:54.993Z'
+                          __v: 0
+                      createdAt: '2023-11-19T14:53:50.104Z'
+                      __v: 0
+                  likes:
+                    - _id: 655a0b6574a5f80df3d24b98
+                      username: alexxy
+                      email: aayushpandey616@gmail.com
+                      profilePic: >-
+                        public\uploads\alexxy\profilePic\db55d61e1b6c2f47aca75e73c8e6c0b4.jpg
+                      verified: true
+                      type: manual
+                      createdAt: '2023-11-19T13:19:33.127Z'
+                      __v: 0
+                  type: public
+                  createdAt: '2023-11-19T14:52:03.936Z'
+                  __v: 0
+  /api/posts/getAllPosts:
+    post:
+      tags:
+        - Public > Posts
+      summary: Get All Posts
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                page: 1
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: apisecret
+          in: header
+          schema:
+            type: string
+          example: '{{apisecret}}'
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Powered-By:
+              schema:
+                type: string
+                example: Express
+            Vary:
+              schema:
+                type: string
+                example: Origin
+            Content-Type:
+              schema:
+                type: string
+                example: application/json; charset=utf-8
+            Content-Length:
+              schema:
+                type: integer
+                example: '2970'
+            ETag:
+              schema:
+                type: string
+                example: W/"b9a-hUZcVyDuUsIKX2SfU7rUX/O9tI0"
+            Date:
+              schema:
+                type: string
+                example: Sun, 19 Nov 2023 14:54:59 GMT
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=5
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                success: true
+                message: All posts retrieved successfully
+                current_page: 1
+                data:
+                  - _id: 655a21133d2887289b746b1f
+                    content: How was your day 75 ?
+                    user:
+                      _id: 655a0b6574a5f80df3d24b98
+                      username: alexxy
+                      email: aayushpandey616@gmail.com
+                      profilePic: >-
+                        public\uploads\alexxy\profilePic\db55d61e1b6c2f47aca75e73c8e6c0b4.jpg
+                      verified: true
+                      type: manual
+                      createdAt: '2023-11-19T13:19:33.127Z'
+                      __v: 0
+                    comment:
+                      - _id: 655a21773d2887289b746b2a
+                        comment: It Was good 1.
+                        type: public
+                        user:
+                          _id: 655a0b6574a5f80df3d24b98
+                          username: alexxy
+                          email: aayushpandey616@gmail.com
+                          profilePic: >-
+                            public\uploads\alexxy\profilePic\db55d61e1b6c2f47aca75e73c8e6c0b4.jpg
+                          verified: true
+                          type: manual
+                          createdAt: '2023-11-19T13:19:33.127Z'
+                          __v: 0
+                        post: 655a21133d2887289b746b1f
+                        replies: []
+                        createdAt: '2023-11-19T14:53:43.211Z'
+                        __v: 0
+                      - _id: 655a217e3d2887289b746b2e
+                        comment: It Was good 1.
+                        type: anonymous
+                        user:
+                          _id: 655a0b6574a5f80df3d24b98
+                          username: alexxy
+                          email: aayushpandey616@gmail.com
+                          profilePic: >-
+                            public\uploads\alexxy\profilePic\db55d61e1b6c2f47aca75e73c8e6c0b4.jpg
+                          verified: true
+                          type: manual
+                          createdAt: '2023-11-19T13:19:33.127Z'
+                          __v: 0
+                        post: 655a21133d2887289b746b1f
+                        replies:
+                          - _id: 655a21b33d2887289b746b33
+                            reply: sad
+                            type: public
+                            user:
+                              _id: 655a0b6574a5f80df3d24b98
+                              username: alexxy
+                              email: aayushpandey616@gmail.com
+                              profilePic: >-
+                                public\uploads\alexxy\profilePic\db55d61e1b6c2f47aca75e73c8e6c0b4.jpg
+                              verified: true
+                              type: manual
+                              createdAt: '2023-11-19T13:19:33.127Z'
+                              __v: 0
+                            post: 655a21133d2887289b746b1f
+                            comment: 655a217e3d2887289b746b2e
+                            createdAt: '2023-11-19T14:54:43.683Z'
+                            __v: 0
+                          - _id: 655a21be3d2887289b746b38
+                            reply: sad 2
+                            type: anonymous
+                            user:
+                              _id: 655a0b6574a5f80df3d24b98
+                              username: alexxy
+                              email: aayushpandey616@gmail.com
+                              profilePic: >-
+                                public\uploads\alexxy\profilePic\db55d61e1b6c2f47aca75e73c8e6c0b4.jpg
+                              verified: true
+                              type: manual
+                              createdAt: '2023-11-19T13:19:33.127Z'
+                              __v: 0
+                            post: 655a21133d2887289b746b1f
+                            comment: 655a217e3d2887289b746b2e
+                            createdAt: '2023-11-19T14:54:54.993Z'
+                            __v: 0
+                        createdAt: '2023-11-19T14:53:50.104Z'
+                        __v: 0
+                    likes:
+                      - _id: 655a0b6574a5f80df3d24b98
+                        username: alexxy
+                        email: aayushpandey616@gmail.com
+                        profilePic: >-
+                          public\uploads\alexxy\profilePic\db55d61e1b6c2f47aca75e73c8e6c0b4.jpg
+                        verified: true
+                        type: manual
+                        createdAt: '2023-11-19T13:19:33.127Z'
+                        __v: 0
+                    type: public
+                    createdAt: '2023-11-19T14:52:03.936Z'
+                    __v: 0
+                  - _id: 655a211c3d2887289b746b21
+                    content: How are you doing 2
+                    user:
+                      _id: 655a0b6574a5f80df3d24b98
+                      username: alexxy
+                      email: aayushpandey616@gmail.com
+                      profilePic: >-
+                        public\uploads\alexxy\profilePic\db55d61e1b6c2f47aca75e73c8e6c0b4.jpg
+                      verified: true
+                      type: manual
+                      createdAt: '2023-11-19T13:19:33.127Z'
+                      __v: 0
+                    comment: []
+                    likes: []
+                    type: anonymous
+                    createdAt: '2023-11-19T14:52:12.952Z'
+                    __v: 0
+  /api/posts/getPostsComments:
+    post:
+      tags:
+        - Public > Posts
+      summary: Get Post Comments
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                postID: 655a1cc64f1c5a55a5c15200
+                page: 1
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: apisecret
+          in: header
+          schema:
+            type: string
+          example: '{{apisecret}}'
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Powered-By:
+              schema:
+                type: string
+                example: Express
+            Vary:
+              schema:
+                type: string
+                example: Origin
+            Content-Type:
+              schema:
+                type: string
+                example: application/json; charset=utf-8
+            Content-Length:
+              schema:
+                type: integer
+                example: '1867'
+            ETag:
+              schema:
+                type: string
+                example: W/"74b-SdGN31O8FfWSaAvREMnYqLpn2Vg"
+            Date:
+              schema:
+                type: string
+                example: Sun, 19 Nov 2023 14:55:45 GMT
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=5
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                success: true
+                current_page: 1
+                message: Comments retrieved successfully
+                data:
+                  - _id: 655a21773d2887289b746b2a
+                    comment: It Was good 1.
+                    type: public
+                    user:
+                      _id: 655a0b6574a5f80df3d24b98
+                      username: alexxy
+                      email: aayushpandey616@gmail.com
+                      profilePic: >-
+                        public\uploads\alexxy\profilePic\db55d61e1b6c2f47aca75e73c8e6c0b4.jpg
+                      verified: true
+                      type: manual
+                      createdAt: '2023-11-19T13:19:33.127Z'
+                      __v: 0
+                    post: 655a21133d2887289b746b1f
+                    replies: []
+                    createdAt: '2023-11-19T14:53:43.211Z'
+                    __v: 0
+                  - _id: 655a217e3d2887289b746b2e
+                    comment: It Was good 1.
+                    type: anonymous
+                    user:
+                      _id: 655a0b6574a5f80df3d24b98
+                      username: alexxy
+                      email: aayushpandey616@gmail.com
+                      profilePic: >-
+                        public\uploads\alexxy\profilePic\db55d61e1b6c2f47aca75e73c8e6c0b4.jpg
+                      verified: true
+                      type: manual
+                      createdAt: '2023-11-19T13:19:33.127Z'
+                      __v: 0
+                    post: 655a21133d2887289b746b1f
+                    replies:
+                      - _id: 655a21b33d2887289b746b33
+                        reply: sad
+                        type: public
+                        user:
+                          _id: 655a0b6574a5f80df3d24b98
+                          username: alexxy
+                          email: aayushpandey616@gmail.com
+                          profilePic: >-
+                            public\uploads\alexxy\profilePic\db55d61e1b6c2f47aca75e73c8e6c0b4.jpg
+                          verified: true
+                          type: manual
+                          createdAt: '2023-11-19T13:19:33.127Z'
+                          __v: 0
+                        post: 655a21133d2887289b746b1f
+                        comment: 655a217e3d2887289b746b2e
+                        createdAt: '2023-11-19T14:54:43.683Z'
+                        __v: 0
+                      - _id: 655a21be3d2887289b746b38
+                        reply: sad 2
+                        type: anonymous
+                        user:
+                          _id: 655a0b6574a5f80df3d24b98
+                          username: alexxy
+                          email: aayushpandey616@gmail.com
+                          profilePic: >-
+                            public\uploads\alexxy\profilePic\db55d61e1b6c2f47aca75e73c8e6c0b4.jpg
+                          verified: true
+                          type: manual
+                          createdAt: '2023-11-19T13:19:33.127Z'
+                          __v: 0
+                        post: 655a21133d2887289b746b1f
+                        comment: 655a217e3d2887289b746b2e
+                        createdAt: '2023-11-19T14:54:54.993Z'
+                        __v: 0
+                    createdAt: '2023-11-19T14:53:50.104Z'
+                    __v: 0
+  /api/posts/getPostsLikes:
+    post:
+      tags:
+        - Public > Posts
+      summary: Get Post Likes
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                postID: 655a1cce4f1c5a55a5c15202
+                page: 1
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: apisecret
+          in: header
+          schema:
+            type: string
+          example: '{{apisecret}}'
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Powered-By:
+              schema:
+                type: string
+                example: Express
+            Vary:
+              schema:
+                type: string
+                example: Origin
+            Content-Type:
+              schema:
+                type: string
+                example: application/json; charset=utf-8
+            Content-Length:
+              schema:
+                type: integer
+                example: '342'
+            ETag:
+              schema:
+                type: string
+                example: W/"156-shrwjK387HXASeYHof2ELf5LFHo"
+            Date:
+              schema:
+                type: string
+                example: Sun, 19 Nov 2023 14:55:52 GMT
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=5
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                success: true
+                message: Likes retrieved successfully
+                current_page: 1
+                data:
+                  - _id: 655a0b6574a5f80df3d24b98
+                    username: alexxy
+                    email: aayushpandey616@gmail.com
+                    profilePic: >-
+                      public\uploads\alexxy\profilePic\db55d61e1b6c2f47aca75e73c8e6c0b4.jpg
+                    verified: true
+                    type: manual
+                    createdAt: '2023-11-19T13:19:33.127Z'
+                    __v: 0
+  /api/posts/getLikedPosts:
+    post:
+      tags:
+        - Public > Posts
+      summary: Get Liked Posts
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                page: 1
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: apisecret
+          in: header
+          schema:
+            type: string
+          example: '{{apisecret}}'
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Powered-By:
+              schema:
+                type: string
+                example: Express
+            Vary:
+              schema:
+                type: string
+                example: Origin
+            Content-Type:
+              schema:
+                type: string
+                example: application/json; charset=utf-8
+            Content-Length:
+              schema:
+                type: integer
+                example: '2547'
+            ETag:
+              schema:
+                type: string
+                example: W/"9f3-dTZ5K16xfPyM/NqhmUariJypdfE"
+            Date:
+              schema:
+                type: string
+                example: Sun, 19 Nov 2023 14:55:59 GMT
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=5
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                success: true
+                message: All posts retrieved successfully
+                current_page: 1
+                data:
+                  - _id: 655a21133d2887289b746b1f
+                    content: How was your day 75 ?
+                    user:
+                      _id: 655a0b6574a5f80df3d24b98
+                      username: alexxy
+                      email: aayushpandey616@gmail.com
+                      profilePic: >-
+                        public\uploads\alexxy\profilePic\db55d61e1b6c2f47aca75e73c8e6c0b4.jpg
+                      verified: true
+                      type: manual
+                      createdAt: '2023-11-19T13:19:33.127Z'
+                      __v: 0
+                    comment:
+                      - _id: 655a21773d2887289b746b2a
+                        comment: It Was good 1.
+                        type: public
+                        user:
+                          _id: 655a0b6574a5f80df3d24b98
+                          username: alexxy
+                          email: aayushpandey616@gmail.com
+                          profilePic: >-
+                            public\uploads\alexxy\profilePic\db55d61e1b6c2f47aca75e73c8e6c0b4.jpg
+                          verified: true
+                          type: manual
+                          createdAt: '2023-11-19T13:19:33.127Z'
+                          __v: 0
+                        post: 655a21133d2887289b746b1f
+                        replies: []
+                        createdAt: '2023-11-19T14:53:43.211Z'
+                        __v: 0
+                      - _id: 655a217e3d2887289b746b2e
+                        comment: It Was good 1.
+                        type: anonymous
+                        user:
+                          _id: 655a0b6574a5f80df3d24b98
+                          username: alexxy
+                          email: aayushpandey616@gmail.com
+                          profilePic: >-
+                            public\uploads\alexxy\profilePic\db55d61e1b6c2f47aca75e73c8e6c0b4.jpg
+                          verified: true
+                          type: manual
+                          createdAt: '2023-11-19T13:19:33.127Z'
+                          __v: 0
+                        post: 655a21133d2887289b746b1f
+                        replies:
+                          - _id: 655a21b33d2887289b746b33
+                            reply: sad
+                            type: public
+                            user:
+                              _id: 655a0b6574a5f80df3d24b98
+                              username: alexxy
+                              email: aayushpandey616@gmail.com
+                              profilePic: >-
+                                public\uploads\alexxy\profilePic\db55d61e1b6c2f47aca75e73c8e6c0b4.jpg
+                              verified: true
+                              type: manual
+                              createdAt: '2023-11-19T13:19:33.127Z'
+                              __v: 0
+                            post: 655a21133d2887289b746b1f
+                            comment: 655a217e3d2887289b746b2e
+                            createdAt: '2023-11-19T14:54:43.683Z'
+                            __v: 0
+                          - _id: 655a21be3d2887289b746b38
+                            reply: sad 2
+                            type: anonymous
+                            user:
+                              _id: 655a0b6574a5f80df3d24b98
+                              username: alexxy
+                              email: aayushpandey616@gmail.com
+                              profilePic: >-
+                                public\uploads\alexxy\profilePic\db55d61e1b6c2f47aca75e73c8e6c0b4.jpg
+                              verified: true
+                              type: manual
+                              createdAt: '2023-11-19T13:19:33.127Z'
+                              __v: 0
+                            post: 655a21133d2887289b746b1f
+                            comment: 655a217e3d2887289b746b2e
+                            createdAt: '2023-11-19T14:54:54.993Z'
+                            __v: 0
+                        createdAt: '2023-11-19T14:53:50.104Z'
+                        __v: 0
+                    likes:
+                      - _id: 655a0b6574a5f80df3d24b98
+                        username: alexxy
+                        email: aayushpandey616@gmail.com
+                        profilePic: >-
+                          public\uploads\alexxy\profilePic\db55d61e1b6c2f47aca75e73c8e6c0b4.jpg
+                        verified: true
+                        type: manual
+                        createdAt: '2023-11-19T13:19:33.127Z'
+                        __v: 0
+                    type: public
+                    createdAt: '2023-11-19T14:52:03.936Z'
+                    __v: 0
+  /api/posts/replyComment:
+    post:
+      tags:
+        - Public > Posts
+      summary: Reply Comment
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                commentID: 655a1d6ecebac31bfab4b7ed
+                reply: sad
+                type: public
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: apisecret
+          in: header
+          schema:
+            type: string
+          example: '{{apisecret}}'
+      responses:
+        '201':
+          description: Created
+          headers:
+            X-Powered-By:
+              schema:
+                type: string
+                example: Express
+            Vary:
+              schema:
+                type: string
+                example: Origin
+            Content-Type:
+              schema:
+                type: string
+                example: application/json; charset=utf-8
+            Content-Length:
+              schema:
+                type: integer
+                example: '281'
+            ETag:
+              schema:
+                type: string
+                example: W/"119-A6BW9v92s/LVNNlTT/DQUvBTVmI"
+            Date:
+              schema:
+                type: string
+                example: Sun, 19 Nov 2023 14:54:43 GMT
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=5
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                success: true
+                message: Reply created successfully!
+                reply:
+                  reply: sad
+                  type: public
+                  user: 655a0b6574a5f80df3d24b98
+                  post: 655a21133d2887289b746b1f
+                  comment: 655a217e3d2887289b746b2e
+                  _id: 655a21b33d2887289b746b33
+                  createdAt: '2023-11-19T14:54:43.683Z'
+                  __v: 0
