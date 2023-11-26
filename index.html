@@ -1,20 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" type="text/css" href="https://unpkg.com/swagger-ui-dist@3.31.1/swagger-ui.css">
-<title>Rantit - Comment Swagger</title>
-<body>
-<div id="openapi">
-<script src="https://unpkg.com/swagger-ui-dist@3.31.1/swagger-ui-bundle.js"></script>
-<script>
-window.onload = function () {
-  const ui = SwaggerUIBundle({
-    url: "result.yml",
-    dom_id: "#openapi",
-    github: "https://alexxyqq.github.io/rantit-swagger/"
-  })
-}
-</script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://unpkg.com/swagger-ui-dist@3.31.1/swagger-ui.css"
+    />
+    <title>RantIt Swagger</title>
+  </head>
+  <body>
+    <div id="openapi"></div>
+    <!-- Add your GitHub link below -->
+    <a href="https://github.com/AlexxyQQ/rantit-swagger.git" target="_blank"
+      >Visit our GitHub page</a
+    >
+    <script src="https://unpkg.com/swagger-ui-dist@3.31.1/swagger-ui-bundle.js"></script>
+    <script>
+      window.onload = function () {
+        const ui = SwaggerUIBundle({
+          url: "result.yml",
+          dom_id: "#openapi",
+        });
+      };
+    </script>
+  </body>
+</html>
